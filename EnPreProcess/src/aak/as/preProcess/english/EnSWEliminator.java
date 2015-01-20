@@ -20,7 +20,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package english;
+package aak.as.preProcess.english;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -30,7 +30,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import as.PreProcess.SWEliminator;
+import aak.as.preProcess.lang.SWEliminator;
 
 
 

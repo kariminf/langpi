@@ -20,21 +20,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package english;
+package aak.as.preProcess.english;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 
-import as.PreProcess.Segmenter;
+import aak.as.preProcess.lang.Segmenter;
 
+import opennlp.maxent.GISModel;
+import opennlp.maxent.io.SuffixSensitiveGISModelReader;
+import opennlp.model.AbstractModel;
 import opennlp.tools.sentdetect.SentenceDetectorME;
 import opennlp.tools.sentdetect.SentenceModel;
+import opennlp.tools.tokenize.TokenizerME;
+import opennlp.tools.tokenize.TokenizerModel;
 
 public class EnSegmenter implements Segmenter {
 
+	private final String punctuation="\"'()[]{}!:;,?&.";
+	
 	public List<String> splitToSentences(String text) {
 		
 		List<String> sentences = new ArrayList<String>();
@@ -57,25 +65,39 @@ public class EnSegmenter implements Segmenter {
 	}
 	
 	public List<String> segmentWords(String text) {
-	    List<String> ret = new ArrayList<String>();
-	    for(String word:  text.split("[\\.,;:\"\']?\\s+|\\.$")) {
-	      if(word.length() > 0) {
-	        ret.add(word.toLowerCase().trim());
-	      }
-	    }
-	    return ret;
+		
+		List<String> wordsList = new ArrayList<String>();
+	    
+	    try {
+	    	InputStream modelIn = getClass().getResourceAsStream("en-token.bin");
+			TokenizerModel model = new TokenizerModel(modelIn);
+			TokenizerME tokenizer = new TokenizerME(model);
+			String[] words = tokenizer.tokenize(text);
+			for(String word : words)
+				if (!punctuation.contains(word))
+					wordsList.add(word);
+			
+			modelIn.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	    
+	    return wordsList;
 	}
 	
 	public static void main(String[] args) {
 		
 		EnSegmenter segmenter = new EnSegmenter();
-		List<String> sent = segmenter.splitToSentences("I am going. Yay me.");
+		List<String> sent = segmenter.splitToSentences("This is a sentence. It contains some words from Dr. who.");
 		
-		for (String s: sent)
-			System.out.println(s);
+		for (String s: sent){
+			System.out.println(">>" + s);
+			for (String w: segmenter.segmentWords(s))
+				System.out.print(w + " , ");
+			System.out.println();
+		}
+			
 
 	}
-	
-	
 
 }

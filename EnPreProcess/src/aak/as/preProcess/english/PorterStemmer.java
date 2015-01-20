@@ -33,14 +33,14 @@ Release 4
 
 */
 
-package english;
+package aak.as.preProcess.english;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import as.PreProcess.Stemmer;
+import aak.as.preProcess.lang.Stemmer;
 
 
 /**

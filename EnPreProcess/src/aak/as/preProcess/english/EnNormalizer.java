@@ -20,11 +20,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package english;
+package aak.as.preProcess.english;
 
 import java.util.HashMap;
 
-import as.PreProcess.Normalizer;
+import aak.as.preProcess.lang.Normalizer;
 
 public class EnNormalizer implements Normalizer {
 
