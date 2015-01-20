@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Class-Path: . ../lib/opennlp-tools-1.5.2-incubating.jar ../lib/opennlp
- -maxent-3.0.2-incubating.jar
-
