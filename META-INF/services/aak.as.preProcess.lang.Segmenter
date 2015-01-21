@@ -1,3 +1,4 @@
 aak.as.preProcess.arabic.ArSegmenter
 aak.as.preProcess.bulgarian.BgSegmenter
+aak.as.preProcess.catalan.CaSegmenter
 aak.as.preProcess.english.EnSegmenter
