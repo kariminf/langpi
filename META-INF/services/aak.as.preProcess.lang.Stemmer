@@ -1,4 +1,5 @@
 aak.as.preProcess.arabic.ArStemmer
 aak.as.preProcess.bulgarian.BgStemmer
 aak.as.preProcess.catalan.CaStemmer
+aak.as.preProcess.czech.CsStemmer
 aak.as.preProcess.english.PorterStemmer
