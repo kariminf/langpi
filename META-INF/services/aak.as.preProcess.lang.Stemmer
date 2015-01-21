@@ -1,2 +1,3 @@
 aak.as.preProcess.arabic.ArStemmer
+aak.as.preProcess.bulgarian.BgStemmer
 aak.as.preProcess.english.PorterStemmer
