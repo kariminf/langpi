@@ -16,4 +16,5 @@ aak.as.preProcess.indonesian.IdSegmenter
 aak.as.preProcess.italian.ItSegmenter
 aak.as.preProcess.japanese.JaSegmenter
 aak.as.preProcess.dutch.NlSegmenter
+aak.as.preProcess.nynorsk.NnSegmenter
 aak.as.preProcess.english.EnSegmenter

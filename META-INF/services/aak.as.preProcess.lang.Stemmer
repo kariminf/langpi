@@ -16,4 +16,5 @@ aak.as.preProcess.indonesian.IdStemmer
 aak.as.preProcess.italian.ItStemmer
 aak.as.preProcess.japanese.JaStemmer
 aak.as.preProcess.dutch.NlStemmer
+aak.as.preProcess.nynorsk.NnStemmer
 aak.as.preProcess.english.PorterStemmer
