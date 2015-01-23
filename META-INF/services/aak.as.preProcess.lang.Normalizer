@@ -22,3 +22,4 @@ aak.as.preProcess.norwegian.NoNormalizer
 aak.as.preProcess.portuguese.PtNormalizer
 aak.as.preProcess.romanian.RoNormalizer
 aak.as.preProcess.russian.RuNormalizer
+aak.as.preProcess.swedish.SvNormalizer

@@ -22,3 +22,4 @@ aak.as.preProcess.norwegian.NoSWEliminator
 aak.as.preProcess.portuguese.PtSWEliminator
 aak.as.preProcess.romanian.RoSWEliminator
 aak.as.preProcess.russian.RuSWEliminator
+aak.as.preProcess.swedish.SvSWEliminator
