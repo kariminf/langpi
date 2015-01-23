@@ -24,3 +24,4 @@ aak.as.preProcess.romanian.RoSWEliminator
 aak.as.preProcess.russian.RuSWEliminator
 aak.as.preProcess.swedish.SvSWEliminator
 aak.as.preProcess.turkish.TrSWEliminator
+aak.as.preProcess.chinese.ZhSWEliminator

@@ -24,3 +24,4 @@ aak.as.preProcess.romanian.RoSegmenter
 aak.as.preProcess.russian.RuSegmenter
 aak.as.preProcess.swedish.SvSegmenter
 aak.as.preProcess.turkish.TrSegmenter
+aak.as.preProcess.chinese.ZhSegmenter
