@@ -4,6 +4,7 @@ aak.as.preProcess.catalan.CaNormalizer
 aak.as.preProcess.czech.CsNormalizer
 aak.as.preProcess.german.DeNormalizer
 aak.as.preProcess.greek.ElNormalizer
+aak.as.preProcess.english.EnNormalizer
 aak.as.preProcess.spanish.EsNormalizer
 aak.as.preProcess.basque.EuNormalizer
 aak.as.preProcess.persian.FaNormalizer
@@ -20,4 +21,4 @@ aak.as.preProcess.nynorsk.NnNormalizer
 aak.as.preProcess.norwegian.NoNormalizer
 aak.as.preProcess.portuguese.PtNormalizer
 aak.as.preProcess.romanian.RoNormalizer
-aak.as.preProcess.english.EnNormalizer
+aak.as.preProcess.russian.RuNormalizer

@@ -4,6 +4,7 @@ aak.as.preProcess.catalan.CaSegmenter
 aak.as.preProcess.czech.CsSegmenter
 aak.as.preProcess.german.DeSegmenter
 aak.as.preProcess.greek.ElSegmenter
+aak.as.preProcess.english.EnSegmenter
 aak.as.preProcess.spanish.EsSegmenter
 aak.as.preProcess.basque.EuSegmenter
 aak.as.preProcess.persian.FaSegmenter
@@ -20,4 +21,4 @@ aak.as.preProcess.nynorsk.NnSegmenter
 aak.as.preProcess.norwegian.NoSegmenter
 aak.as.preProcess.portuguese.PtSegmenter
 aak.as.preProcess.romanian.RoSegmenter
-aak.as.preProcess.english.EnSegmenter
+aak.as.preProcess.russian.RuSegmenter

@@ -4,6 +4,7 @@ aak.as.preProcess.catalan.CaInfo
 aak.as.preProcess.czech.CsInfo
 aak.as.preProcess.german.DeInfo
 aak.as.preProcess.greek.ElInfo
+aak.as.preProcess.english.EnInfo
 aak.as.preProcess.spanish.EsInfo
 aak.as.preProcess.basque.EuInfo
 aak.as.preProcess.persian.FaInfo
@@ -20,4 +21,4 @@ aak.as.preProcess.nynorsk.NnInfo
 aak.as.preProcess.norwegian.NoInfo
 aak.as.preProcess.portuguese.PtInfo
 aak.as.preProcess.romanian.RoInfo
-aak.as.preProcess.english.EnInfo
+aak.as.preProcess.russian.RuInfo

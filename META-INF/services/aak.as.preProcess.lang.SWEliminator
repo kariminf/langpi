@@ -4,6 +4,7 @@ aak.as.preProcess.catalan.CaSWEliminator
 aak.as.preProcess.czech.CsSWEliminator
 aak.as.preProcess.german.DeSWEliminator
 aak.as.preProcess.greek.ElSWEliminator
+aak.as.preProcess.english.EnSWEliminator
 aak.as.preProcess.spanish.EsSWEliminator
 aak.as.preProcess.basque.EuSWEliminator
 aak.as.preProcess.persian.FaSWEliminator
@@ -20,4 +21,4 @@ aak.as.preProcess.nynorsk.NnSWEliminator
 aak.as.preProcess.norwegian.NoSWEliminator
 aak.as.preProcess.portuguese.PtSWEliminator
 aak.as.preProcess.romanian.RoSWEliminator
-aak.as.preProcess.english.EnSWEliminator
+aak.as.preProcess.russian.RuSWEliminator
