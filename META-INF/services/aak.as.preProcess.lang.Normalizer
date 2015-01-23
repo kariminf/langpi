@@ -13,4 +13,5 @@ aak.as.preProcess.hebrew.HeNormalizer
 aak.as.preProcess.hindi.HiNormalizer
 aak.as.preProcess.hungarian.HuNormalizer
 aak.as.preProcess.indonesian.IdNormalizer
+aak.as.preProcess.italian.ItNormalizer
 aak.as.preProcess.english.EnNormalizer
