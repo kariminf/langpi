@@ -3,4 +3,5 @@ aak.as.preProcess.bulgarian.BgNormalizer
 aak.as.preProcess.catalan.CaNormalizer
 aak.as.preProcess.czech.CsNormalizer
 aak.as.preProcess.german.DeNormalizer
+aak.as.preProcess.greek.ElNormalizer
 aak.as.preProcess.english.EnNormalizer
