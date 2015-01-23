@@ -9,4 +9,5 @@ aak.as.preProcess.basque.EuStemmer
 aak.as.preProcess.persian.FaStemmer
 aak.as.preProcess.finnish.FiStemmer
 aak.as.preProcess.french.FrStemmer
+aak.as.preProcess.hebrew.HeStemmer
 aak.as.preProcess.english.PorterStemmer

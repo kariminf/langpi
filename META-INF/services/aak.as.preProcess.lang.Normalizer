@@ -9,4 +9,5 @@ aak.as.preProcess.basque.EuNormalizer
 aak.as.preProcess.persian.FaNormalizer
 aak.as.preProcess.finnish.FiNormalizer
 aak.as.preProcess.french.FrNormalizer
+aak.as.preProcess.hebrew.HeNormalizer
 aak.as.preProcess.english.EnNormalizer

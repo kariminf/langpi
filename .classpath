@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="lib/opennlp-tools-1.5.2-incubating.jar"/>
 	<classpathentry kind="lib" path="lib/opennlp-tools-1.4.2.jar"/>
 	<classpathentry kind="lib" path="lib/snowball.jar"/>
+	<classpathentry kind="lib" path="lib/hebmorph_AS.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
