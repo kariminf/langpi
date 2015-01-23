@@ -11,4 +11,5 @@ aak.as.preProcess.finnish.FiSWEliminator
 aak.as.preProcess.french.FrSWEliminator
 aak.as.preProcess.hebrew.HeSWEliminator
 aak.as.preProcess.hindi.HiSWEliminator
+aak.as.preProcess.hungarian.HuSWEliminator
 aak.as.preProcess.english.EnSWEliminator
