@@ -23,3 +23,4 @@ aak.as.preProcess.portuguese.PtStemmer
 aak.as.preProcess.romanian.RoStemmer
 aak.as.preProcess.russian.RuStemmer
 aak.as.preProcess.swedish.SvStemmer
+aak.as.preProcess.turkish.TrStemmer
