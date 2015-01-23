@@ -6,4 +6,5 @@ aak.as.preProcess.german.DeNormalizer
 aak.as.preProcess.greek.ElNormalizer
 aak.as.preProcess.spanish.EsNormalizer
 aak.as.preProcess.basque.EuNormalizer
+aak.as.preProcess.persian.FaNormalizer
 aak.as.preProcess.english.EnNormalizer

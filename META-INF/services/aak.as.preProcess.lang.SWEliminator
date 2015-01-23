@@ -6,4 +6,5 @@ aak.as.preProcess.german.DeSWEliminator
 aak.as.preProcess.greek.ElSWEliminator
 aak.as.preProcess.spanish.EsSWEliminator
 aak.as.preProcess.basque.EuSWEliminator
+aak.as.preProcess.persian.FaSWEliminator
 aak.as.preProcess.english.EnSWEliminator
