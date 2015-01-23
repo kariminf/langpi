@@ -18,4 +18,6 @@ aak.as.preProcess.japanese.JaStemmer
 aak.as.preProcess.dutch.NlStemmer
 aak.as.preProcess.nynorsk.NnStemmer
 aak.as.preProcess.norwegian.NoStemmer
+aak.as.preProcess.portuguese.PtStemmer
+aak.as.preProcess.romanian.RoStemmer
 aak.as.preProcess.english.PorterStemmer

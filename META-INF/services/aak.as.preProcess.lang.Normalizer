@@ -18,4 +18,6 @@ aak.as.preProcess.japanese.JaNormalizer
 aak.as.preProcess.dutch.NlNormalizer
 aak.as.preProcess.nynorsk.NnNormalizer
 aak.as.preProcess.norwegian.NoNormalizer
+aak.as.preProcess.portuguese.PtNormalizer
+aak.as.preProcess.romanian.RoNormalizer
 aak.as.preProcess.english.EnNormalizer

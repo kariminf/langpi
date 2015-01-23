@@ -18,4 +18,6 @@ aak.as.preProcess.japanese.JaInfo
 aak.as.preProcess.dutch.NlInfo
 aak.as.preProcess.nynorsk.NnInfo
 aak.as.preProcess.norwegian.NoInfo
+aak.as.preProcess.portuguese.PtInfo
+aak.as.preProcess.romanian.RoInfo
 aak.as.preProcess.english.EnInfo

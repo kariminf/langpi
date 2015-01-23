@@ -18,4 +18,6 @@ aak.as.preProcess.japanese.JaSegmenter
 aak.as.preProcess.dutch.NlSegmenter
 aak.as.preProcess.nynorsk.NnSegmenter
 aak.as.preProcess.norwegian.NoSegmenter
+aak.as.preProcess.portuguese.PtSegmenter
+aak.as.preProcess.romanian.RoSegmenter
 aak.as.preProcess.english.EnSegmenter
