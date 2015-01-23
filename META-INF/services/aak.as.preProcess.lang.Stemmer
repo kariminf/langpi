@@ -17,4 +17,5 @@ aak.as.preProcess.italian.ItStemmer
 aak.as.preProcess.japanese.JaStemmer
 aak.as.preProcess.dutch.NlStemmer
 aak.as.preProcess.nynorsk.NnStemmer
+aak.as.preProcess.norwegian.NoStemmer
 aak.as.preProcess.english.PorterStemmer

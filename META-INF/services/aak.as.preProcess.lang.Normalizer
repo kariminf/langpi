@@ -17,4 +17,5 @@ aak.as.preProcess.italian.ItNormalizer
 aak.as.preProcess.japanese.JaNormalizer
 aak.as.preProcess.dutch.NlNormalizer
 aak.as.preProcess.nynorsk.NnNormalizer
+aak.as.preProcess.norwegian.NoNormalizer
 aak.as.preProcess.english.EnNormalizer
