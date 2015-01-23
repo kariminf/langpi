@@ -4,7 +4,7 @@ package aak.as.preProcess.french;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.tartarus.snowball.ext.frenchStemmer;
+import org.tartarus.snowball.ext.FrenchStemmer;
 
 import aak.as.preProcess.lang.Stemmer;
 
@@ -24,7 +24,7 @@ public class FrStemmer implements Stemmer {
 	
 	public static String stemWord (String word){
 		
-		frenchStemmer stemmer = new frenchStemmer();
+		FrenchStemmer stemmer = new FrenchStemmer();
 		
 		stemmer.setCurrent(word);
 		stemmer.stem();

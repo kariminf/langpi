@@ -1,10 +1,20 @@
 Manifest-Version: 1.0
-Class-Path: . ../lib/opennlp-tools-1.5.2-incubating.jar ../lib/opennlp
- -maxent-3.0.2-incubating.jar
+Class-Path: . 
+ ../lib/hebmorph_AS.jar 
+ ../lib/jwnl-1.3.3.jar 
+ ../lib/lucene-analyzers-common-4.10.2.jar 
+ ../lib/lucene-analyzers-kuromoji-4.10.2.jar 
+ ../lib/lucene-analyzers-smartcn-4.10.2.jar 
+ ../lib/lucene-core-4.10.2.jar 
+ ../lib/opennlp-maxent-3.0.2-incubating.jar 
+ ../lib/opennlp-tools-1.4.2_AS.jar 
+ ../lib/opennlp-tools-1.5.2-incubating.jar 
+ ../lib/snowball.jar 
+ ../lib/trove.jar
 Extension-Name: aak/as/preProcess
 Specification-Title: AllSummarizer: PreProcess
-Specification-Version: 0.1.0
+Specification-Version: 0.6
 Specification-Vendor: Abdelkrime Aries
 Implementation-Title: aak.as.preProcess
-Implementation-Version: 0.1.0 build1
+Implementation-Version: 0.6.0 build1
 Implementation-Vendor: Abdelkrime Aries
