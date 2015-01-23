@@ -10,4 +10,5 @@ aak.as.preProcess.persian.FaSegmenter
 aak.as.preProcess.finnish.FiSegmenter
 aak.as.preProcess.french.FrSegmenter
 aak.as.preProcess.hebrew.HeSegmenter
+aak.as.preProcess.hindi.HiSegmenter
 aak.as.preProcess.english.EnSegmenter
