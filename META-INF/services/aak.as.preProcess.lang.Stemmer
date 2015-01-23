@@ -7,4 +7,5 @@ aak.as.preProcess.greek.ElStemmer
 aak.as.preProcess.spanish.EsStemmer
 aak.as.preProcess.basque.EuStemmer
 aak.as.preProcess.persian.FaStemmer
+aak.as.preProcess.finnish.FiStemmer
 aak.as.preProcess.english.PorterStemmer
