@@ -14,4 +14,6 @@ aak.as.preProcess.hindi.HiSegmenter
 aak.as.preProcess.hungarian.HuSegmenter
 aak.as.preProcess.indonesian.IdSegmenter
 aak.as.preProcess.italian.ItSegmenter
+aak.as.preProcess.japanese.JaSegmenter
+aak.as.preProcess.dutch.NlSegmenter
 aak.as.preProcess.english.EnSegmenter

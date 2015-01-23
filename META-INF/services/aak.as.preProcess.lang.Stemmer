@@ -14,4 +14,6 @@ aak.as.preProcess.hindi.HiStemmer
 aak.as.preProcess.hungarian.HuStemmer
 aak.as.preProcess.indonesian.IdStemmer
 aak.as.preProcess.italian.ItStemmer
+aak.as.preProcess.japanese.JaStemmer
+aak.as.preProcess.dutch.NlStemmer
 aak.as.preProcess.english.PorterStemmer

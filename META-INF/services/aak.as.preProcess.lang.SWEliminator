@@ -14,4 +14,6 @@ aak.as.preProcess.hindi.HiSWEliminator
 aak.as.preProcess.hungarian.HuSWEliminator
 aak.as.preProcess.indonesian.IdSWEliminator
 aak.as.preProcess.italian.ItSWEliminator
+aak.as.preProcess.japanese.JaSWEliminator
+aak.as.preProcess.dutch.NlSWEliminator
 aak.as.preProcess.english.EnSWEliminator
