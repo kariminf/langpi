@@ -7,8 +7,11 @@
 	<classpathentry kind="lib" path="lib/lucene-core-4.10.2.jar"/>
 	<classpathentry kind="lib" path="lib/opennlp-maxent-3.0.2-incubating.jar"/>
 	<classpathentry kind="lib" path="lib/opennlp-tools-1.5.2-incubating.jar"/>
-	<classpathentry kind="lib" path="lib/opennlp-tools-1.4.2.jar"/>
 	<classpathentry kind="lib" path="lib/snowball.jar"/>
 	<classpathentry kind="lib" path="lib/hebmorph_AS.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-analyzers-kuromoji-4.10.2.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-analyzers-smartcn-4.10.2.jar"/>
+	<classpathentry kind="lib" path="lib/opennlp-tools-1.4.2_AS.jar"/>
+	<classpathentry kind="lib" path="lib/trove.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

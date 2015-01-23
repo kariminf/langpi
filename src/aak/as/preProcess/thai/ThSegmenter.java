@@ -27,13 +27,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import opennlp.tools.lang.thai.EndOfSentenceScanner;
-import opennlp.tools.lang.thai.SentenceContextGenerator;
-import opennlp.tools.sentdetect.SentenceDetectorME;
-import opennlp.tools.tokenize.TokenizerME;
+import opennlp.tools14.lang.thai.EndOfSentenceScanner;
+import opennlp.tools14.lang.thai.SentenceContextGenerator;
+import opennlp.tools14.sentdetect.SentenceDetectorME;
+import opennlp.tools14.tokenize.TokenizerME;
 import aak.as.preProcess.lang.Segmenter;
-import opennlp.maxent.GISModel;
-import opennlp.maxent.io.SuffixSensitiveGISModelReader;
+import opennlp.maxent25.GISModel;
+import opennlp.maxent25.io.SuffixSensitiveGISModelReader;
 
 
 public class ThSegmenter implements Segmenter {
