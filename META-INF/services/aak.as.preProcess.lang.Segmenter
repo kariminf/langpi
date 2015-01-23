@@ -5,4 +5,5 @@ aak.as.preProcess.czech.CsSegmenter
 aak.as.preProcess.german.DeSegmenter
 aak.as.preProcess.greek.ElSegmenter
 aak.as.preProcess.spanish.EsSegmenter
+aak.as.preProcess.basque.EuSegmenter
 aak.as.preProcess.english.EnSegmenter
