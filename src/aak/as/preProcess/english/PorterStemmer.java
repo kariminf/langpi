@@ -51,6 +51,7 @@ import aak.as.preProcess.lang.Stemmer;
 * by calling one of the various stem(something) methods.
 */
 
+@Deprecated
 public class PorterStemmer implements Stemmer {
 	
 	private char[] b;
