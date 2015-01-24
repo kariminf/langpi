@@ -21,7 +21,7 @@ public class ThStemmer implements Stemmer {
 	
 	
 	public static String stemWord (String word){
-
+		//TODO find a stemmer if the language needs one
 		return word;
 	}
 	

@@ -9,6 +9,10 @@ import org.apache.lucene.analysis.no.NorwegianLightStemmer;
 import aak.as.preProcess.lang.Stemmer;
 
 public class NnStemmer implements Stemmer {
+	
+	//remove Bokmål-specific endings = 1
+	//remove Nynorsk-specific endings = 2
+	private NorwegianLightStemmer stemmer = new NorwegianLightStemmer(2);
 
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
@@ -22,17 +26,11 @@ public class NnStemmer implements Stemmer {
 	}
 	
 	
-	public static String stemWord (String word){
+	public String stemWord (String word){
 		
 		
 		char[] wordseq = word.toCharArray();
-		int newlength = word.length();
-		{
-			//remove Bokmål-specific endings = 1
-			//remove Nynorsk-specific endings = 2
-			NorwegianLightStemmer stemmer = new NorwegianLightStemmer(2);
-			newlength = stemmer.stem(wordseq, newlength);
-		}
+		int newlength = stemmer.stem(wordseq, word.length());
 		
 		char[] newwordseq = new char[newlength];
 		System.arraycopy(wordseq, 0, newwordseq, 0, newlength);

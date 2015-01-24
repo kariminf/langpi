@@ -4,11 +4,13 @@ package aak.as.preProcess.finnish;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.tartarus.snowball.ext.finnishStemmer;
+import org.tartarus.snowball.ext.FinnishStemmer;
 
 import aak.as.preProcess.lang.Stemmer;
 
 public class FiStemmer implements Stemmer {
+	
+	FinnishStemmer stemmer = new FinnishStemmer();
 
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
@@ -22,10 +24,8 @@ public class FiStemmer implements Stemmer {
 	}
 	
 	
-	public static String stemWord (String word){
-		
-		finnishStemmer stemmer = new finnishStemmer();
-		
+	public String stemWord (String word){
+
 		stemmer.setCurrent(word);
 		stemmer.stem();
 		return stemmer.getCurrent();

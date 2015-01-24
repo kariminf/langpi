@@ -9,7 +9,9 @@ import org.tartarus.snowball.ext.czechStemmer;
 import aak.as.preProcess.lang.Stemmer;
 
 public class CsStemmer implements Stemmer {
-
+	
+	private czechStemmer stemmer = new czechStemmer();
+	
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
 
@@ -22,10 +24,8 @@ public class CsStemmer implements Stemmer {
 	}
 	
 	
-	public static String stemWord (String word){
-		
-		czechStemmer stemmer = new czechStemmer();
-		
+	public String stemWord (String word){
+
 		stemmer.setCurrent(word);
 		stemmer.stem();
 		return stemmer.getCurrent();

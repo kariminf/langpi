@@ -4,12 +4,14 @@ package aak.as.preProcess.dutch;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.tartarus.snowball.ext.dutchStemmer;
+import org.tartarus.snowball.ext.DutchStemmer;
 
 import aak.as.preProcess.lang.Stemmer;
 
 public class NlStemmer implements Stemmer {
 
+	private DutchStemmer stemmer = new DutchStemmer();
+	
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
 
@@ -22,10 +24,7 @@ public class NlStemmer implements Stemmer {
 	}
 	
 	
-	public static String stemWord (String word){
-		
-		dutchStemmer stemmer = new dutchStemmer();
-		
+	public String stemWord (String word){
 		stemmer.setCurrent(word);
 		stemmer.stem();
 		return stemmer.getCurrent();

@@ -54,21 +54,25 @@ import org.apache.lucene.analysis.hi.HindiStemmer;
 */
 
 public class HiStemmer implements Stemmer {
+	
+	private HindiStemmer stemmer = new HindiStemmer();
 
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
-		HindiStemmer stemmer = new HindiStemmer();
+		
 
 		List<String> output = new ArrayList<String>();
 		
-		for (String word: listWords){
-			char[] wordarray = word.toCharArray();
-			int newlength = stemmer.stem(wordarray, wordarray.length);
-			String newword = new String(wordarray, 0, newlength);
-			output.add(newword);
-		}
+		for (String word: listWords)
+			output.add(stemWord(word));
 
 		return output;
+	}
+	
+	public String stemWord (String word){
+		char[] wordarray = word.toCharArray();
+		int newlength = stemmer.stem(wordarray, wordarray.length);
+		return new String(wordarray, 0, newlength);
 	}
 	
 	

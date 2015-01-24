@@ -33,6 +33,8 @@ import org.apache.lucene.analysis.cn.smart.hhmm.*;
 public class ZhSegmenter implements Segmenter {
 
 	private static String punctuation =",.`-_='|\"(){}[]<>*#&^$@~:;+/\\《》—－，。、：；！·？?!“”）（【】［］●";
+	
+	
 	public List<String> splitToSentences(String text) {
 		
 		List<String> sentences = new ArrayList<String>();

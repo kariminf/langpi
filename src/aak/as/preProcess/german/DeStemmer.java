@@ -4,11 +4,13 @@ package aak.as.preProcess.german;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.tartarus.snowball.ext.germanStemmer;
+import org.tartarus.snowball.ext.GermanStemmer;
 
 import aak.as.preProcess.lang.Stemmer;
 
 public class DeStemmer implements Stemmer {
+	
+	private GermanStemmer stemmer = new GermanStemmer();
 
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
@@ -22,10 +24,7 @@ public class DeStemmer implements Stemmer {
 	}
 	
 	
-	public static String stemWord (String word){
-		
-		germanStemmer stemmer = new germanStemmer();
-		
+	public String stemWord (String word){
 		stemmer.setCurrent(word);
 		stemmer.stem();
 		return stemmer.getCurrent();

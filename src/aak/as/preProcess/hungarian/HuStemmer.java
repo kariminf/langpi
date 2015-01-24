@@ -4,11 +4,13 @@ package aak.as.preProcess.hungarian;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.tartarus.snowball.ext.hungarianStemmer;
+import org.tartarus.snowball.ext.HungarianStemmer;
 
 import aak.as.preProcess.lang.Stemmer;
 
 public class HuStemmer implements Stemmer {
+	
+	private HungarianStemmer stemmer = new HungarianStemmer();
 
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
@@ -22,10 +24,7 @@ public class HuStemmer implements Stemmer {
 	}
 	
 	
-	public static String stemWord (String word){
-		
-		hungarianStemmer stemmer = new hungarianStemmer();
-		
+	public String stemWord (String word){
 		stemmer.setCurrent(word);
 		stemmer.stem();
 		return stemmer.getCurrent();

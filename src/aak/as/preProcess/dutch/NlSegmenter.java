@@ -37,14 +37,14 @@ import aak.as.preProcess.lang.Segmenter;
 
 
 public class NlSegmenter implements Segmenter {
-	
+
 	private final String punctuation="\"'()[]{}!:;,?&.";
 
 	public List<String> splitToSentences(String text) {
-		
+
 		List<String> sentences = new ArrayList<String>();
 		//List<String> returnedSentences = new ArrayList<String>();
-		
+
 		try {
 			InputStream modelIn = getClass().getResourceAsStream("nl-sent.bin");
 			SentenceModel model = new SentenceModel(modelIn);
@@ -60,37 +60,37 @@ public class NlSegmenter implements Segmenter {
 
 		return sentences;
 	}
-	
+
 	public List<String> segmentWords(String text) {
-List<String> wordsList = new ArrayList<String>();
-	    
-	    try {
-	    	InputStream modelIn = getClass().getResourceAsStream("nl-token.bin");
+		List<String> wordsList = new ArrayList<String>();
+
+		try {
+			InputStream modelIn = getClass().getResourceAsStream("nl-token.bin");
 			TokenizerModel model = new TokenizerModel(modelIn);
 			TokenizerME tokenizer = new TokenizerME(model);
 			String[] words = tokenizer.tokenize(text);
 			for(String word : words)
 				if (!punctuation.contains(word))
 					wordsList.add(word);
-			
+
 			modelIn.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	    
-	    return wordsList;
+
+		return wordsList;
 	}
-	
+
 	public static void main(String[] args) {
-		
+
 		NlSegmenter segmenter = new NlSegmenter();
 		List<String> sent = segmenter.segmentWords("Junghuhns vader, een ongediplomeerd mijnarts, wilde dat zijn zoon arts werd en stelde een predikant aan als privéleraar. De jonge Junghuhn had zo'n hekel aan zijn leraar dat hij zijn hele leven een afkeer van de clerus zou blijven houden. Hij begaf zich al in 1825 naar de universiteit van Halle om medicijnen te gaan studeren. Omdat hij nog veel te jong gevonden werd, lukte het pas in 1827 zich in te laten schrijven. Onder invloed van zijn vriend Hermann Burmeister wijdde hij zijn tijd echter aan de bestudering van de natuur. In 1830 wist hij een studie van lokale soorten paddenstoelen gepubliceerd te krijgen in de Linnaea. Dit zorgde voor een breuk met zijn vader, die zijn financiële steun staakte. Door zijn persoonlijke bezittingen te verkopen en allerlei kleine baantjes probeerde Junghuhn het hoofd boven water te houden. Pas na een zelfmoordpoging in de lente van 1830 verzoende zijn vader zich weer met hem.");
-		
+
 		for (String s: sent)
 			System.out.println(s);
 
 	}
-	
-	
+
+
 
 }

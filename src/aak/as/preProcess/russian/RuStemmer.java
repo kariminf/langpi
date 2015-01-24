@@ -4,11 +4,13 @@ package aak.as.preProcess.russian;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.tartarus.snowball.ext.russianStemmer;
+import org.tartarus.snowball.ext.RussianStemmer;
 
 import aak.as.preProcess.lang.Stemmer;
 
 public class RuStemmer implements Stemmer {
+	
+	private RussianStemmer stemmer = new RussianStemmer();
 
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
@@ -22,10 +24,7 @@ public class RuStemmer implements Stemmer {
 	}
 	
 	
-	public static String stemWord (String word){
-		
-		russianStemmer stemmer = new russianStemmer();
-		
+	public String stemWord (String word){
 		stemmer.setCurrent(word);
 		stemmer.stem();
 		return stemmer.getCurrent();
@@ -34,16 +33,11 @@ public class RuStemmer implements Stemmer {
 	public static void main(String[] args) {
 		Stemmer Stemmer=new RuStemmer();
 		List<String> tstList = new ArrayList<String>();
-		tstList.add("все");
-		tstList.add("эти");
 		tstList.add("источники");
 		tstList.add("информации");
-		tstList.add("дают");
 		tstList.add("одинаковую");
 		tstList.add("картину");
-		tstList.add("с");
 		tstList.add("точностью");
-		tstList.add("до");
 		tstList.add("погрешности");
 		tstList.add("используемых");
 		tstList.add("методов");

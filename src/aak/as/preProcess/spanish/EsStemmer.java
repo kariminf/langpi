@@ -4,11 +4,13 @@ package aak.as.preProcess.spanish;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.tartarus.snowball.ext.spanishStemmer;
+import org.tartarus.snowball.ext.SpanishStemmer;
 
 import aak.as.preProcess.lang.Stemmer;
 
 public class EsStemmer implements Stemmer {
+	
+	private SpanishStemmer stemmer = new SpanishStemmer();
 
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
@@ -22,10 +24,7 @@ public class EsStemmer implements Stemmer {
 	}
 	
 	
-	public static String stemWord (String word){
-		
-		spanishStemmer stemmer = new spanishStemmer();
-		
+	public String stemWord (String word){
 		stemmer.setCurrent(word);
 		stemmer.stem();
 		return stemmer.getCurrent();

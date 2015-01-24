@@ -9,6 +9,8 @@ import org.apache.lucene.analysis.id.IndonesianStemmer;
 import aak.as.preProcess.lang.Stemmer;
 
 public class IdStemmer implements Stemmer {
+	
+	private IndonesianStemmer stemmer = new IndonesianStemmer();
 
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
@@ -22,17 +24,14 @@ public class IdStemmer implements Stemmer {
 	}
 	
 	
-	public static String stemWord (String word){
+	public String stemWord (String word){
 		
 		
 		char[] wordseq = word.toCharArray();
-		int newlength = word.length();
-		{
-			IndonesianStemmer stemmer = new IndonesianStemmer();
-			//true: use full stemming, not just the light one
-			newlength = stemmer.stem(wordseq, newlength,true);
-		}
 		
+		//true: use full stemming, not just the light one
+		int newlength = stemmer.stem(wordseq, word.length(),true);
+
 		char[] newwordseq = new char[newlength];
 		System.arraycopy(wordseq, 0, newwordseq, 0, newlength);
 

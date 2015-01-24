@@ -22,24 +22,26 @@ import aak.as.preProcess.lang.Stemmer;
 
 public class HeStemmer implements Stemmer {
 
-	Lemmatizer sf = new Lemmatizer(HSpellLoader.getDictHebMorph());
+	private Lemmatizer sf = new Lemmatizer(HSpellLoader.getDictHebMorph());
 	
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
-		//HindiStemmer stemmer = new HindiStemmer();
 
 		List<String> output = new ArrayList<String>();
 		
-		for (String word: listWords){
-			List<HebrewToken> lht = sf.lemmatize(word);
-			String newword = word;
-			if (lht.size() > 0)
-				newword = lht.get(0).getLemma();
-			
-			output.add(newword);
-		}
+		for (String word: listWords)
+			output.add(stemWord(word));
 
 		return output;
+	}
+	
+	public String stemWord (String word){
+		List<HebrewToken> lht = sf.lemmatize(word);
+		String newword = word;
+		if (lht.size() > 0)
+			newword = lht.get(0).getLemma();
+		
+		return newword;
 	}
 	
 	

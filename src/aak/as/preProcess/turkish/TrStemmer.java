@@ -4,11 +4,13 @@ package aak.as.preProcess.turkish;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.tartarus.snowball.ext.turkishStemmer;
+import org.tartarus.snowball.ext.TurkishStemmer;
 
 import aak.as.preProcess.lang.Stemmer;
 
 public class TrStemmer implements Stemmer {
+	
+	private TurkishStemmer stemmer = new TurkishStemmer();
 
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
@@ -22,10 +24,7 @@ public class TrStemmer implements Stemmer {
 	}
 	
 	
-	public static String stemWord (String word){
-		
-		turkishStemmer stemmer = new turkishStemmer();
-		
+	public String stemWord (String word){
 		stemmer.setCurrent(word);
 		stemmer.stem();
 		return stemmer.getCurrent();

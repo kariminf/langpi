@@ -10,6 +10,8 @@ import aak.as.preProcess.lang.Stemmer;
 
 public class BgStemmer implements Stemmer {
 
+	private BulgarianStemmer stemmer = new BulgarianStemmer();
+	
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
 
@@ -22,15 +24,11 @@ public class BgStemmer implements Stemmer {
 	}
 	
 	
-	public static String stemWord (String word){
+	public String stemWord (String word){
 		
 		
 		char[] wordseq = word.toCharArray();
-		int newlength = word.length();
-		{
-			BulgarianStemmer stemmer = new BulgarianStemmer();
-			newlength = stemmer.stem(wordseq, newlength);
-		}
+		int newlength = stemmer.stem(wordseq, wordseq.length);
 		
 		char[] newwordseq = new char[newlength];
 		System.arraycopy(wordseq, 0, newwordseq, 0, newlength);

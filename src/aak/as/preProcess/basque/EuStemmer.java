@@ -9,6 +9,8 @@ import org.tartarus.snowball.ext.BasqueStemmer;
 import aak.as.preProcess.lang.Stemmer;
 
 public class EuStemmer implements Stemmer {
+	
+	private BasqueStemmer stemmer = new BasqueStemmer();
 
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
@@ -22,10 +24,7 @@ public class EuStemmer implements Stemmer {
 	}
 	
 	
-	public static String stemWord (String word){
-		
-		BasqueStemmer stemmer = new BasqueStemmer();
-		
+	public String stemWord (String word){
 		stemmer.setCurrent(word);
 		stemmer.stem();
 		return stemmer.getCurrent();

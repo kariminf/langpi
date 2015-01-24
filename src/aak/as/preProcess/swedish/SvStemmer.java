@@ -4,11 +4,13 @@ package aak.as.preProcess.swedish;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.tartarus.snowball.ext.swedishStemmer;
+import org.tartarus.snowball.ext.SwedishStemmer;
 
 import aak.as.preProcess.lang.Stemmer;
 
 public class SvStemmer implements Stemmer {
+	
+	private SwedishStemmer stemmer = new SwedishStemmer();
 
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
@@ -22,10 +24,7 @@ public class SvStemmer implements Stemmer {
 	}
 	
 	
-	public static String stemWord (String word){
-		
-		swedishStemmer stemmer = new swedishStemmer();
-		
+	public String stemWord (String word){
 		stemmer.setCurrent(word);
 		stemmer.stem();
 		return stemmer.getCurrent();
@@ -34,18 +33,12 @@ public class SvStemmer implements Stemmer {
 	public static void main(String[] args) {
 		Stemmer Stemmer=new SvStemmer();
 		List<String> tstList = new ArrayList<String>();
-		tstList.add("som");
-		tstList.add("d");
 		tstList.add("holbach");
 		tstList.add("kallas");
-		tstList.add("de");
 		tstList.add("inkompatibilister");
-		tstList.add("som");
 		tstList.add("accepterar");
 		tstList.add("determinism");
-		tstList.add("och");
 		tstList.add("förkastar");
-		tstList.add("fri");
 		tstList.add("vilja");
 	
 		tstList = Stemmer.stemListWords(tstList);
@@ -55,8 +48,4 @@ public class SvStemmer implements Stemmer {
 	
 	
 }
-
-
-
-
 

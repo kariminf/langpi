@@ -37,8 +37,11 @@ import opennlp.maxent25.io.SuffixSensitiveGISModelReader;
 
 
 public class ThSegmenter implements Segmenter {
+	
+	//TODO find a way to transform data from version 1.4 to version 1.5
 
 	private final String punctuation="\"'()[]{}!:;,?&.";
+	
 	public List<String> splitToSentences(String text) {
 		
 		List<String> sentences = new ArrayList<String>();

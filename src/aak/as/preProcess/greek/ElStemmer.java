@@ -54,21 +54,24 @@ import org.apache.lucene.analysis.el.GreekStemmer;
 */
 
 public class ElStemmer implements Stemmer {
+	
+	private GreekStemmer stemmer = new GreekStemmer();
 
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
-		GreekStemmer stemmer = new GreekStemmer();
-
+		
 		List<String> output = new ArrayList<String>();
 		
-		for (String word: listWords){
-			char[] wordarray = word.toCharArray();
-			int newlength = stemmer.stem(wordarray, wordarray.length);
-			String newword = new String(wordarray, 0, newlength);
-			output.add(newword);
-		}
+		for (String word: listWords)
+			output.add(stemWord(word));
 
 		return output;
+	}
+	
+	public String stemWord (String word){
+		char[] wordarray = word.toCharArray();
+		int newlength = stemmer.stem(wordarray, wordarray.length);
+		return new String(wordarray, 0, newlength);
 	}
 	
 	

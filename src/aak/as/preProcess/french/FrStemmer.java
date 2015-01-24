@@ -10,6 +10,8 @@ import aak.as.preProcess.lang.Stemmer;
 
 public class FrStemmer implements Stemmer {
 
+	private FrenchStemmer stemmer = new FrenchStemmer();
+	
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
 
@@ -22,10 +24,7 @@ public class FrStemmer implements Stemmer {
 	}
 	
 	
-	public static String stemWord (String word){
-		
-		FrenchStemmer stemmer = new FrenchStemmer();
-		
+	public String stemWord (String word){
 		stemmer.setCurrent(word);
 		stemmer.stem();
 		return stemmer.getCurrent();

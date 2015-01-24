@@ -65,12 +65,14 @@ public class JaStemmer implements Stemmer {
 	public List<String> stemListWords(List<String> listWords) {
 		List<String> output = new ArrayList<String>();
 		
-		for(String word:listWords){
-			String lemme = (lemma.containsKey(word))?lemma.get(word):word;
-			output.add(lemme);
-		}
+		for(String word:listWords)
+			output.add(stemWord(word));
 
 		return output;
+	}
+	
+	public String stemWord (String word){
+		return (lemma.containsKey(word))?lemma.get(word):word;
 	}
 	
 	
