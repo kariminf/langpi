@@ -4,13 +4,13 @@ package aak.as.preProcess.czech;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.tartarus.snowball.ext.czechStemmer;
+import org.apache.lucene.analysis.cz.CzechStemmer;
 
 import aak.as.preProcess.lang.Stemmer;
 
 public class CsStemmer implements Stemmer {
 	
-	private czechStemmer stemmer = new czechStemmer();
+	private CzechStemmer stemmer = new CzechStemmer();
 	
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
@@ -23,12 +23,10 @@ public class CsStemmer implements Stemmer {
 		return stemmedLW;
 	}
 	
-	
 	public String stemWord (String word){
-
-		stemmer.setCurrent(word);
-		stemmer.stem();
-		return stemmer.getCurrent();
+		char[] wordarray = word.toCharArray();
+		int newlength = stemmer.stem(wordarray, wordarray.length);
+		return new String(wordarray, 0, newlength);
 	}
 	
 	public static void main(String[] args) {
