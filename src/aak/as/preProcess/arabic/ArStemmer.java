@@ -38,7 +38,7 @@ import aak.as.preProcess.lang.Stemmer;
 public class ArStemmer implements Stemmer {
 
 	private Vector<Vector<String>> staticFiles ;
-	private String  pathToStemmerFiles = "/StemmerFiles/";
+	private String  pathToStemmerFiles = "/ressources/stemming/arabic/";
 	private static boolean rootFound = false;
 	private static boolean fromSuffixes = false;
 	
@@ -65,7 +65,6 @@ public class ArStemmer implements Stemmer {
 
 	private void initComponents() {
 		
-		pathToStemmerFiles = "/StemmerFiles/";
 		rootFound = false;
 		
 		staticFiles = new Vector<Vector<String>> ( );
