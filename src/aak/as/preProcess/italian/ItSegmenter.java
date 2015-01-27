@@ -22,34 +22,66 @@
 
 package aak.as.preProcess.italian;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import opennlp.tools.sentdetect.SentenceDetectorME;
+import opennlp.tools.sentdetect.SentenceModel;
+import opennlp.tools.tokenize.TokenizerME;
+import opennlp.tools.tokenize.TokenizerModel;
 
 
 import aak.as.preProcess.lang.Segmenter;
 
 
 public class ItSegmenter implements Segmenter {
+	
+	private final String sentBin = "/ressources/sentenceDetection/it-sent.bin";
+	private final String wordBin = "/ressources/wordTokenization/it-token.bin";
+	private final String punctuation="\"'()[]{}!:;,?&.";
 
 	public List<String> splitToSentences(String text) {
 		
 		List<String> sentences = new ArrayList<String>();
-		for(String sentence:  text.split("\\.|\\?|\\!")) 
-		      if(sentence.trim().length() > 0) 
-		    	  sentences.add(sentence.trim());
 		
+		try {
+			InputStream modelIn = getClass().getResourceAsStream(sentBin);
+			SentenceModel model = new SentenceModel(modelIn);
+			SentenceDetectorME sentenceDetector = new SentenceDetectorME(model);
+			String[] initSentences = sentenceDetector.sentDetect(text);
+			for(String snt : initSentences){
+				sentences.add(snt);
+			}
+			modelIn.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		return sentences;
+		
 	}
 	
 	public List<String> segmentWords(String text) {
-	    List<String> ret = new ArrayList<String>();
-	    for(String word:  text.split("[\\.,;:\"\\?\\!]?\\s+|[\\.\\?\\!]$|-|\'")) {
-	      if(word.length() > 0) {
-	        ret.add(word.toLowerCase().trim());
-	      }
-	    }
-	    return ret;
+
+		List<String> wordsList = new ArrayList<String>();
+	    
+	    try {
+	    	InputStream modelIn = getClass().getResourceAsStream(wordBin);
+			TokenizerModel model = new TokenizerModel(modelIn);
+			TokenizerME tokenizer = new TokenizerME(model);
+			String[] words = tokenizer.tokenize(text);
+			for(String word : words)
+				if (!punctuation.contains(word))
+					wordsList.add(word);
+			
+			modelIn.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	    
+	    return wordsList;
 	}
 	
 	public static void main(String[] args) {

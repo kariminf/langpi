@@ -34,7 +34,7 @@ public class SvSegmenter implements Segmenter {
 	public List<String> splitToSentences(String text) {
 		
 		List<String> sentences = new ArrayList<String>();
-		for(String sentence:  text.split("\\.|\\?|\\!")) 
+		for(String sentence:  text.split("[\\.\\?\\!][\\s$]")) 
 		      if(sentence.trim().length() > 0) 
 		    	  sentences.add(sentence.trim());
 		
