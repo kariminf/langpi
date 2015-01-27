@@ -9,3 +9,4 @@
 #directories
 lib/
 bin/
+.settings/
