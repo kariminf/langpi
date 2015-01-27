@@ -12,15 +12,16 @@ import aak.as.preProcess.lang.SWEliminator;
 
 public class ArSWEliminator implements SWEliminator {
 
+	private final String  pathToStopWords = "/ressources/stopWords/arabic.stop";
 	private List<String> stopList = 
-			getStopList("arabic.stop");//stopwords.txt
+			getStopList(pathToStopWords);//stopwords.txt
 
-	private static List<String> getStopList(String path) {
+	private List<String> getStopList(String path) {
 
 		List<String> stopwords = new ArrayList<String>();
 		try {
 
-			InputStream in = ArSWEliminator.class.getResourceAsStream(path);
+			InputStream in = getClass().getResourceAsStream(path);
 			InputStreamReader ir = new InputStreamReader(in, "UTF-8");
 			BufferedReader input = new BufferedReader(ir);
 			for(String line = input.readLine(); line != null; line = input.readLine())

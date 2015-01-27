@@ -38,6 +38,8 @@ import aak.as.preProcess.lang.Segmenter;
 
 public class NlSegmenter implements Segmenter {
 
+	private final String sentBin = "/ressources/sentenceDetection/nl-sent.bin";
+	private final String wordBin = "/ressources/wordTokenization/nl-token.bin";
 	private final String punctuation="\"'()[]{}!:;,?&.";
 
 	public List<String> splitToSentences(String text) {
@@ -46,7 +48,7 @@ public class NlSegmenter implements Segmenter {
 		//List<String> returnedSentences = new ArrayList<String>();
 
 		try {
-			InputStream modelIn = getClass().getResourceAsStream("nl-sent.bin");
+			InputStream modelIn = getClass().getResourceAsStream(sentBin);
 			SentenceModel model = new SentenceModel(modelIn);
 			SentenceDetectorME sentenceDetector = new SentenceDetectorME(model);
 			String[] initSentences = sentenceDetector.sentDetect(text);
@@ -65,7 +67,7 @@ public class NlSegmenter implements Segmenter {
 		List<String> wordsList = new ArrayList<String>();
 
 		try {
-			InputStream modelIn = getClass().getResourceAsStream("nl-token.bin");
+			InputStream modelIn = getClass().getResourceAsStream(wordBin);
 			TokenizerModel model = new TokenizerModel(modelIn);
 			TokenizerME tokenizer = new TokenizerME(model);
 			String[] words = tokenizer.tokenize(text);

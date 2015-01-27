@@ -35,7 +35,9 @@ import aak.as.preProcess.lang.SWEliminator;
 
 public class EsSWEliminator implements SWEliminator {
 
-	private List<String> stopList = getStopList("spanish.stop");
+	private final String  pathToStopWords = "/ressources/stopWords/spanish.stop";
+	private List<String> stopList = 
+			getStopList(pathToStopWords);//stopwords.txt
 
 	
 	public Boolean isNotStopWord(String word) {
@@ -86,18 +88,15 @@ public class EsSWEliminator implements SWEliminator {
 	
 	public static void main(String[] args) {
 		List<String> tstList = new ArrayList<String>();
+		tstList.add("mé");
+		tstList.add("jméno");
 		tstList.add("je");
-		tstList.add("vais");
-		tstList.add("à");
-		tstList.add("l");
-		tstList.add("ESI");
-		tstList.add("pour");
-		tstList.add("enseigner");
-		tstList.add("ceci");
-		tstList.add("va");
-		tstList.add("prendre");
-		tstList.add("quelque");
-		tstList.add("temps");
+		tstList.add("karim");
+		tstList.add("a");
+		tstList.add("studuji");
+		tstList.add("informatiku");
+		tstList.add("v");
+		tstList.add("esi");
 		
 		EsSWEliminator eliminator = new EsSWEliminator();
 		eliminator.deleteSW(tstList);

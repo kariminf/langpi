@@ -41,6 +41,8 @@ import opennlp.tools.tokenize.TokenizerModel;
 
 public class EnSegmenter implements Segmenter {
 
+	private final String sentBin = "/ressources/sentenceDetection/en-sent.bin";
+	private final String wordBin = "/ressources/wordTokenization/en-token.bin";
 	private final String punctuation="\"'()[]{}!:;,?&.";
 	
 	public List<String> splitToSentences(String text) {
@@ -49,7 +51,7 @@ public class EnSegmenter implements Segmenter {
 		//List<String> returnedSentences = new ArrayList<String>();
 		
 		try {
-			InputStream modelIn = EnSegmenter.class.getResourceAsStream("en-sent.bin");
+			InputStream modelIn = getClass().getResourceAsStream(sentBin);
 			SentenceModel model = new SentenceModel(modelIn);
 			SentenceDetectorME sentenceDetector = new SentenceDetectorME(model);
 			String[] initSentences = sentenceDetector.sentDetect(text);
@@ -69,7 +71,7 @@ public class EnSegmenter implements Segmenter {
 		List<String> wordsList = new ArrayList<String>();
 	    
 	    try {
-	    	InputStream modelIn = getClass().getResourceAsStream("en-token.bin");
+	    	InputStream modelIn = getClass().getResourceAsStream(wordBin);;
 			TokenizerModel model = new TokenizerModel(modelIn);
 			TokenizerME tokenizer = new TokenizerME(model);
 			String[] words = tokenizer.tokenize(text);

@@ -40,6 +40,8 @@ public class ThSegmenter implements Segmenter {
 	
 	//TODO find a way to transform data from version 1.4 to version 1.5
 
+	private final String sentBin = "/ressources/sentenceDetection/thai.sent.bin.gz";
+	private final String wordBin = "/ressources/wordTokenization/thai.tok.bin.gz";
 	private final String punctuation="\"'()[]{}!:;,?&.";
 	
 	public List<String> splitToSentences(String text) {
@@ -49,7 +51,7 @@ public class ThSegmenter implements Segmenter {
 		
 		try {
 			//InputStream modelIn = ThSegmenter.class.getResourceAsStream("thai.sent.bin.gz");
-			File file = new File(ThSegmenter.class.getResource("thai.sent.bin.gz").getPath());
+			File file = new File(ThSegmenter.class.getResource(sentBin).getPath());
 			GISModel modelIn = new SuffixSensitiveGISModelReader(file).getModel();
 			SentenceDetectorME sentenceDetector = 
 					new SentenceDetectorME(modelIn, new SentenceContextGenerator(), new EndOfSentenceScanner());
@@ -71,7 +73,7 @@ public class ThSegmenter implements Segmenter {
 	    
 	    try {
 			//InputStream modelIn = ThSegmenter.class.getResourceAsStream("thai.sent.bin.gz");
-			File file = new File(ThSegmenter.class.getResource("thai.tok.bin.gz").getPath());
+			File file = new File(ThSegmenter.class.getResource(wordBin).getPath());
 			GISModel modelIn = new SuffixSensitiveGISModelReader(file).getModel();
 			TokenizerME tokenizer = new TokenizerME(modelIn);
 			String[] words = tokenizer.tokenize(text);

@@ -35,7 +35,9 @@ import aak.as.preProcess.lang.SWEliminator;
 
 public class NlSWEliminator implements SWEliminator {
 
-	private List<String> stopList = getStopList("dutch.stop");
+	private final String  pathToStopWords = "/ressources/stopWords/dutch.stop";
+	private List<String> stopList = 
+			getStopList(pathToStopWords);//stopwords.txt
 
 	
 	public Boolean isNotStopWord(String word) {
@@ -61,12 +63,12 @@ public class NlSWEliminator implements SWEliminator {
 				wordsList.remove(i);
 	}
 	
-	private static List<String> getStopList(String path) {
+	private List<String> getStopList(String path) {
 		
 		List<String> stopwords = new ArrayList<String>();
 	    try {
 
-	    	InputStream in = NlSWEliminator.class.getResourceAsStream(path);
+	    	InputStream in = getClass().getResourceAsStream(path);
 	    	BufferedReader input = new BufferedReader(
 		                new InputStreamReader(in));
 	      for(String line = input.readLine(); line != null; line = input.readLine()) {

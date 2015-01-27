@@ -36,7 +36,9 @@ import aak.as.preProcess.lang.SWEliminator;
 
 public class HeSWEliminator implements SWEliminator {
 
-	private List<String> stopList = getStopList(new File("hebrew.stop"));
+	private final String  pathToStopWords = "/ressources/stopWords/hebrew.stop";
+	private List<String> stopList = 
+			getStopList(pathToStopWords);//stopwords.txt
 
 	
 	public Boolean isNotStopWord(String word) {
@@ -64,12 +66,12 @@ public class HeSWEliminator implements SWEliminator {
 				wordsList.remove(i);
 	}
 	
-	private static List<String> getStopList(File f) {
+	private static List<String> getStopList(String filePath) {
 		
 		List<String> stopwords = new ArrayList<String>();
 	    try {
 
-	    	InputStream in = HeSWEliminator.class.getResourceAsStream(f.getPath());
+	    	InputStream in = HeSWEliminator.class.getResourceAsStream(filePath);
 	    	BufferedReader input = new BufferedReader(
 		                new InputStreamReader(in));
 	      for(String line = input.readLine(); line != null; line = input.readLine()) {

@@ -35,7 +35,9 @@ import aak.as.preProcess.lang.SWEliminator;
 
 public class ItSWEliminator implements SWEliminator {
 
-	private List<String> stopList = getStopList("italian.stop");
+	private final String  pathToStopWords = "/ressources/stopWords/italian.stop";
+	private List<String> stopList = 
+			getStopList(pathToStopWords);//stopwords.txt
 
 	
 	public Boolean isNotStopWord(String word) {
@@ -61,12 +63,12 @@ public class ItSWEliminator implements SWEliminator {
 				wordsList.remove(i);
 	}
 	
-	private static List<String> getStopList(String path) {
+	private  List<String> getStopList(String path) {
 		
 		List<String> stopwords = new ArrayList<String>();
 	    try {
 
-	    	InputStream in = ItSWEliminator.class.getResourceAsStream(path);
+	    	InputStream in = getClass().getResourceAsStream(path);
 	    	BufferedReader input = new BufferedReader(
 		                new InputStreamReader(in));
 	      for(String line = input.readLine(); line != null; line = input.readLine()) {
@@ -87,21 +89,12 @@ public class ItSWEliminator implements SWEliminator {
 	public static void main(String[] args) {
 		List<String> tstList = new ArrayList<String>();
 		tstList.add("il");
-		tstList.add("risultato");
-		tstList.add("della");
+
 		tstList.add("prima");
 		tstList.add("campagna");
 		tstList.add("fu");
 		tstList.add("l");
 		tstList.add("assedio");
-		tstList.add("della");
-		tstList.add("capitale");
-		tstList.add("dacica");
-		tstList.add("sarmizegetusa");
-		tstList.add("regia");
-		tstList.add("e");
-		tstList.add("l");
-		tstList.add("occupazione");
 		tstList.add("di");
 		tstList.add("parte");
 		tstList.add("del");

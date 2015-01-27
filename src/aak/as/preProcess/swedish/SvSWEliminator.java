@@ -35,7 +35,9 @@ import aak.as.preProcess.lang.SWEliminator;
 
 public class SvSWEliminator implements SWEliminator {
 
-	private List<String> stopList = getStopList("swedish.stop");
+	private final String  pathToStopWords = "/ressources/stopWords/swedish.stop";
+	private List<String> stopList = 
+			getStopList(pathToStopWords);//stopwords.txt
 
 	
 	public Boolean isNotStopWord(String word) {
