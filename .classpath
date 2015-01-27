@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="lib/lucene-analyzers-smartcn-4.10.2.jar"/>
 	<classpathentry kind="lib" path="lib/opennlp-tools-1.4.2_AS.jar"/>
 	<classpathentry kind="lib" path="lib/trove.jar"/>
+	<classpathentry kind="lib" path="lib/JHazm_AS.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

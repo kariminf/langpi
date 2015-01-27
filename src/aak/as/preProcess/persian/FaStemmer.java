@@ -1,14 +1,27 @@
 
 package aak.as.preProcess.persian;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import JHazm.Lemmatizer;
 
 import aak.as.preProcess.lang.Stemmer;
 
 public class FaStemmer implements Stemmer {
 
+	Lemmatizer lematizer;
+	
+	public FaStemmer(){
+		try {
+			lematizer = new Lemmatizer();
+		} catch (IOException e) {
+			System.out.println("no persian lematizer");
+			lematizer = null;
+		}
+	}
+	
 	@Override
 	public List<String> stemListWords(List<String> listWords) {
 
@@ -21,9 +34,10 @@ public class FaStemmer implements Stemmer {
 	}
 	
 	
-	public static String stemWord (String word){
+	public String stemWord (String word){
 		
-		//TODO find a stemmer if there is one
+		if (lematizer != null)
+			return lematizer.Lemmatize(word);
 
 		return word;
 	}

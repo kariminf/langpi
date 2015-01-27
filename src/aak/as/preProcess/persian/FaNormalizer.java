@@ -28,6 +28,7 @@ import aak.as.preProcess.lang.Normalizer;
 
 public class FaNormalizer implements Normalizer {
 
+	JHazm.Normalizer normalizer = new JHazm.Normalizer();
 	/*
 	 * This function is used to delete new lines
 	 */
@@ -37,27 +38,39 @@ public class FaNormalizer implements Normalizer {
 		
 		return text;
 	}
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
+	
 	@Override
 	public String normalize(String text) {
-		// TODO Auto-generated method stub
-		return deleteNewLine(text);
+		
+		text = deleteNewLine(text);
+		text = normalizer.Run(text);
+		return text;
 	}
+	
 	@Override
 	public String normalize(String text, String param) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
 	public HashMap<String, String> getParameters() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+
+		FaNormalizer fa = new FaNormalizer();
+		
+		String text = "اصلاح نويسه ها و استفاده از نیم‌فاصله پردازش را آسان مي كند";
+		System.out.println(text);
+		System.out.println(fa.normalize(text));
+
 	}
 
 }
