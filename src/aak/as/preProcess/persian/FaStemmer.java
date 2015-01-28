@@ -1,21 +1,21 @@
 
 package aak.as.preProcess.persian;
 
+import hazm.jhazm.PersianLemmatizer;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import JHazm.Lemmatizer;
 
 import aak.as.preProcess.lang.Stemmer;
 
 public class FaStemmer implements Stemmer {
 
-	Lemmatizer lematizer;
+	PersianLemmatizer lematizer;
 	
 	public FaStemmer(){
 		try {
-			lematizer = new Lemmatizer();
+			lematizer = new PersianLemmatizer();
 		} catch (IOException e) {
 			System.out.println("no persian lematizer");
 			lematizer = null;
@@ -46,17 +46,10 @@ public class FaStemmer implements Stemmer {
 		Stemmer Stemmer=new FaStemmer();
 		List<String> tstList = new ArrayList<String>();
 		tstList.add("قسمتی");
-		tstList.add("آبشار");
-		tstList.add("نیاگارا");
-		tstList.add("بین");
-		tstList.add("آمریکا");
-		tstList.add("کانادا");
 		tstList.add("قرار");
 		tstList.add("دارد");
-		tstList.add("ازجاذبه‌های");
 		tstList.add("طبیعی");
 		tstList.add("توریستی");
-		tstList.add("آمریکا");
 		tstList.add("شمار");
 		tstList.add("می‌رود");
 	

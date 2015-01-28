@@ -22,6 +22,10 @@
 
 package aak.as.preProcess.persian;
 
+import hazm.jhazm.PersianSentTokenizer;
+import hazm.jhazm.PersianWordTokenizer;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,18 +35,38 @@ import aak.as.preProcess.lang.Segmenter;
 
 public class FaSegmenter implements Segmenter {
 
+	private final String punctuation = "\\.،؛:\"\'؟([?]+|:»)}\"«{";
+	PersianSentTokenizer sentSegmenter =  new PersianSentTokenizer();
+	PersianWordTokenizer wordTokenizer;
+	
+	public FaSegmenter(){
+		 try {
+			wordTokenizer = new PersianWordTokenizer();
+		} catch (IOException e) {
+			wordTokenizer = null;
+		}
+	}
+	
 	@Override
 	public List<String> splitToSentences(String text) {
-		List<String> ret = new ArrayList<String>();
-	    for(String sentence:  text.split("[\\.؟\\!][\\s$]")) 
-	      if(sentence.trim().length() > 0) 
-	        ret.add(sentence.trim());
-	 
-	    return ret;
+	    return sentSegmenter.Tokenize(text);
 	}
 
+	
 	@Override
 	public List<String> segmentWords(String text) {
+		if (wordTokenizer != null){
+			List<String> words = wordTokenizer.Tokenize(text);
+			deletePunctuation(words);
+			return (words);
+		}
+		System.out.println("no persian tokenizer");
+		
+		return segmentWordsDef(text);
+	}
+	
+	
+	private List<String> segmentWordsDef(String text){
 		List<String> ret = new ArrayList<String>();
 	    for(String word:  text.split("[\\.،؛:\"\'؟\\!]?\\s+|\\.$")){
 	    	//word = word.replace(" ", "");
@@ -53,6 +77,14 @@ public class FaSegmenter implements Segmenter {
 	      
 	 
 	    return ret;
+	}
+	
+	private void deletePunctuation (List<String> words){
+		for(int i=words.size()-1; i>=0; i--){
+			if(punctuation.contains(words.get(i).substring(0, 1)))
+				words.remove(i);
+		}
+			
 	}
 	
 	public static void main(String[] args) {

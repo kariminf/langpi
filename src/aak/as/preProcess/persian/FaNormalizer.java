@@ -22,13 +22,15 @@
 
 package aak.as.preProcess.persian;
 
+import hazm.jhazm.PersianNormalizer;
+
 import java.util.HashMap;
 
 import aak.as.preProcess.lang.Normalizer;
 
 public class FaNormalizer implements Normalizer {
 
-	JHazm.Normalizer normalizer = new JHazm.Normalizer();
+	PersianNormalizer normalizer = new PersianNormalizer();
 	/*
 	 * This function is used to delete new lines
 	 */
