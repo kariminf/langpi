@@ -10,7 +10,8 @@ Class-Path: .
  ../lib/opennlp-tools-1.4.2_AS.jar 
  ../lib/opennlp-tools-1.5.2-incubating.jar 
  ../lib/snowball.jar 
- ../lib/trove.jar
+ ../lib/trove.jar 
+ ../lib/JHazm_AS.jar
 Extension-Name: aak/as/preProcess
 Specification-Title: AllSummarizer: PreProcess
 Specification-Version: 0.6
