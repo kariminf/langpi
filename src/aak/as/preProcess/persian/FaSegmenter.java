@@ -81,7 +81,8 @@ public class FaSegmenter implements Segmenter {
 	
 	private void deletePunctuation (List<String> words){
 		for(int i=words.size()-1; i>=0; i--){
-			if(punctuation.contains(words.get(i).substring(0, 1)))
+			if(words.get(i).length() < 1 
+					|| punctuation.contains(words.get(i).substring(0, 1)))
 				words.remove(i);
 		}
 			
