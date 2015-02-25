@@ -27,24 +27,11 @@ import java.util.List;
 
 
 import aak.as.preProcess.lang.Segmenter;
+import aak.as.preProcess.std.CJSegmenter;
 
 import org.apache.lucene.analysis.cn.smart.hhmm.*;
 
-public class ZhSegmenter implements Segmenter {
-
-	private static String punctuation =",.`-_='|\"(){}[]<>*#&^$@~:;+/\\《》—－，。、：；！·？?!“”）（【】［］●";
-	
-	
-	public List<String> splitToSentences(String text) {
-		
-		List<String> sentences = new ArrayList<String>();
-		for(String sentence:  text.split("。|\\.|\\?|\\!|！|？")) 
-		      if(sentence.trim().length() > 0) 
-		    	  sentences.add(sentence.trim());
-		
-
-		return sentences;
-	}
+public class ZhSegmenter extends CJSegmenter {
 	
 	public List<String> segmentWords(String text) {
 		

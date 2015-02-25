@@ -22,35 +22,14 @@
 
 package aak.as.preProcess.turkish;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
 import aak.as.preProcess.lang.Segmenter;
+import aak.as.preProcess.std.LatinSegmenter;
 
 
-public class TrSegmenter implements Segmenter {
-
-	public List<String> splitToSentences(String text) {
-		
-		List<String> sentences = new ArrayList<String>();
-		for(String sentence:  text.split("[\\.\\?\\!][\\s$]")) 
-		      if(sentence.trim().length() > 0) 
-		    	  sentences.add(sentence.trim());
-		
-
-		return sentences;
-	}
-	
-	public List<String> segmentWords(String text) {
-	    List<String> ret = new ArrayList<String>();
-	    for(String word:  text.split("[\\.,;:\"\\?\\!]?\\s+|[\\.\\?\\!]$|-|\'")) {
-	      if(word.length() > 0) {
-	        ret.add(word.toLowerCase().trim());
-	      }
-	    }
-	    return ret;
-	}
+public class TrSegmenter extends LatinSegmenter {
 	
 	public static void main(String[] args) {
 		

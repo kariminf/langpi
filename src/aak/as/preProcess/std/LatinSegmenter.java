@@ -20,25 +20,45 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package aak.as.preProcess.catalan;
+package aak.as.preProcess.std;
 
+import hazm.jhazm.utility.RegexPattern;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
 import aak.as.preProcess.lang.Segmenter;
-import aak.as.preProcess.std.LatinSegmenter;
 
 
-public class CaSegmenter extends LatinSegmenter {
+public abstract class LatinSegmenter implements Segmenter {
+
+	protected static final RegexPattern sentPatern =
+			new RegexPattern("([!\\.\\?]+)[\\s$]", "$1#&#");
 	
-	public static void main(String[] args) {
+	//protected static final RegexPattern wordPatern =
+			//new RegexPattern("([!\\.\\?]+)[\\s$]", "$1#&#");
+	
+	public List<String> splitToSentences(String text) {
 		
-		Segmenter segmenter = new CaSegmenter();
-		List<String> sent = segmenter.segmentWords("Jordan va rebre una beca per jugar a bàsquet a la Universitat de Carolina del Nord, on s'especialitzà en geografia.");
+		List<String> sentences = new ArrayList<String>();
+		text = sentPatern.Apply(text);
+		for(String sentence:  text.split("#&#")) 
+		      if(sentence.trim().length() > 0) 
+		    	  sentences.add(sentence.trim());
 		
-		for (String s: sent)
-			System.out.println(s);
 
+		return sentences;
+	}
+	
+	public List<String> segmentWords(String text) {
+	    List<String> ret = new ArrayList<String>();
+	    for(String word:  text.split("[\\.,;:\"\\?\\!]?\\s+|[\\.\\?\\!]$|-|\'")) {
+	      if(word.length() > 0) {
+	        ret.add(word.toLowerCase().trim());
+	      }
+	    }
+	    return ret;
 	}
 	
 	

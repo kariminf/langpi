@@ -22,36 +22,14 @@
 
 package aak.as.preProcess.spanish;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
+import aak.as.preProcess.std.LatinSegmenter;
 
-import aak.as.preProcess.lang.Segmenter;
 
+public class EsSegmenter extends LatinSegmenter {
 
-public class EsSegmenter implements Segmenter {
-
-	public List<String> splitToSentences(String text) {
-		
-		List<String> sentences = new ArrayList<String>();
-		for(String sentence:  text.split("[\\.\\?\\!][\\s$]")) 
-		      if(sentence.trim().length() > 0) 
-		    	  sentences.add(sentence.trim());
-		
-
-		return sentences;
-	}
-	
-	public List<String> segmentWords(String text) {
-	    List<String> ret = new ArrayList<String>();
-	    for(String word:  text.split("[\\.,;:\"\\?\\!]?\\s+|[\\.\\?\\!]$|-|\'")) {
-	      if(word.length() > 0) {
-	        ret.add(word.toLowerCase().trim());
-	      }
-	    }
-	    return ret;
-	}
-	
 	public static void main(String[] args) {
 		
 		EsSegmenter segmenter = new EsSegmenter();

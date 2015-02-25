@@ -29,25 +29,15 @@ import java.util.List;
 
 
 import aak.as.preProcess.lang.Segmenter;
+import aak.as.preProcess.std.CJSegmenter;
 
 import org.apache.lucene.analysis.ja.JapaneseTokenizer;
 import org.apache.lucene.analysis.ja.tokenattributes.BaseFormAttribute;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 
-public class JaSegmenter implements Segmenter {
-
-	private static String punctuation =",.`-_='|\"(){}[]<>*#&^$@~:;+/\\《》—－，。、：；！·？?!“”）（【】［］●";
-	public List<String> splitToSentences(String text) {
-		
-		List<String> sentences = new ArrayList<String>();
-		for(String sentence:  text.split("。|\\.|\\?|\\!")) 
-		      if(sentence.trim().length() > 0) 
-		    	  sentences.add(sentence.trim());
-		
-
-		return sentences;
-	}
+public class JaSegmenter extends CJSegmenter {
 	
+	@Override
 	public List<String> segmentWords(String text) {
 		
 		List<String> ret = new ArrayList<String>();
@@ -73,9 +63,7 @@ public class JaSegmenter implements Segmenter {
 			// TODO Auto-generated catch block.
 			e.printStackTrace();
 		}
-		
-		
-		
+
 	    return ret;
 	}
 	
@@ -83,7 +71,8 @@ public class JaSegmenter implements Segmenter {
 		
 		JaSegmenter segmenter = new JaSegmenter();
 		
-		List<String> words = segmenter.segmentWords("多くの学生が試験に落ちた。");
+		List<String> words = 
+				segmenter.splitToSentences("多くの学生が試験に落ちた。多くの学生が試験に落ちた。");
 		/*for (String w: words)
 			System.out.print(w + "+");*/
 		System.out.println(words);

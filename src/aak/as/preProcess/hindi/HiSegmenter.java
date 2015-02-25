@@ -22,46 +22,22 @@
 
 package aak.as.preProcess.hindi;
 
-import java.util.ArrayList;
 import java.util.List;
 
-
-import aak.as.preProcess.lang.Segmenter;
-
+import aak.as.preProcess.std.LatinSegmenter;
 
 
-public class HiSegmenter implements Segmenter {
 
-	public List<String> splitToSentences(String text) {
-		
-		List<String> sentences = new ArrayList<String>();
-		for(String sentence:  text.split("[\\.\\?\\!][\\s$]")) 
-		      if(sentence.trim().length() > 0) 
-		    	  sentences.add(sentence.trim());
-		
+public class HiSegmenter extends LatinSegmenter {
 
-		return sentences;
-	}
-	
-	public List<String> segmentWords(String text) {
-		
-	    List<String> ret = new ArrayList<String>();
-	    for(String word:  text.split("[\\.,;:\"\']?\\s+|\\.$")) {
-	      if(word.length() > 0) {
-	        ret.add(word.toLowerCase().trim());
-	      }
-	    }
-	    return ret;
-	}
-	
 	public static void main(String[] args) {
 		
 		HiSegmenter segmenter = new HiSegmenter();
 		String text="";
 		
 		text += "अमेरिका निवासी जो सुनामी पीडितो के लिए 2005 में दान कर चुके हैं उनको 2004 की आय मुक्ति मिल रही हैं क्यूंकि एक बिल अमेरिकी प्रतिनिधि सभा और अमेरिकी सीनेट में पास हुई हैं गेओर्गे बुश के आमोद से.";
-		text += "नए कानून के बिना, योगदानकर्ताओं को 2006 तक इंतजार करना होगा अपने 2005 कर रिटर्न के लिए ताकि उनको आय मुक्ति मिले. ये विधि सुनामी राहत कार्यों की ओर दान को बढ़ावा देने के इरादे से बनायीं गयी हैं.";
-		text += "सीबीएस समाचार के अनुसार  इंडियाना विश्वविद्यालय के परोपकार केंद्र ने 322 मिलियन अमरीकी डॉलर के दान और 350 मिलियन अमरीकी डॉलर के दान (अमरीकी सरकार से) की सूचना की हैं.";
+		text += " नए कानून के बिना, योगदानकर्ताओं को 2006 तक इंतजार करना होगा अपने 2005 कर रिटर्न के लिए ताकि उनको आय मुक्ति मिले. ये विधि सुनामी राहत कार्यों की ओर दान को बढ़ावा देने के इरादे से बनायीं गयी हैं.";
+		text += " सीबीएस समाचार के अनुसार  इंडियाना विश्वविद्यालय के परोपकार केंद्र ने 322 मिलियन अमरीकी डॉलर के दान और 350 मिलियन अमरीकी डॉलर के दान (अमरीकी सरकार से) की सूचना की हैं.";
 		List<String> sent = segmenter.splitToSentences(text);
 		
 		for (String s: sent)

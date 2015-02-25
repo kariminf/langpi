@@ -32,24 +32,13 @@ import com.code972.hebmorph.Reference;
 import com.code972.hebmorph.Tokenizer;
 import com.code972.hebmorph.hspell.HSpellLoader;
 
-
-import aak.as.preProcess.lang.Segmenter;
-
+import aak.as.preProcess.std.LatinSegmenter;
 
 
-public class HeSegmenter implements Segmenter {
 
-	public List<String> splitToSentences(String text) {
-		
-		List<String> sentences = new ArrayList<String>();
-		for(String sentence:  text.split("[\\.\\?\\!][\\s$]")) 
-		      if(sentence.trim().length() > 0) 
-		    	  sentences.add(sentence.trim());
-		
-
-		return sentences;
-	}
+public class HeSegmenter extends LatinSegmenter {
 	
+	@Override
 	public List<String> segmentWords(String text) {
 		
 	    List<String> ret = new ArrayList<String>();
