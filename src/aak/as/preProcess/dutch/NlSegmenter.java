@@ -22,65 +22,15 @@
 
 package aak.as.preProcess.dutch;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
-import opennlp.tools.sentdetect.SentenceDetectorME;
-import opennlp.tools.sentdetect.SentenceModel;
-import opennlp.tools.tokenize.TokenizerME;
-import opennlp.tools.tokenize.TokenizerModel;
+import aak.as.preProcess.std.OpennlpSegmenter;
 
 
-import aak.as.preProcess.lang.Segmenter;
+public class NlSegmenter extends OpennlpSegmenter {
 
-
-public class NlSegmenter implements Segmenter {
-
-	private final String sentBin = "/ressources/sentenceDetection/nl-sent.bin";
-	private final String wordBin = "/ressources/wordTokenization/nl-token.bin";
-	private final String punctuation="\"'()[]{}!:;,?&.";
-
-	public List<String> splitToSentences(String text) {
-
-		List<String> sentences = new ArrayList<String>();
-		//List<String> returnedSentences = new ArrayList<String>();
-
-		try {
-			InputStream modelIn = getClass().getResourceAsStream(sentBin);
-			SentenceModel model = new SentenceModel(modelIn);
-			SentenceDetectorME sentenceDetector = new SentenceDetectorME(model);
-			String[] initSentences = sentenceDetector.sentDetect(text);
-			for(String snt : initSentences){
-				sentences.add(snt);
-			}
-			modelIn.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return sentences;
-	}
-
-	public List<String> segmentWords(String text) {
-		List<String> wordsList = new ArrayList<String>();
-
-		try {
-			InputStream modelIn = getClass().getResourceAsStream(wordBin);
-			TokenizerModel model = new TokenizerModel(modelIn);
-			TokenizerME tokenizer = new TokenizerME(model);
-			String[] words = tokenizer.tokenize(text);
-			for(String word : words)
-				if (!punctuation.contains(word))
-					wordsList.add(word);
-
-			modelIn.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return wordsList;
+	public NlSegmenter() {
+		super("nl-sent.bin", "nl-token.bin");
 	}
 
 	public static void main(String[] args) {
@@ -90,7 +40,6 @@ public class NlSegmenter implements Segmenter {
 
 		for (String s: sent)
 			System.out.println(s);
-
 	}
 
 

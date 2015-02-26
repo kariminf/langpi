@@ -22,8 +22,6 @@
 
 package aak.as.preProcess.std;
 
-import hazm.jhazm.utility.RegexPattern;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,8 +31,7 @@ import aak.as.preProcess.lang.Segmenter;
 
 public abstract class LatinSegmenter implements Segmenter {
 
-	protected static final RegexPattern sentPatern =
-			new RegexPattern("([!\\.\\?]+)[\\s$]", "$1#&#");
+	protected static final String sentPattern = "([!\\.\\?]+)[\\s$]";
 	
 	//protected static final RegexPattern wordPatern =
 			//new RegexPattern("([!\\.\\?]+)[\\s$]", "$1#&#");
@@ -42,7 +39,8 @@ public abstract class LatinSegmenter implements Segmenter {
 	public List<String> splitToSentences(String text) {
 		
 		List<String> sentences = new ArrayList<String>();
-		text = sentPatern.Apply(text);
+		text = text.replaceAll(sentPattern, "$1#&#");
+
 		for(String sentence:  text.split("#&#")) 
 		      if(sentence.trim().length() > 0) 
 		    	  sentences.add(sentence.trim());

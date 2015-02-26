@@ -22,7 +22,6 @@
 
 package aak.as.preProcess.std;
 
-import hazm.jhazm.utility.RegexPattern;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,16 +35,14 @@ public abstract class CJSegmenter implements Segmenter {
 	protected static final String punctuation = 
 			",.`-_='|\"(){}[]<>*#&^$@~:;+/\\《》—－，。、：；！·？?!“”）（【】［］●";
 	
-	protected static final RegexPattern sentPattern =
-			new RegexPattern("([。]+)", "$1#&#");
+	protected static final String sentPattern = "([。]+)";
 	
-	protected static final RegexPattern wordPattern =
-			new RegexPattern("([!\\.\\?]+)[\\s$]", "$1#&#");
+	//protected static final String wordPattern = "([!\\.\\?]+)[\\s$]";
 	
 	public List<String> splitToSentences(String text) {
 		
 		List<String> sentences = new ArrayList<String>();
-		text = sentPattern.Apply(text);
+		text = text.replaceAll(sentPattern, "$1#&#");
 		for(String sentence:  text.split("#&#")) 
 		      if(sentence.trim().length() > 0) 
 		    	  sentences.add(sentence.trim());

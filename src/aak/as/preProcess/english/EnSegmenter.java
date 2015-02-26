@@ -22,71 +22,16 @@
 
 package aak.as.preProcess.english;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
+import aak.as.preProcess.std.OpennlpSegmenter;
 
-import aak.as.preProcess.lang.Segmenter;
+public class EnSegmenter extends OpennlpSegmenter {
 
-import opennlp.maxent.GISModel;
-import opennlp.maxent.io.SuffixSensitiveGISModelReader;
-import opennlp.model.AbstractModel;
-import opennlp.tools.sentdetect.SentenceDetectorME;
-import opennlp.tools.sentdetect.SentenceModel;
-import opennlp.tools.tokenize.TokenizerME;
-import opennlp.tools.tokenize.TokenizerModel;
-
-public class EnSegmenter implements Segmenter {
-
-	private final String sentBin = "/ressources/sentenceDetection/en-sent.bin";
-	private final String wordBin = "/ressources/wordTokenization/en-token.bin";
-	private final String punctuation="\"'()[]{}!:;,?&.";
-	
-	public List<String> splitToSentences(String text) {
-		
-		List<String> sentences = new ArrayList<String>();
-		//List<String> returnedSentences = new ArrayList<String>();
-		
-		try {
-			InputStream modelIn = getClass().getResourceAsStream(sentBin);
-			SentenceModel model = new SentenceModel(modelIn);
-			SentenceDetectorME sentenceDetector = new SentenceDetectorME(model);
-			String[] initSentences = sentenceDetector.sentDetect(text);
-			for(String snt : initSentences){
-				sentences.add(snt);
-			}
-			modelIn.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return sentences;
+	public EnSegmenter() {
+		super("en-sent.bin", "en-token.bin");
 	}
-	
-	public List<String> segmentWords(String text) {
-		
-		List<String> wordsList = new ArrayList<String>();
-	    
-	    try {
-	    	InputStream modelIn = getClass().getResourceAsStream(wordBin);;
-			TokenizerModel model = new TokenizerModel(modelIn);
-			TokenizerME tokenizer = new TokenizerME(model);
-			String[] words = tokenizer.tokenize(text);
-			for(String word : words)
-				if (!punctuation.contains(word))
-					wordsList.add(word);
-			
-			modelIn.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	    
-	    return wordsList;
-	}
-	
+
 	public static void main(String[] args) {
 		
 		EnSegmenter segmenter = new EnSegmenter();

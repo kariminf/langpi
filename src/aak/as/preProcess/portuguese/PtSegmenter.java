@@ -22,65 +22,18 @@
 
 package aak.as.preProcess.portuguese;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
-import opennlp.tools.sentdetect.SentenceDetectorME;
-import opennlp.tools.sentdetect.SentenceModel;
-import opennlp.tools.tokenize.TokenizerME;
-import opennlp.tools.tokenize.TokenizerModel;
 
 
 import aak.as.preProcess.lang.Segmenter;
+import aak.as.preProcess.std.OpennlpSegmenter;
 
 
-public class PtSegmenter implements Segmenter {
-
-	private final String sentBin = "/ressources/sentenceDetection/pt-sent.bin";
-	private final String wordBin = "/ressources/wordTokenization/pt-token.bin";
-	private final String punctuation="\"'()[]{}!:;,?&.";
+public class PtSegmenter extends OpennlpSegmenter {
 	
-	public List<String> splitToSentences(String text) {
-		
-		List<String> sentences = new ArrayList<String>();
-		
-		try {
-			InputStream modelIn = getClass().getResourceAsStream(sentBin);
-			SentenceModel model = new SentenceModel(modelIn);
-			SentenceDetectorME sentenceDetector = new SentenceDetectorME(model);
-			String[] initSentences = sentenceDetector.sentDetect(text);
-			for(String snt : initSentences){
-				sentences.add(snt);
-			}
-			modelIn.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return sentences;
-	}
-	
-	
-	public List<String> segmentWords(String text) {
-		List<String> wordsList = new ArrayList<String>();
-	    
-	    try {
-	    	InputStream modelIn = getClass().getResourceAsStream(wordBin);
-			TokenizerModel model = new TokenizerModel(modelIn);
-			TokenizerME tokenizer = new TokenizerME(model);
-			String[] words = tokenizer.tokenize(text);
-			for(String word : words)
-				if (!punctuation.contains(word))
-					wordsList.add(word);
-			
-			modelIn.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	    
-	    return wordsList;
+	public PtSegmenter() {
+		super("pt-sent.bin", "pt-token.bin");
 	}
 	
 	public static void main(String[] args) {
