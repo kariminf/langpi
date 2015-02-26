@@ -24,6 +24,7 @@ package aak.as.preProcess.thai;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,8 +41,8 @@ public class ThSegmenter implements Segmenter {
 	
 	//TODO find a way to transform data from version 1.4 to version 1.5
 
-	private final String sentBin = "/ressources/sentenceDetection/thai.sent.bin.gz";
-	private final String wordBin = "/ressources/wordTokenization/thai.tok.bin.gz";
+	private final String sentBin = "/ressources/sentenceDetection/thai.sent.bin";
+	private final String wordBin = "/ressources/wordTokenization/thai.tok.bin";
 	private final String punctuation="\"'()[]{}!:;,?&.";
 	
 	public List<String> splitToSentences(String text) {
@@ -50,9 +51,9 @@ public class ThSegmenter implements Segmenter {
 		//List<String> returnedSentences = new ArrayList<String>();
 		
 		try {
-			//InputStream modelIn = ThSegmenter.class.getResourceAsStream("thai.sent.bin.gz");
-			File file = new File(ThSegmenter.class.getResource(sentBin).getPath());
-			GISModel modelIn = new SuffixSensitiveGISModelReader(file).getModel();
+			InputStream input = ThSegmenter.class.getResourceAsStream(sentBin);
+			//File file = new File(ThSegmenter.class.getResource(sentBin).getPath());
+			GISModel modelIn = new SuffixSensitiveGISModelReader(input).getModel();
 			SentenceDetectorME sentenceDetector = 
 					new SentenceDetectorME(modelIn, new SentenceContextGenerator(), new EndOfSentenceScanner());
 			String[] initSentences = sentenceDetector.sentDetect(text);
@@ -72,9 +73,9 @@ public class ThSegmenter implements Segmenter {
 	    List<String> wordsList = new ArrayList<String>();
 	    
 	    try {
-			//InputStream modelIn = ThSegmenter.class.getResourceAsStream("thai.sent.bin.gz");
-			File file = new File(ThSegmenter.class.getResource(wordBin).getPath());
-			GISModel modelIn = new SuffixSensitiveGISModelReader(file).getModel();
+			InputStream input = ThSegmenter.class.getResourceAsStream(wordBin);
+			//File file = new File(ThSegmenter.class.getResource(wordBin).getPath());
+			GISModel modelIn = new SuffixSensitiveGISModelReader(input).getModel();
 			TokenizerME tokenizer = new TokenizerME(modelIn);
 			String[] words = tokenizer.tokenize(text);
 			for(String word : words)
