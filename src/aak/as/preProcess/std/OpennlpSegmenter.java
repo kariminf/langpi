@@ -38,17 +38,19 @@ import aak.as.preProcess.lang.Segmenter;
 
 public abstract class OpennlpSegmenter implements Segmenter {
 
-	private static final String ressources = 
+	private static final String ressourcesSent = 
 			"/ressources/sentenceDetection/";
+	private static final String ressourcesWord = 
+			"/ressources/wordTokenization/";
 	
 	private static final String punctuation = "\"'()[]{}!:;,?&.";
 	
-	private String sentBin;
-	private String wordBin;
+	private final String sentBin;
+	private final String wordBin;
 	
 	public OpennlpSegmenter(String sentBin, String wordBin){
-		this.sentBin = ressources + sentBin;
-		this.wordBin = ressources + wordBin;
+		this.sentBin = ressourcesSent + sentBin;
+		this.wordBin = ressourcesWord + wordBin;
 	}
 	
 	public List<String> splitToSentences(String text) {
