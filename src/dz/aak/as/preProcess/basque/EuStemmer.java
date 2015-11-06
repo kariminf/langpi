@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.tartarus.snowball.ext.BasqueStemmer;
 
-import aak.as.preProcess.lang.Stemmer;
+import dz.aak.as.preProcess.lang.Stemmer;
 
 public class EuStemmer implements Stemmer {
 	

@@ -3,7 +3,7 @@ package dz.aak.as.preProcess.arabic;
 import java.util.ArrayList;
 import java.util.List;
 
-import aak.as.preProcess.lang.Segmenter;
+import dz.aak.as.preProcess.lang.Segmenter;
 
 public class ArSegmenter implements Segmenter{
 

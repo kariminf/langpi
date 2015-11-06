@@ -31,7 +31,7 @@ import java.util.List;
 
 import org.apache.lucene.analysis.fa.PersianAnalyzer;
 
-import aak.as.preProcess.lang.SWEliminator;
+import dz.aak.as.preProcess.lang.SWEliminator;
 
 
 

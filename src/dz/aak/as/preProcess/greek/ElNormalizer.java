@@ -29,7 +29,7 @@ import java.util.HashMap;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.el.GreekLowerCaseFilter;
 
-import aak.as.preProcess.lang.Normalizer;
+import dz.aak.as.preProcess.lang.Normalizer;
 
 public class ElNormalizer implements Normalizer {
 

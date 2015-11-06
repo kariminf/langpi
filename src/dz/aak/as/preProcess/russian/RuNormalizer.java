@@ -24,7 +24,7 @@ package dz.aak.as.preProcess.russian;
 
 import java.util.HashMap;
 
-import aak.as.preProcess.lang.Normalizer;
+import dz.aak.as.preProcess.lang.Normalizer;
 
 public class RuNormalizer implements Normalizer {
 

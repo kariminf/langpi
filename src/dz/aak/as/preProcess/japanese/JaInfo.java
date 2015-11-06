@@ -1,6 +1,6 @@
 package dz.aak.as.preProcess.japanese;
 
-import aak.as.preProcess.lang.PreProcessInfo;
+import dz.aak.as.preProcess.lang.PreProcessInfo;
 
 public class JaInfo implements PreProcessInfo {
 

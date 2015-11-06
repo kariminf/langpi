@@ -38,7 +38,7 @@ package dz.aak.as.preProcess.chinese;
 import java.util.List;
 
 
-import aak.as.preProcess.lang.Stemmer;
+import dz.aak.as.preProcess.lang.Stemmer;
 
 
 /**

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import aak.as.preProcess.lang.Stemmer;
+import dz.aak.as.preProcess.lang.Stemmer;
 
 public class KoStemmer implements Stemmer {
 

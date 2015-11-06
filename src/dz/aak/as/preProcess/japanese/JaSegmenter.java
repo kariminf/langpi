@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import aak.as.preProcess.lang.Segmenter;
+import dz.aak.as.preProcess.lang.Segmenter;
 
 import org.apache.lucene.analysis.ja.JapaneseTokenizer;
 import org.apache.lucene.analysis.ja.tokenattributes.BaseFormAttribute;

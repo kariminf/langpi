@@ -25,7 +25,7 @@ package dz.aak.as.preProcess.hindi;
 import java.util.HashMap;
 
 
-import aak.as.preProcess.lang.Normalizer;
+import dz.aak.as.preProcess.lang.Normalizer;
 
 public class HiNormalizer implements Normalizer {
 

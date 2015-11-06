@@ -24,7 +24,7 @@ package dz.aak.as.preProcess.dutch;
 
 import java.util.HashMap;
 
-import aak.as.preProcess.lang.Normalizer;
+import dz.aak.as.preProcess.lang.Normalizer;
 
 public class NlNormalizer implements Normalizer {
 

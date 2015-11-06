@@ -1,6 +1,6 @@
 package dz.aak.as.preProcess.indonesian;
 
-import aak.as.preProcess.lang.PreProcessInfo;
+import dz.aak.as.preProcess.lang.PreProcessInfo;
 
 public class IdInfo implements PreProcessInfo {
 

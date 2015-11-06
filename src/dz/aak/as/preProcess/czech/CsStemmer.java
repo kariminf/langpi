@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.apache.lucene.analysis.cz.CzechStemmer;
 
-import aak.as.preProcess.lang.Stemmer;
+import dz.aak.as.preProcess.lang.Stemmer;
 
 public class CsStemmer implements Stemmer {
 	

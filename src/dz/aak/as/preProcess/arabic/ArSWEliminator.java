@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import aak.as.preProcess.lang.SWEliminator;
+import dz.aak.as.preProcess.lang.SWEliminator;
 
 public class ArSWEliminator implements SWEliminator {
 

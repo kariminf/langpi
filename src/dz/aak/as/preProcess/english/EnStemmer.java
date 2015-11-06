@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.tartarus.snowball.ext.PorterStemmer;
 
-import aak.as.preProcess.lang.Stemmer;
+import dz.aak.as.preProcess.lang.Stemmer;
 
 public class EnStemmer implements Stemmer {
 

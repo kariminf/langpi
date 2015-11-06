@@ -1,6 +1,6 @@
 package dz.aak.as.preProcess.nynorsk;
 
-import aak.as.preProcess.lang.PreProcessInfo;
+import dz.aak.as.preProcess.lang.PreProcessInfo;
 
 public class NnInfo implements PreProcessInfo {
 

@@ -1,6 +1,6 @@
 package dz.aak.as.preProcess.dutch;
 
-import aak.as.preProcess.lang.PreProcessInfo;
+import dz.aak.as.preProcess.lang.PreProcessInfo;
 
 public class NlInfo implements PreProcessInfo {
 

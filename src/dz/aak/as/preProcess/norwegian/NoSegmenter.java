@@ -27,7 +27,7 @@ import java.util.List;
 import dz.aak.as.preProcess.std.LatinSegmenter;
 
 
-import aak.as.preProcess.lang.Segmenter;
+import dz.aak.as.preProcess.lang.Segmenter;
 
 
 public class NoSegmenter extends LatinSegmenter {

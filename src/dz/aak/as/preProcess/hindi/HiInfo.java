@@ -1,6 +1,6 @@
 package dz.aak.as.preProcess.hindi;
 
-import aak.as.preProcess.lang.PreProcessInfo;
+import dz.aak.as.preProcess.lang.PreProcessInfo;
 
 public class HiInfo implements PreProcessInfo {
 

@@ -1,6 +1,6 @@
 package dz.aak.as.preProcess.english;
 
-import aak.as.preProcess.lang.PreProcessInfo;;
+import dz.aak.as.preProcess.lang.PreProcessInfo;;
 
 public class EnInfo implements PreProcessInfo {
 

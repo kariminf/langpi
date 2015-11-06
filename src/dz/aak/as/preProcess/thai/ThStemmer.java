@@ -4,7 +4,7 @@ package dz.aak.as.preProcess.thai;
 import java.util.ArrayList;
 import java.util.List;
 
-import aak.as.preProcess.lang.Stemmer;
+import dz.aak.as.preProcess.lang.Stemmer;
 
 public class ThStemmer implements Stemmer {
 

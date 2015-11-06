@@ -9,7 +9,7 @@ import com.code972.hebmorph.Lemmatizer;
 import com.code972.hebmorph.hspell.HSpellLoader;
 
 
-import aak.as.preProcess.lang.Stemmer;
+import dz.aak.as.preProcess.lang.Stemmer;
 
 
 /**

@@ -32,7 +32,7 @@ import opennlp.tools14.lang.thai.EndOfSentenceScanner;
 import opennlp.tools14.lang.thai.SentenceContextGenerator;
 import opennlp.tools14.sentdetect.SentenceDetectorME;
 import opennlp.tools14.tokenize.TokenizerME;
-import aak.as.preProcess.lang.Segmenter;
+import dz.aak.as.preProcess.lang.Segmenter;
 import opennlp.maxent25.GISModel;
 import opennlp.maxent25.io.SuffixSensitiveGISModelReader;
 

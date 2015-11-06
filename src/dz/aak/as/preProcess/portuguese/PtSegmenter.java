@@ -28,7 +28,7 @@ import dz.aak.as.preProcess.std.OpennlpSegmenter;
 
 
 
-import aak.as.preProcess.lang.Segmenter;
+import dz.aak.as.preProcess.lang.Segmenter;
 
 
 public class PtSegmenter extends OpennlpSegmenter {

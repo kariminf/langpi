@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.tartarus.snowball.ext.DutchStemmer;
 
-import aak.as.preProcess.lang.Stemmer;
+import dz.aak.as.preProcess.lang.Stemmer;
 
 public class NlStemmer implements Stemmer {
 
