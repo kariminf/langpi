@@ -16,6 +16,6 @@ Extension-Name: dz/aak/as/preProcess
 Specification-Title: AllSummarizer: PreProcess
 Specification-Version: 0.6
 Specification-Vendor: Abdelkrime Aries
-Implementation-Title: aak.as.preProcess
+Implementation-Title: dz.aak.as.preProcess
 Implementation-Version: 0.6.0 build2
 Implementation-Vendor: Abdelkrime Aries
