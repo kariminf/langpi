@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import dz.aak.as.preProcess.lang.Segmenter;
+import kariminf.as.preProcess.lang.Segmenter;
 
 
 public abstract class LatinSegmenter implements Segmenter {

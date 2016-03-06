@@ -40,7 +40,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import dz.aak.as.preProcess.lang.Stemmer;
+import kariminf.as.preProcess.lang.Stemmer;
 
 
 /**

@@ -27,15 +27,11 @@ import java.util.List;
 import kariminf.as.preProcess.std.LatinSegmenter;
 
 
-
-import dz.aak.as.preProcess.lang.Segmenter;
-
-
 public class SvSegmenter extends LatinSegmenter {
 	
 	public static void main(String[] args) {
 		
-		Segmenter segmenter = new SvSegmenter();
+		SvSegmenter segmenter = new SvSegmenter();
 		List<String> sent = segmenter.segmentWords("som d'Holbach, kallas de inkompatibilister som accepterar determinism och förkastar fri vilja.");
 		
 		for (String s: sent)

@@ -31,7 +31,7 @@ import java.util.List;
 
 import org.apache.lucene.analysis.eu.BasqueAnalyzer;
 
-import dz.aak.as.preProcess.lang.SWEliminator;
+import kariminf.as.preProcess.lang.SWEliminator;
 
 
 

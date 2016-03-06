@@ -38,7 +38,7 @@ package kariminf.as.preProcess.chinese;
 import java.util.List;
 
 
-import dz.aak.as.preProcess.lang.Stemmer;
+import kariminf.as.preProcess.lang.Stemmer;
 
 
 /**

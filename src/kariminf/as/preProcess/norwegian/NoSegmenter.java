@@ -27,15 +27,11 @@ import java.util.List;
 import kariminf.as.preProcess.std.LatinSegmenter;
 
 
-
-import dz.aak.as.preProcess.lang.Segmenter;
-
-
 public class NoSegmenter extends LatinSegmenter {
 
 	public static void main(String[] args) {
 		
-		Segmenter segmenter = new NoSegmenter();
+		NoSegmenter segmenter = new NoSegmenter();
 		List<String> sent = segmenter.segmentWords("Utallige slike tilfeller av nåde er nedtegnet fra ulike asiatiske kongedømmer.");
 		
 		for (String s: sent)

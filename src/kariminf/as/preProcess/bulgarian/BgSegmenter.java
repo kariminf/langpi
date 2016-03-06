@@ -27,15 +27,11 @@ import java.util.List;
 import kariminf.as.preProcess.std.LatinSegmenter;
 
 
-
-import dz.aak.as.preProcess.lang.Segmenter;
-
-
 public class BgSegmenter extends LatinSegmenter {
 	
 	public static void main(String[] args) {
 		
-		Segmenter segmenter = new BgSegmenter();
+		BgSegmenter segmenter = new BgSegmenter();
 		List<String> sent = segmenter.segmentWords("Модулът ще побира до шестима души.");
 		
 		for (String s: sent)

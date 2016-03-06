@@ -1,6 +1,6 @@
 package kariminf.as.preProcess.catalan;
 
-import dz.aak.as.preProcess.lang.PreProcessInfo;
+import kariminf.as.preProcess.lang.PreProcessInfo;
 
 public class CaInfo implements PreProcessInfo {
 

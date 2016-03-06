@@ -26,16 +26,11 @@ import java.util.List;
 
 import kariminf.as.preProcess.std.LatinSegmenter;
 
-
-
-import dz.aak.as.preProcess.lang.Segmenter;
-
-
 public class TrSegmenter extends LatinSegmenter {
 	
 	public static void main(String[] args) {
 		
-		Segmenter segmenter = new TrSegmenter();
+		TrSegmenter segmenter = new TrSegmenter();
 		List<String> sent = segmenter.segmentWords("Kurucu yönetmeni olmasına rağmen tiyatrodaki kariyeri ihanet ve trajediyle sona erdi.");
 		
 		for (String s: sent)

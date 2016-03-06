@@ -1,6 +1,6 @@
 package kariminf.as.preProcess.french;
 
-import dz.aak.as.preProcess.lang.PreProcessInfo;
+import kariminf.as.preProcess.lang.PreProcessInfo;
 
 public class FrInfo implements PreProcessInfo {
 

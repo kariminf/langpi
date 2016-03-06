@@ -1,6 +1,6 @@
 package kariminf.as.preProcess.japanese;
 
-import dz.aak.as.preProcess.lang.PreProcessInfo;
+import kariminf.as.preProcess.lang.PreProcessInfo;
 
 public class JaInfo implements PreProcessInfo {
 

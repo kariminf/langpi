@@ -27,11 +27,6 @@ import java.util.List;
 import kariminf.as.preProcess.std.OpennlpSegmenter;
 
 
-
-
-import dz.aak.as.preProcess.lang.Segmenter;
-
-
 public class PtSegmenter extends OpennlpSegmenter {
 	
 	public PtSegmenter() {
@@ -40,7 +35,7 @@ public class PtSegmenter extends OpennlpSegmenter {
 	
 	public static void main(String[] args) {
 		
-		Segmenter segmenter = new PtSegmenter();
+		PtSegmenter segmenter = new PtSegmenter();
 		List<String> sent = segmenter.segmentWords("O condor-da-califórnia foi descrito pelo naturalista inglês George Shaw em 1797, como Vultur californianus.");
 		
 		for (String s: sent)

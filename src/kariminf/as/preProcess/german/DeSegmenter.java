@@ -27,8 +27,6 @@ import java.util.List;
 import kariminf.as.preProcess.std.OpennlpSegmenter;
 
 
-
-
 public class DeSegmenter extends OpennlpSegmenter {
 	
 	public DeSegmenter() {

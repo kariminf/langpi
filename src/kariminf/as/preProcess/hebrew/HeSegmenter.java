@@ -35,9 +35,6 @@ import com.code972.hebmorph.Tokenizer;
 import com.code972.hebmorph.hspell.HSpellLoader;
 
 
-
-
-
 public class HeSegmenter extends LatinSegmenter {
 	
 	@Override

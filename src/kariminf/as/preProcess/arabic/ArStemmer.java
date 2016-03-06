@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import dz.aak.as.preProcess.lang.Stemmer;
+import kariminf.as.preProcess.lang.Stemmer;
 
 public class ArStemmer implements Stemmer {
 

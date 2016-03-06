@@ -27,15 +27,11 @@ import java.util.List;
 import kariminf.as.preProcess.std.LatinSegmenter;
 
 
-
-import dz.aak.as.preProcess.lang.Segmenter;
-
-
 public class IdSegmenter extends LatinSegmenter {
 	
 	public static void main(String[] args) {
 		
-		Segmenter segmenter = new IdSegmenter();
+		IdSegmenter segmenter = new IdSegmenter();
 		List<String> sent = segmenter.segmentWords("Salah satu penjelasan waktu standar di India muncul pada abad ke-4 Masehi dalam buku astronomi Surya Siddhanta.");
 		
 		for (String s: sent)

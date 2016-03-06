@@ -27,15 +27,11 @@ import java.util.List;
 import kariminf.as.preProcess.std.LatinSegmenter;
 
 
-
-import dz.aak.as.preProcess.lang.Segmenter;
-
-
 public class NnSegmenter extends LatinSegmenter {
 	
 	public static void main(String[] args) {
 		
-		Segmenter segmenter = new NnSegmenter();
+		NnSegmenter segmenter = new NnSegmenter();
 		List<String> sent = segmenter.segmentWords("Fitjar kommune består av den nordlege halvdelen av øya Stord og Fitjarøyane, som ligg mellom Stord og Bømlo.");
 		
 		for (String s: sent)

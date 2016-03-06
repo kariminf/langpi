@@ -24,7 +24,7 @@ package kariminf.as.preProcess.arabic;
 
 import java.util.HashMap;
 
-import dz.aak.as.preProcess.lang.Normalizer;
+import kariminf.as.preProcess.lang.Normalizer;
 
 public class ArNormalizer implements Normalizer {
 

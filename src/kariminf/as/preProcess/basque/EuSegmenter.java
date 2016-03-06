@@ -27,16 +27,12 @@ import java.util.List;
 import kariminf.as.preProcess.std.LatinSegmenter;
 
 
-
-import dz.aak.as.preProcess.lang.Segmenter;
-
-
 public class EuSegmenter extends LatinSegmenter {
 
 	
 	public static void main(String[] args) {
 		
-		Segmenter segmenter = new EuSegmenter();
+		EuSegmenter segmenter = new EuSegmenter();
 		List<String> sent = segmenter.segmentWords("Bitxia denez, left hitzak ere ganorabako edo utzia bezala ere itzuli daiteke, right zuzena den bitartean.");
 		
 		for (String s: sent)

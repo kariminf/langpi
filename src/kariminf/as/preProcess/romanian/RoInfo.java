@@ -1,6 +1,6 @@
 package kariminf.as.preProcess.romanian;
 
-import dz.aak.as.preProcess.lang.PreProcessInfo;
+import kariminf.as.preProcess.lang.PreProcessInfo;
 
 public class RoInfo implements PreProcessInfo {
 

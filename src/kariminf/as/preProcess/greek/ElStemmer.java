@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import dz.aak.as.preProcess.lang.Stemmer;
+import kariminf.as.preProcess.lang.Stemmer;
 
 
 import org.apache.lucene.analysis.el.GreekStemmer;

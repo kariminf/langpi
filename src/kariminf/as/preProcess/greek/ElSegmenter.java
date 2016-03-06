@@ -27,9 +27,6 @@ import java.util.List;
 import kariminf.as.preProcess.std.LatinSegmenter;
 
 
-
-
-
 public class ElSegmenter extends LatinSegmenter {
 	
 	public static void main(String[] args) {

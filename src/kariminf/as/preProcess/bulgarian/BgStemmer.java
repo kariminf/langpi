@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.apache.lucene.analysis.bg.BulgarianStemmer;
 
-import dz.aak.as.preProcess.lang.Stemmer;
+import kariminf.as.preProcess.lang.Stemmer;
 
 public class BgStemmer implements Stemmer {
 

@@ -1,6 +1,6 @@
 package kariminf.as.preProcess.portuguese;
 
-import dz.aak.as.preProcess.lang.PreProcessInfo;
+import kariminf.as.preProcess.lang.PreProcessInfo;
 
 public class PtInfo implements PreProcessInfo {
 

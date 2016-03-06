@@ -24,7 +24,7 @@ package kariminf.as.preProcess.norwegian;
 
 import java.util.HashMap;
 
-import dz.aak.as.preProcess.lang.Normalizer;
+import kariminf.as.preProcess.lang.Normalizer;
 
 public class NoNormalizer implements Normalizer {
 

@@ -22,7 +22,6 @@
 
 package kariminf.as.preProcess.thai;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -32,7 +31,7 @@ import opennlp.tools14.lang.thai.EndOfSentenceScanner;
 import opennlp.tools14.lang.thai.SentenceContextGenerator;
 import opennlp.tools14.sentdetect.SentenceDetectorME;
 import opennlp.tools14.tokenize.TokenizerME;
-import dz.aak.as.preProcess.lang.Segmenter;
+import kariminf.as.preProcess.lang.Segmenter;
 import opennlp.maxent25.GISModel;
 import opennlp.maxent25.io.SuffixSensitiveGISModelReader;
 

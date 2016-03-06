@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import dz.aak.as.preProcess.lang.SWEliminator;
+import kariminf.as.preProcess.lang.SWEliminator;
 
 
 

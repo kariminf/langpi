@@ -27,15 +27,11 @@ import java.util.List;
 import kariminf.as.preProcess.std.LatinSegmenter;
 
 
-
-import dz.aak.as.preProcess.lang.Segmenter;
-
-
 public class CaSegmenter extends LatinSegmenter {
 	
 	public static void main(String[] args) {
 		
-		Segmenter segmenter = new CaSegmenter();
+		CaSegmenter segmenter = new CaSegmenter();
 		List<String> sent = segmenter.segmentWords("Jordan va rebre una beca per jugar a bàsquet a la Universitat de Carolina del Nord, on s'especialitzà en geografia.");
 		
 		for (String s: sent)

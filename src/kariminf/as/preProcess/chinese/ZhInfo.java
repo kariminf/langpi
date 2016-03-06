@@ -1,6 +1,6 @@
 package kariminf.as.preProcess.chinese;
 
-import dz.aak.as.preProcess.lang.PreProcessInfo;
+import kariminf.as.preProcess.lang.PreProcessInfo;
 
 public class ZhInfo implements PreProcessInfo {
 

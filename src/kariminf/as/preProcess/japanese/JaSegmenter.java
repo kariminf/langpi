@@ -30,8 +30,6 @@ import java.util.List;
 import kariminf.as.preProcess.std.CJSegmenter;
 
 
-import dz.aak.as.preProcess.lang.Segmenter;
-
 import org.apache.lucene.analysis.ja.JapaneseTokenizer;
 import org.apache.lucene.analysis.ja.tokenattributes.BaseFormAttribute;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;

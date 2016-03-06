@@ -1,6 +1,6 @@
 package kariminf.as.preProcess.finnish;
 
-import dz.aak.as.preProcess.lang.PreProcessInfo;
+import kariminf.as.preProcess.lang.PreProcessInfo;
 
 public class FiInfo implements PreProcessInfo {
 

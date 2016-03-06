@@ -22,14 +22,10 @@
 
 package kariminf.as.preProcess.greek;
 
-import java.io.Reader;
-import java.io.StringReader;
 import java.util.HashMap;
 
-import org.apache.lucene.analysis.TokenStream;
-import org.apache.lucene.analysis.el.GreekLowerCaseFilter;
 
-import dz.aak.as.preProcess.lang.Normalizer;
+import kariminf.as.preProcess.lang.Normalizer;
 
 public class ElNormalizer implements Normalizer {
 

@@ -33,7 +33,7 @@ import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
 
 
-import dz.aak.as.preProcess.lang.Segmenter;
+import kariminf.as.preProcess.lang.Segmenter;
 
 
 public abstract class OpennlpSegmenter implements Segmenter {

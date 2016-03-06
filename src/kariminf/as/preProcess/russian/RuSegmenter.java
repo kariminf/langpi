@@ -28,15 +28,11 @@ import java.util.List;
 import kariminf.as.preProcess.std.LatinSegmenter;
 
 
-
-import dz.aak.as.preProcess.lang.Segmenter;
-
-
 public class RuSegmenter extends LatinSegmenter {
 	
 	public static void main(String[] args) {
 		
-		Segmenter segmenter = new RuSegmenter();
+		RuSegmenter segmenter = new RuSegmenter();
 		List<String> sent = segmenter.segmentWords("Все эти источники информации дают одинаковую картину с точностью до погрешности используемых методов.");
 		
 		for (String s: sent)

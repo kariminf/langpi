@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.tartarus.snowball.ext.SwedishStemmer;
 
-import dz.aak.as.preProcess.lang.Stemmer;
+import kariminf.as.preProcess.lang.Stemmer;
 
 public class SvStemmer implements Stemmer {
 	

@@ -27,9 +27,6 @@ import java.util.List;
 
 import kariminf.as.preProcess.std.CJSegmenter;
 
-
-import dz.aak.as.preProcess.lang.Segmenter;
-
 import org.apache.lucene.analysis.cn.smart.hhmm.*;
 
 

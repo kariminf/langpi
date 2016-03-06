@@ -35,18 +35,12 @@ Release 4
 
 package kariminf.as.preProcess.japanese;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.apache.lucene.analysis.ja.JapaneseBaseFormFilter;
-import org.apache.lucene.analysis.ja.JapaneseKatakanaStemFilter;
-import org.apache.lucene.analysis.ja.tokenattributes.BaseFormAttribute;
-import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 
-
-import dz.aak.as.preProcess.lang.Stemmer;
+import kariminf.as.preProcess.lang.Stemmer;
 
 
 /**

@@ -1,6 +1,6 @@
 package kariminf.as.preProcess.russian;
 
-import dz.aak.as.preProcess.lang.PreProcessInfo;
+import kariminf.as.preProcess.lang.PreProcessInfo;
 
 public class RuInfo implements PreProcessInfo {
 

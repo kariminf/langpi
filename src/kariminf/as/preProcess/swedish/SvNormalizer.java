@@ -24,7 +24,7 @@ package kariminf.as.preProcess.swedish;
 
 import java.util.HashMap;
 
-import dz.aak.as.preProcess.lang.Normalizer;
+import kariminf.as.preProcess.lang.Normalizer;
 
 public class SvNormalizer implements Normalizer {
 
