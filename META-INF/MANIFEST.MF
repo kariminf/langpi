@@ -12,10 +12,10 @@ Class-Path: .
  ../lib/snowball.jar 
  ../lib/trove.jar 
  ../lib/JHazm_AS.jar
-Extension-Name: dz/aak/as/preProcess
+Extension-Name: kariminf/as/preProcess
 Specification-Title: AllSummarizer: PreProcess
-Specification-Version: 0.6
+Specification-Version: 0.7
 Specification-Vendor: Abdelkrime Aries
-Implementation-Title: dz.aak.as.preProcess
-Implementation-Version: 0.6.0 build2
+Implementation-Title: kariminf.as.preProcess
+Implementation-Version: 0.7.0 build2
 Implementation-Vendor: Abdelkrime Aries
