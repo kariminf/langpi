@@ -1,7 +1,7 @@
 /*
- * This file is part of AllSummarizer project
+ * LangPi basic language processing tasks 
  * 
- * Copyright 2015 Abdelkrime Aries <kariminfo0@gmail.com>
+ * Copyright 2015-2016 Abdelkrime Aries <kariminfo0@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
