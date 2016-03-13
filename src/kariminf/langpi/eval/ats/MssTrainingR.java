@@ -1,24 +1,20 @@
-package kariminf.langp.testing.ats;
+package kariminf.langpi.eval.ats;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
-
-import aak.as.preProcess.def.DefSegmenter;
-import aak.as.preProcess.def.DefStemmer;
-import aak.as.preProcess.lang.PreProcessInfo;
-import aak.as.preProcess.lang.Segmenter;
-import aak.as.preProcess.lang.Stemmer;
-import aak.as.tools.Calculus;
-import aak.as.tools.FileManager;
-import aak.as.tools.JarLoader;
+import kariminf.langpi.basic.def.DefSegmenter;
+import kariminf.langpi.basic.def.DefStemmer;
+import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.Segmenter;
+import kariminf.langpi.basic.Stemmer;
+import kariminf.ktoolja.math.Calculus;
+import kariminf.ktoolja.file.FileManager;
+import kariminf.ktoolja.plugins.JarLoader;
 
 public class MssTrainingR {
 

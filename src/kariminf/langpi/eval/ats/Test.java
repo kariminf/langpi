@@ -1,18 +1,18 @@
-package kariminf.langp.testing.ats;
+package kariminf.langpi.eval.ats;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import aak.as.preProcess.def.DefNormalizer;
-import aak.as.preProcess.def.DefSWEliminator;
-import aak.as.preProcess.def.DefSegmenter;
-import aak.as.preProcess.def.DefStemmer;
-import aak.as.preProcess.lang.Normalizer;
-import aak.as.preProcess.lang.PreProcessInfo;
-import aak.as.preProcess.lang.SWEliminator;
-import aak.as.preProcess.lang.Segmenter;
-import aak.as.preProcess.lang.Stemmer;
-import aak.as.tools.JarLoader;
+import kariminf.langpi.basic.def.DefNormalizer;
+import kariminf.langpi.basic.def.DefSWEliminator;
+import kariminf.langpi.basic.def.DefSegmenter;
+import kariminf.langpi.basic.def.DefStemmer;
+import kariminf.langpi.basic.Normalizer;
+import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.SWEliminator;
+import kariminf.langpi.basic.Segmenter;
+import kariminf.langpi.basic.Stemmer;
+import kariminf.ktoolja.plugins.JarLoader;
 
 public class Test {
 

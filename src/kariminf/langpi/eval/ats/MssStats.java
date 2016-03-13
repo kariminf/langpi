@@ -2,26 +2,11 @@ package kariminf.langpi.eval.ats;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+import kariminf.ktoolja.file.FileManager;
 
-
-
-import aak.as.preProcess.def.DefSegmenter;
-import aak.as.preProcess.def.DefStemmer;
-import aak.as.preProcess.lang.PreProcessInfo;
-import aak.as.preProcess.lang.Segmenter;
-import aak.as.preProcess.lang.Stemmer;
-import aak.as.tools.Calculus;
-import aak.as.tools.FileManager;
-import aak.as.tools.JarLoader;
 
 public class MssStats {
 
