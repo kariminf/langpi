@@ -12,10 +12,10 @@ Class-Path: .
  ../lib/snowball.jar 
  ../lib/trove.jar 
  ../lib/JHazm_AS.jar
-Extension-Name: kariminf/as/preProcess
-Specification-Title: AllSummarizer: PreProcess
-Specification-Version: 0.7
+Extension-Name: kariminf/lingpi/basic
+Specification-Title: LingPi: Basic
+Specification-Version: 1.0
 Specification-Vendor: Abdelkrime Aries
-Implementation-Title: kariminf.as.preProcess
-Implementation-Version: 0.7.0 build2
+Implementation-Title: kariminf.lingpi.basic
+Implementation-Version: 1.0.0 build1
 Implementation-Vendor: Abdelkrime Aries
