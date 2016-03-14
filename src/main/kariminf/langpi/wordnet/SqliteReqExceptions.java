@@ -17,16 +17,32 @@
  */
 
 
-package kariminf.nalangen.wordnet;
+package kariminf.langpi.wordnet;
 
-import java.util.List;
-
-public interface WNRequestor {
+public class SqliteReqExceptions {
 	
-	public String getWord(int synset, String pos);
+	/**
+	 * This exception happens when the database is not sqlite, 
+	 * or the file has not been found
+	 * 
+	 * @author Abdelkrime Aries
+	 *
+	 */
+	public static class NoSqliteBase extends Exception {
+		private static final long serialVersionUID = 1L;
+	}
 	
-	public List<String> getWords(int synset, String pos);
+	/**
+	 * This exception happens when the database doesn't contain the specified language
+	 * 
+	 * @author Abdelkrime Aries
+	 *
+	 */
+	public static class LangNotFound extends Exception {
+		private static final long serialVersionUID = 1L;
+		
+	}
 	
-	public int getSynset(String word, String pos);
+	
 
 }

@@ -17,7 +17,7 @@
  */
 
 
-package kariminf.nalangen.wordnet;
+package kariminf.langpi.wordnet;
 
 import java.io.File;
 import java.sql.Connection;
@@ -28,8 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import kariminf.nalangen.wordnet.SqliteReqExceptions.LangNotFound;
-import kariminf.nalangen.wordnet.SqliteReqExceptions.NoSqliteBase;
+import kariminf.langpi.wordnet.SqliteReqExceptions.LangNotFound;
+import kariminf.langpi.wordnet.SqliteReqExceptions.NoSqliteBase;
 
 import org.sqlite.JDBC;
 

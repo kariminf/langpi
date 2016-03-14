@@ -17,7 +17,7 @@
  */
 
 
-package kariminf.nalangen.wordnet;
+package kariminf.langpi.wordnet;
 
 import java.io.File;
 import java.io.IOException;
