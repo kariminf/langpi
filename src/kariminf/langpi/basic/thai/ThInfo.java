@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.thai;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class ThInfo implements PreProcessInfo {
+public class ThInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "th";
 	}
 
@@ -20,7 +20,7 @@ public class ThInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Th";
 	}
 

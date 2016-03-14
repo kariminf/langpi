@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.german;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class DeInfo implements PreProcessInfo {
+public class DeInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "de";
 	}
 
@@ -20,7 +20,7 @@ public class DeInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "De";
 	}
 

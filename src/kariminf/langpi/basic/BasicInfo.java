@@ -26,8 +26,23 @@ import kariminf.ktoolja.plugins.Info;
  * @author Abdelkrime Aries
  *
  */
-public interface PreProcessInfo extends Info {
+public interface BasicInfo extends Info {
 	
-	static final String version = "0.7";
+	static final String version = "1.0";
+	
+
+	/**
+	 * Returns the English name of the language, for example "Arabic".
+	 * 
+	 * @return English name of the language
+	 */
+	public String getLangEnglishName();
+	
+	
+	/**
+	 * Returns the original name of the language, for example: "العربية".
+	 * @return language's name with the original alphabet
+	 */
+	public String getLangName();
 
 }

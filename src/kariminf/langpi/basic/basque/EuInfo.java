@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.basque;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class EuInfo implements PreProcessInfo {
+public class EuInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "eu";
 	}
 
@@ -20,7 +20,7 @@ public class EuInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Eu";
 	}
 

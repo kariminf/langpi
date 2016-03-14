@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.russian;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class RuInfo implements PreProcessInfo {
+public class RuInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "ru";
 	}
 
@@ -20,7 +20,7 @@ public class RuInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Ru";
 	}
 

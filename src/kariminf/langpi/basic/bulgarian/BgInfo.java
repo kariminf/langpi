@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.bulgarian;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class BgInfo implements PreProcessInfo {
+public class BgInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "bg";
 	}
 
@@ -20,7 +20,7 @@ public class BgInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Bg";
 	}
 

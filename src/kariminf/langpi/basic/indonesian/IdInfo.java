@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.indonesian;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class IdInfo implements PreProcessInfo {
+public class IdInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "id";
 	}
 
@@ -20,7 +20,7 @@ public class IdInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Id";
 	}
 

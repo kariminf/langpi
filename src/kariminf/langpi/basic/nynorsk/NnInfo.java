@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.nynorsk;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class NnInfo implements PreProcessInfo {
+public class NnInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "nn";
 	}
 
@@ -20,7 +20,7 @@ public class NnInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Nn";
 	}
 

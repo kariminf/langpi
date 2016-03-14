@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.hungarian;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class HuInfo implements PreProcessInfo {
+public class HuInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "hu";
 	}
 
@@ -20,7 +20,7 @@ public class HuInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Hu";
 	}
 

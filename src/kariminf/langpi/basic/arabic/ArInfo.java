@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.arabic;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class ArInfo implements PreProcessInfo {
+public class ArInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "ar";
 	}
 
@@ -20,7 +20,7 @@ public class ArInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Ar";
 	}
 	

@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.portuguese;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class PtInfo implements PreProcessInfo {
+public class PtInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "pt";
 	}
 
@@ -20,7 +20,7 @@ public class PtInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Pt";
 	}
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 import kariminf.langpi.basic.def.DefSegmenter;
 import kariminf.langpi.basic.def.DefStemmer;
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 import kariminf.langpi.basic.Segmenter;
 import kariminf.langpi.basic.Stemmer;
 import kariminf.ktoolja.math.Calculus;
@@ -73,17 +73,17 @@ public class MssTrainingR {
 
 			//*************************************
 			JarLoader jarLoader = 
-					new JarLoader("preProcess/", "aak/as/preProcess", PreProcessInfo.version);
+					new JarLoader("preProcess/", "aak/as/preProcess", BasicInfo.version);
 
-			PreProcessInfo info = jarLoader.getInfoService(lang, PreProcessInfo.class);
+			BasicInfo info = jarLoader.getInfoService(lang, BasicInfo.class);
 
-			Segmenter segmenter = jarLoader.getLangService(info, Segmenter.class);
+			Segmenter segmenter = jarLoader.getClassService(info, Segmenter.class);
 			if (segmenter == null){
 				System.out.println(lang + ": No Segmenter, using default");
 				segmenter = new DefSegmenter();
 			}
 
-			Stemmer stemmer = jarLoader.getLangService(info, Stemmer.class);
+			Stemmer stemmer = jarLoader.getClassService(info, Stemmer.class);
 			if (stemmer == null){
 				System.out.println(lang + ": No Stemmer, using default");
 				stemmer = new DefStemmer();

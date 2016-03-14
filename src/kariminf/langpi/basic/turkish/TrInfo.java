@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.turkish;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class TrInfo implements PreProcessInfo {
+public class TrInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "tr";
 	}
 
@@ -20,7 +20,7 @@ public class TrInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Tr";
 	}
 

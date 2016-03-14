@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.norwegian;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class NoInfo implements PreProcessInfo {
+public class NoInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "no";
 	}
 
@@ -20,7 +20,7 @@ public class NoInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "No";
 	}
 

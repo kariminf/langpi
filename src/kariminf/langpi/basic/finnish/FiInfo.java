@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.finnish;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class FiInfo implements PreProcessInfo {
+public class FiInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "fi";
 	}
 
@@ -20,7 +20,7 @@ public class FiInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Fi";
 	}
 

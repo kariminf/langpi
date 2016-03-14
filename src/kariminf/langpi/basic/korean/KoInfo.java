@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.korean;
 
-import kariminf.langpi.basic.PreProcessInfo;;
+import kariminf.langpi.basic.BasicInfo;;
 
-public class KoInfo implements PreProcessInfo {
+public class KoInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "ko";
 	}
 
@@ -20,7 +20,7 @@ public class KoInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Ko";
 	}
 

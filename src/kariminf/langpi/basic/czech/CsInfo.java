@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.czech;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class CsInfo implements PreProcessInfo {
+public class CsInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "cs";
 	}
 
@@ -20,7 +20,7 @@ public class CsInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Cs";
 	}
 

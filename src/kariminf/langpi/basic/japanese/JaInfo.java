@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.japanese;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class JaInfo implements PreProcessInfo {
+public class JaInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "ja";
 	}
 
@@ -20,7 +20,7 @@ public class JaInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Ja";
 	}
 

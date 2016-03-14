@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.greek;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class ElInfo implements PreProcessInfo {
+public class ElInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "el";
 	}
 
@@ -20,7 +20,7 @@ public class ElInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "El";
 	}
 

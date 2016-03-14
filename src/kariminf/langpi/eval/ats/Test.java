@@ -8,7 +8,7 @@ import kariminf.langpi.basic.def.DefSWEliminator;
 import kariminf.langpi.basic.def.DefSegmenter;
 import kariminf.langpi.basic.def.DefStemmer;
 import kariminf.langpi.basic.Normalizer;
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 import kariminf.langpi.basic.SWEliminator;
 import kariminf.langpi.basic.Segmenter;
 import kariminf.langpi.basic.Stemmer;
@@ -24,29 +24,29 @@ public class Test {
 		KROUGE krouge = new KROUGE();
 		
 		JarLoader jarLoader = 
-				new JarLoader("preProcess/", "aak/as/preProcess", PreProcessInfo.version);
+				new JarLoader("preProcess/", "aak/as/preProcess", BasicInfo.version);
 		
-		PreProcessInfo info = jarLoader.getInfoService("en", PreProcessInfo.class);
+		BasicInfo info = jarLoader.getInfoService("en", BasicInfo.class);
 
-		Normalizer normalizer = jarLoader.getLangService(info, Normalizer.class);
+		Normalizer normalizer = jarLoader.getClassService(info, Normalizer.class);
 		if (normalizer == null){
 			System.out.println("No Normalizer, using default");
 			normalizer = new DefNormalizer();
 		}
 		
-		Segmenter segmenter = jarLoader.getLangService(info,Segmenter.class);
+		Segmenter segmenter = jarLoader.getClassService(info,Segmenter.class);
 		if (segmenter == null){
 			System.out.println("No Segmenter, using default");
 			segmenter = new DefSegmenter();
 		}
 		
-		SWEliminator sweliminator = jarLoader.getLangService(info, SWEliminator.class);
+		SWEliminator sweliminator = jarLoader.getClassService(info, SWEliminator.class);
 		if (sweliminator == null){
 			System.out.println("No SWEliminator, using default");
 			sweliminator = new DefSWEliminator();
 		}
 		
-		Stemmer stemmer = jarLoader.getLangService(info, Stemmer.class);
+		Stemmer stemmer = jarLoader.getClassService(info, Stemmer.class);
 		
 		if (stemmer == null){
 			System.out.println("No Stemmer, using default");

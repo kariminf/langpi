@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.dutch;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class NlInfo implements PreProcessInfo {
+public class NlInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "nl";
 	}
 
@@ -20,7 +20,7 @@ public class NlInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Nl";
 	}
 

@@ -1,11 +1,11 @@
 package kariminf.langpi.basic.chinese;
 
-import kariminf.langpi.basic.PreProcessInfo;
+import kariminf.langpi.basic.BasicInfo;
 
-public class ZhInfo implements PreProcessInfo {
+public class ZhInfo implements BasicInfo {
 
 	@Override
-	public String getISO639_1() {
+	public String getIndicator() {
 		return "zh";
 	}
 
@@ -20,7 +20,7 @@ public class ZhInfo implements PreProcessInfo {
 	}
 
 	@Override
-	public String getPrefix() {
+	public String getClassPrefix() {
 		return "Zh";
 	}
 
