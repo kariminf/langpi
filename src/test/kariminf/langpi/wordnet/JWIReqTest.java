@@ -17,19 +17,16 @@
  */
 
 
-package kariminf.nalangen.wordnet;
+package kariminf.langpi.wordnet;
 
-import java.io.File;
-import java.sql.SQLException;
 
-import kariminf.nalangen.wordnet.JWIRequestor;
-import kariminf.nalangen.wordnet.SqliteReqExceptions.LangNotFound;
-import kariminf.nalangen.wordnet.SqliteReqExceptions.NoSqliteBase;
+import kariminf.langpi.wordnet.JWIRequestor;
+
 
 
 public class JWIReqTest {
 
-	static String wordnetPath = "wordnet/dict/";
+	static String wordnetPath = "wordnetDB/dict/";
 	/**
 	 * @param args
 	 */

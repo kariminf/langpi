@@ -17,20 +17,18 @@
  */
 
 
-package kariminf.nalangen.wordnet;
+package kariminf.langpi.wordnet;
 
-import java.io.File;
-import java.sql.SQLException;
 
-import kariminf.nalangen.wordnet.SqliteRequestor;
-import kariminf.nalangen.wordnet.SqliteReqExceptions.LangNotFound;
-import kariminf.nalangen.wordnet.SqliteReqExceptions.NoSqliteBase;
+import kariminf.langpi.wordnet.SqliteRequestor;
+import kariminf.langpi.wordnet.SqliteReqExceptions.LangNotFound;
+import kariminf.langpi.wordnet.SqliteReqExceptions.NoSqliteBase;
 
 
 public class SqliteReqTest {
 
 	static String lang = "arb";
-	static String basePath = "wordnet/wordnet.sqlite";
+	static String basePath = "wordnetDB/wordnet.sqlite";
 	/**
 	 * @param args
 	 */

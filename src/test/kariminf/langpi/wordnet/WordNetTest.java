@@ -17,7 +17,7 @@
  */
 
 
-package kariminf.nalangen.wordnet;
+package kariminf.langpi.wordnet;
 
 
 import java.io.File;
@@ -42,7 +42,7 @@ public class WordNetTest {
 	public static void testWordSearch() throws IOException{
 
 		// construct the URL to the Wordnet dictionary directory
-		File file =new File("wordnet/dict/");
+		File file =new File("wordnetDB/dict/");
 		// construct the dictionary object and open it
 		IDictionary dict = new Dictionary(file) ;
 		dict.open();
