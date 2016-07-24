@@ -30,6 +30,11 @@ public class SqliteReqExceptions {
 	 */
 	public static class NoSqliteBase extends Exception {
 		private static final long serialVersionUID = 1L;
+
+		public NoSqliteBase() {
+			super("SQLite database not found");
+		}
+		
 	}
 	
 	/**
@@ -40,6 +45,10 @@ public class SqliteReqExceptions {
 	 */
 	public static class LangNotFound extends Exception {
 		private static final long serialVersionUID = 1L;
+		
+		public LangNotFound() {
+			super("Language not found in database");
+		}
 		
 	}
 	

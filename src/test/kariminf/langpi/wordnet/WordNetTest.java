@@ -47,7 +47,7 @@ public class WordNetTest {
 		IDictionary dict = new Dictionary(file) ;
 		dict.open();
 		
-		IIndexWord idxWord = dict.getIndexWord ("help" , POS.VERB) ;
+		IIndexWord idxWord = dict.getIndexWord ("midnight" , POS.NOUN) ;
 		if(idxWord == null) System.out.println("no word\n--------\n");
 		
 		for (IWordID iword: idxWord.getWordIDs()){
@@ -63,7 +63,7 @@ public class WordNetTest {
 	
 	public static void  testTopic() throws IOException{
 		// construct the URL to the Wordnet dictionary directory
-		File file =new File("wordnet/dict/");
+		File file =new File("wordnetDB/dict/");
 		// construct the dictionary object and open it
 		IDictionary dict = new Dictionary(file) ;
 		dict.open();
@@ -73,7 +73,9 @@ public class WordNetTest {
 		
 		//dog: 10114209
 		//car: 2958343
-		IWordID wordID1 = new WordID(2958343,POS.NOUN,1);
+		//home: 8559508
+		//midnight
+		IWordID wordID1 = new WordID(15168185,POS.NOUN,1);
 		IWord word1 = dict.getWord(wordID1);
 		System.out.println("Lemma = " + word1.getLemma());
 		
