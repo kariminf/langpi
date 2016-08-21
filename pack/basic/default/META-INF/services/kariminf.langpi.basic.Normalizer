@@ -10,7 +10,6 @@ kariminf.langpi.basic.basque.EuNormalizer
 kariminf.langpi.basic.persian.FaNormalizer
 kariminf.langpi.basic.finnish.FiNormalizer
 kariminf.langpi.basic.french.FrNormalizer
-kariminf.langpi.basic.hebrew.HeNormalizer
 kariminf.langpi.basic.hindi.HiNormalizer
 kariminf.langpi.basic.hungarian.HuNormalizer
 kariminf.langpi.basic.indonesian.IdNormalizer
@@ -23,6 +22,5 @@ kariminf.langpi.basic.portuguese.PtNormalizer
 kariminf.langpi.basic.romanian.RoNormalizer
 kariminf.langpi.basic.russian.RuNormalizer
 kariminf.langpi.basic.swedish.SvNormalizer
-kariminf.langpi.basic.thai.ThNormalizer
 kariminf.langpi.basic.turkish.TrNormalizer
 kariminf.langpi.basic.chinese.ZhNormalizer

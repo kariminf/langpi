@@ -72,13 +72,11 @@ public class JaStemmer implements Stemmer {
 	
 	public static void main(String[] args) {
 		
+		JaSegmenter segmenter = new JaSegmenter();
 		JaStemmer Stemmer=new JaStemmer();
-		List<String> tstList = new ArrayList<String>();
-		tstList.add("多く");
-		tstList.add("学生");
-		tstList.add("試験");
-		tstList.add("落ち");
+		List<String> tstList = segmenter.segmentWords("先生は学生に早く行きます");
 		
+		System.out.println(tstList.toString());	
 		tstList = Stemmer.stemListWords(tstList);
 		System.out.println(tstList.toString());	
 

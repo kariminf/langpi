@@ -10,7 +10,6 @@ kariminf.langpi.basic.basque.EuSegmenter
 kariminf.langpi.basic.persian.FaSegmenter
 kariminf.langpi.basic.finnish.FiSegmenter
 kariminf.langpi.basic.french.FrSegmenter
-kariminf.langpi.basic.hebrew.HeSegmenter
 kariminf.langpi.basic.hindi.HiSegmenter
 kariminf.langpi.basic.hungarian.HuSegmenter
 kariminf.langpi.basic.indonesian.IdSegmenter
@@ -23,6 +22,5 @@ kariminf.langpi.basic.portuguese.PtSegmenter
 kariminf.langpi.basic.romanian.RoSegmenter
 kariminf.langpi.basic.russian.RuSegmenter
 kariminf.langpi.basic.swedish.SvSegmenter
-kariminf.langpi.basic.thai.ThSegmenter
 kariminf.langpi.basic.turkish.TrSegmenter
 kariminf.langpi.basic.chinese.ZhSegmenter

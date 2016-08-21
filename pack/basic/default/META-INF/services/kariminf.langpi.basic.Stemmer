@@ -10,7 +10,6 @@ kariminf.langpi.basic.basque.EuStemmer
 kariminf.langpi.basic.persian.FaStemmer
 kariminf.langpi.basic.finnish.FiStemmer
 kariminf.langpi.basic.french.FrStemmer
-kariminf.langpi.basic.hebrew.HeStemmer
 kariminf.langpi.basic.hindi.HiStemmer
 kariminf.langpi.basic.hungarian.HuStemmer
 kariminf.langpi.basic.indonesian.IdStemmer
@@ -23,6 +22,5 @@ kariminf.langpi.basic.portuguese.PtStemmer
 kariminf.langpi.basic.romanian.RoStemmer
 kariminf.langpi.basic.russian.RuStemmer
 kariminf.langpi.basic.swedish.SvStemmer
-kariminf.langpi.basic.thai.ThStemmer
 kariminf.langpi.basic.turkish.TrStemmer
 kariminf.langpi.basic.chinese.ZhStemmer

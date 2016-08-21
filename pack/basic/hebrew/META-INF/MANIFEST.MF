@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Class-Path: . 
+ ../lib/hebmorph_AS.jar 
+Extension-Name: kariminf/langpi/basic
+Specification-Title: LangPi: Basic
+Specification-Version: 1.0
+Specification-Vendor: Abdelkrime Aries
+Implementation-Title: kariminf.langpi.basic
+Implementation-Version: 1.0.0 build1
+Implementation-Vendor: Abdelkrime Aries

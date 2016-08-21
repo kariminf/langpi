@@ -10,7 +10,6 @@ kariminf.langpi.basic.basque.EuInfo
 kariminf.langpi.basic.persian.FaInfo
 kariminf.langpi.basic.finnish.FiInfo
 kariminf.langpi.basic.french.FrInfo
-kariminf.langpi.basic.hebrew.HeInfo
 kariminf.langpi.basic.hindi.HiInfo
 kariminf.langpi.basic.hungarian.HuInfo
 kariminf.langpi.basic.indonesian.IdInfo
@@ -23,6 +22,5 @@ kariminf.langpi.basic.portuguese.PtInfo
 kariminf.langpi.basic.romanian.RoInfo
 kariminf.langpi.basic.russian.RuInfo
 kariminf.langpi.basic.swedish.SvInfo
-kariminf.langpi.basic.thai.ThInfo
 kariminf.langpi.basic.turkish.TrInfo
 kariminf.langpi.basic.chinese.ZhInfo

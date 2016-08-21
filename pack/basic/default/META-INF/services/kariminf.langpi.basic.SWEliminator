@@ -10,7 +10,6 @@ kariminf.langpi.basic.basque.EuSWEliminator
 kariminf.langpi.basic.persian.FaSWEliminator
 kariminf.langpi.basic.finnish.FiSWEliminator
 kariminf.langpi.basic.french.FrSWEliminator
-kariminf.langpi.basic.hebrew.HeSWEliminator
 kariminf.langpi.basic.hindi.HiSWEliminator
 kariminf.langpi.basic.hungarian.HuSWEliminator
 kariminf.langpi.basic.indonesian.IdSWEliminator
@@ -23,6 +22,5 @@ kariminf.langpi.basic.portuguese.PtSWEliminator
 kariminf.langpi.basic.romanian.RoSWEliminator
 kariminf.langpi.basic.russian.RuSWEliminator
 kariminf.langpi.basic.swedish.SvSWEliminator
-kariminf.langpi.basic.thai.ThSWEliminator
 kariminf.langpi.basic.turkish.TrSWEliminator
 kariminf.langpi.basic.chinese.ZhSWEliminator
