@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Class-Path: . 
+ ../lib/LangPi-basic.jar 
  ../lib/jwnl-1.3.3.jar 
  ../lib/opennlp-tools-1.4.2_AS.jar 
- ../lib/snowball.jar 
  ../lib/trove.jar 
 Extension-Name: kariminf/langpi/basic
 Specification-Title: LangPi: Basic

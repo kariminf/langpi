@@ -1,16 +1,13 @@
 Manifest-Version: 1.0
 Class-Path: . 
- ../lib/hebmorph_AS.jar 
- ../lib/jwnl-1.3.3.jar 
+ ../lib/LangPi-basic.jar 
  ../lib/lucene-analyzers-common-4.10.2.jar 
  ../lib/lucene-analyzers-kuromoji-4.10.2.jar 
  ../lib/lucene-analyzers-smartcn-4.10.2.jar 
  ../lib/lucene-core-4.10.2.jar 
  ../lib/opennlp-maxent-3.0.2-incubating.jar 
- ../lib/opennlp-tools-1.4.2_AS.jar 
  ../lib/opennlp-tools-1.5.2-incubating.jar 
  ../lib/snowball.jar 
- ../lib/trove.jar 
  ../lib/JHazm_AS.jar
 Extension-Name: kariminf/langpi/basic
 Specification-Title: LangPi: Basic

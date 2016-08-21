@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
 Class-Path: . 
+ ../lib/LangPi-basic.jar 
  ../lib/hebmorph_AS.jar 
 Extension-Name: kariminf/langpi/basic
 Specification-Title: LangPi: Basic
