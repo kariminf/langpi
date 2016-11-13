@@ -27,7 +27,6 @@ import java.util.List;
 import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.IIndexWord;
-import edu.mit.jwi.item.ISenseKey;
 import edu.mit.jwi.item.ISynset;
 import edu.mit.jwi.item.IWord;
 import edu.mit.jwi.item.IWordID;
@@ -38,7 +37,7 @@ public class JWIRequestor implements WNRequestor {
 
 	private IDictionary dict;
 	
-	private JWIRequestor(IDictionary dict) {
+	protected JWIRequestor(IDictionary dict) {
 		this.dict = dict;
 	}
 	
@@ -98,6 +97,23 @@ public class JWIRequestor implements WNRequestor {
 		IWordID wordID = idxWord.getWordIDs().get(0) ;
 		
 		return wordID.getSynsetID().getOffset();
+	}
+	
+	
+	public int getLexFileNumber(int synset, String pos){
+		
+		try {
+			dict.open();
+		} catch (IOException e) {
+			return -1;
+		}
+		
+		IWordID wordID1 = new WordID(synset,POS.valueOf(pos),1);
+		IWord word1 = dict.getWord(wordID1);
+		int number = word1.getSynset().getLexicalFile().getNumber();
+		dict.close();
+		
+		return number;
 	}
 
 }

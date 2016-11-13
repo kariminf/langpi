@@ -77,6 +77,9 @@ public class WordNetTest {
 		//midnight
 		IWordID wordID1 = new WordID(15168185,POS.NOUN,1);
 		IWord word1 = dict.getWord(wordID1);
+		
+		System.out.println("LexFile = " + word1.getSynset().getLexicalFile());
+		
 		System.out.println("Lemma = " + word1.getLemma());
 		
 		System.out.println("Gloss = " + word1.getSynset().getGloss()) ;
@@ -129,8 +132,8 @@ public class WordNetTest {
 	public static void main(String[] args) {
 		
 		try {
-			//testTopic();
-			testWordSearch();
+			testTopic();
+			//testWordSearch();
 		} catch (IOException e) {
 			
 			e.printStackTrace();

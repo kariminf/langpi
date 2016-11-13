@@ -28,5 +28,6 @@ public interface WNRequestor {
 	public List<String> getWords(int synset, String pos);
 	
 	public int getSynset(String word, String pos);
+	
 
 }
