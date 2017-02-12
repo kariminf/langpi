@@ -86,7 +86,7 @@ public class JWIRequestor implements WNRequestor {
 	}
 
 	@Override
-	public int getSynset(String word, String pos) {
+	public int getSynset(String word, String pos, boolean caseSensitive) {
 		try {
 			dict.open();
 		} catch (IOException e) {

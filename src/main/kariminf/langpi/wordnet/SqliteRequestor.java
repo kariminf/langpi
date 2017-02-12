@@ -142,10 +142,11 @@ public class SqliteRequestor implements WNRequestor {
 
 
 	@Override
-	public int getSynset(String word, String pos) {
+	public int getSynset(String word, String pos, boolean caseSensitive) {
 		String query = "SELECT synset \n";
 		query += "FROM " + lang + " \n";
-		query += "WHERE word = \"" + word + "\"\n";
+		if (caseSensitive) query += "WHERE word = \"" + word + "\"\n";
+		else query += "WHERE LOWER(word) = \"" + word.toLowerCase() + "\"\n";
 		query += "AND POS = '" + pos + "';";
 		
 		try {
