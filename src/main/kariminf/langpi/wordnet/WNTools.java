@@ -12,7 +12,9 @@ public class WNTools {
 	
 	private static JWIRequestor jwir = getRequestor();
 	private static JWIRequestor getRequestor(){
-		String resUrl = WNTools.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+		//String resUrl = WNTools.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+		//String resUrl = new File("").getAbsolutePath();
+		String resUrl = System.getProperty("user.dir");
 		File file = new File(resUrl + wnLoc);
 		System.out.println(resUrl);
 		IDictionary dict = new Dictionary(file) ;
