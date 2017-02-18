@@ -10,11 +10,12 @@ public class WNTools {
 	
 	public static final String wnLoc = "/wordnetDB/dict/";
 	
+	//PS: just put it in the bin/
 	private static JWIRequestor jwir = getRequestor();
 	private static JWIRequestor getRequestor(){
-		//String resUrl = WNTools.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+		String resUrl = WNTools.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 		//String resUrl = new File("").getAbsolutePath();
-		String resUrl = System.getProperty("user.dir");
+		//String resUrl = System.getProperty("user.dir");
 		File file = new File(resUrl + wnLoc);
 		System.out.println(resUrl);
 		IDictionary dict = new Dictionary(file) ;
