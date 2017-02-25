@@ -22,20 +22,24 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.IIndexWord;
+import edu.mit.jwi.item.ISynset;
+import edu.mit.jwi.item.ISynsetID;
 import edu.mit.jwi.item.IWord;
 import edu.mit.jwi.item.IWordID;
 import edu.mit.jwi.item.POS;
+import edu.mit.jwi.item.SynsetID;
 
-public class WNsearch extends JFrame {
+public class WNsearchSynsets extends JFrame {
 
 
 	JTextField input = new JTextField();
 	JTextArea output = new JTextArea();
 	IDictionary dict = new Dictionary(new File("wordnetDB/dict/")) ;
+
 	
 
-	public WNsearch() throws IOException {
-		super("Search wordnet 3.0");
+	public WNsearchSynsets() throws IOException {
+		super("Wordnet 3.0 (Synset search)");
 		
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
@@ -79,44 +83,48 @@ public class WNsearch extends JFrame {
 	private void find(){
 		
 		String word = input.getText().trim();
+		int synset;
+		try {
+			synset = Integer.parseInt(word);
+		} catch (NumberFormatException e){
+			return;
+		}
+		
 		String result = "Nouns: \n";
 		result += "=====================\n\n";
-		result += getMeanings(word, POS.NOUN);
+		result += getMeanings(synset, POS.NOUN);
 		
 		result += "\n\nVerbs: \n";
 		result += "=====================\n\n";
-		result += getMeanings(word, POS.VERB);
+		result += getMeanings(synset, POS.VERB);
 		
 		result += "\n\nAdjectives: \n";
 		result += "=====================\n\n";
-		result += getMeanings(word, POS.ADJECTIVE);
+		result += getMeanings(synset, POS.ADJECTIVE);
 		
 		result += "\n\nAdverbs: \n";
 		result += "=====================\n\n";
-		result += getMeanings(word, POS.ADVERB);
+		result += getMeanings(synset, POS.ADVERB);
 		
 		output.setText(result);
 		
 	}
 	
 	
-	private String getMeanings(String word, POS pos){
+	private String getMeanings(int synset, POS pos){
 		String result = "";
-		IIndexWord idxWord = dict.getIndexWord (word , pos) ;
-		if(idxWord == null) return "";
+		ISynsetID synsetID = new SynsetID(synset, pos);
+		ISynset s = dict.getSynset(synsetID);
+		if(s == null) return "";
 		
 		int i= 1;
 		
-		for (IWordID iwordid: idxWord.getWordIDs()){
+		for (IWord iword: s.getWords()){
 			result += i + " - ";
-			result += "(" + iwordid.getSynsetID().getOffset() + ") ";
-			IWord iword = dict.getWord(iwordid);
-			result += ": ";
-			for(IWord iword2 : iword.getSynset().getWords())
-				result += iword2.getLemma() + ", ";
-			result += "\n==> " + iword.getSynset().getGloss() + "\n\n";
+			result += iword.getLemma() + "\n";
 			i++;
 		}
+		result += "Gloss: " + s.getGloss() + "\n\n";
 		return result;
 	}
 
@@ -139,7 +147,7 @@ public class WNsearch extends JFrame {
 		}
 	
 		try {
-			new WNsearch();
+			new WNsearchSynsets();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

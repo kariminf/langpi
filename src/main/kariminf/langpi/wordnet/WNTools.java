@@ -17,7 +17,7 @@ public class WNTools {
 		//String resUrl = new File("").getAbsolutePath();
 		//String resUrl = System.getProperty("user.dir");
 		File file = new File(resUrl + wnLoc);
-		System.out.println(resUrl);
+		//System.out.println(resUrl);
 		IDictionary dict = new Dictionary(file) ;
 		return new JWIRequestor(dict);
 	}
