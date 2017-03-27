@@ -15,6 +15,7 @@ hs_err_pid*
 build/
 bin/
 lib/
+wordnetDB/
 
 # Ignore Gradle GUI config
 gradle-app.setting
