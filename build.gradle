@@ -53,11 +53,39 @@ task jarAgpl3(type: Jar) {
     baseName = "Langpi-agpl3"
     from sourceSets.agpl3.output 
     from sourceSets.shared.output 
+    
+    manifest {
+        attributes 'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
+                   "Specification-Title"    : "Language processing interface",
+                   "Specification-Version"  : version,
+                   "Specification-Vendor"   : "Kariminf",
+                   "Implementation-Title"   : "kariminf.langpi",
+                   "Implementation-Version" : version + "-build" + current_Date ,
+                   "Implementation-Vendor"  : "Kariminf",
+                   "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",
+                   "Build-Time": current_Date,
+                   "Built-By": project.hasProperty('BF_USER') ? project.getProperty('BF_USER') : System.getProperty('user.name'),
+                   "Built-On": "${InetAddress.localHost.hostName}/${InetAddress.localHost.hostAddress}"
+    }
 }
 
 artifacts {
         archives jarApache2
         archives jarAgpl3
+        
+        manifest {
+        attributes 'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
+                   "Specification-Title"    : "Language processing interface",
+                   "Specification-Version"  : version,
+                   "Specification-Vendor"   : "Kariminf",
+                   "Implementation-Title"   : "kariminf.langpi",
+                   "Implementation-Version" : version + "-build" + current_Date ,
+                   "Implementation-Vendor"  : "Kariminf",
+                   "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",
+                   "Build-Time": current_Date,
+                   "Built-By": project.hasProperty('BF_USER') ? project.getProperty('BF_USER') : System.getProperty('user.name'),
+                   "Built-On": "${InetAddress.localHost.hostName}/${InetAddress.localHost.hostAddress}"
+    }
 }
 
 
@@ -126,13 +154,13 @@ dependencies {
     agpl3Compile 'com.github.kariminf:KOpenNlp1.4:1.4.2'
     
     //Remote release
-    //sharedCompile 'com.github.kariminf:KToolJa:1.0.0'
-    //apache2Compile 'com.github.kariminf:KToolJa:1.0.0'
-    //agpl3Compile 'com.github.kariminf:KToolJa:1.0.0'
+    sharedCompile 'com.github.kariminf:KToolJa:1.0.0'
+    apache2Compile 'com.github.kariminf:KToolJa:1.0.0'
+    agpl3Compile 'com.github.kariminf:KToolJa:1.0.0'
     //Local release
-    sharedCompile project(':KToolJa')
-    apache2Compile project(':KToolJa')
-    agpl3Compile project(':KToolJa')
+    //sharedCompile project(':KToolJa')
+    //apache2Compile project(':KToolJa')
+    //agpl3Compile project(':KToolJa')
     
     compile project(':KToolJa')
 
