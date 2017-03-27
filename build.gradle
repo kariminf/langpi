@@ -149,7 +149,7 @@ javadoc {
 // this step is necessary when installing both jars in the local maven repository
 install {
     repositories.mavenInstaller {
-		addFilter('main') { artifact, file -> artifact.name.endsWith('main') }
+		addFilter('main') { artifact, file -> artifact.name.endsWith('Apache2') }
 		addFilter('agpl3') { artifact, file -> artifact.name.endsWith('agpl3') }
     }
 }
