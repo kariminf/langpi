@@ -2,7 +2,7 @@
  * Gradle build specifications for
  * LangPi: language processing interface
  * 
- * Copyright 2016-2017 Abdelkrime Aries <kariminfo0@gmail.com>
+ * Copyright 2017 Abdelkrime Aries <kariminfo0@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -125,9 +125,14 @@ dependencies {
     apache2Compile 'com.github.kariminf:KJHazm:1.0.0'
     agpl3Compile 'com.github.kariminf:KOpenNlp1.4:1.4.2'
     
-    sharedCompile 'com.github.kariminf:KToolJa:1.0.0'
-    apache2Compile 'com.github.kariminf:KToolJa:1.0.0'
-    agpl3Compile 'com.github.kariminf:KToolJa:1.0.0'
+    //Remote release
+    //sharedCompile 'com.github.kariminf:KToolJa:1.0.0'
+    //apache2Compile 'com.github.kariminf:KToolJa:1.0.0'
+    //agpl3Compile 'com.github.kariminf:KToolJa:1.0.0'
+    //Local release
+    sharedCompile project(':KToolJa')
+    apache2Compile project(':KToolJa')
+    agpl3Compile project(':KToolJa')
     
     compile project(':KToolJa')
 

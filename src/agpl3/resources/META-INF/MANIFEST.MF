@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Class-Path: . 
  ../lib/LangPi-basic.jar 
+ ../lib/hebmorph_AS.jar 
  ../lib/jwnl-1.3.3.jar 
  ../lib/opennlp-tools-1.4.2_AS.jar 
  ../lib/trove.jar 
