@@ -1,0 +1,164 @@
+/*
+ * Gradle build specifications for
+ * LangPi: language processing interface
+ * 
+ * Copyright 2016-2017 Abdelkrime Aries <kariminfo0@gmail.com>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// Java plugin to add support for Java
+apply plugin: 'java'
+apply plugin: 'jacoco'
+//For jitPack to build
+apply plugin: 'maven'
+
+// Gradle java plugin
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+// Release version
+version = '1.0.0'
+
+ext.current_Date = getDate()
+
+
+sourceSets {
+	shared
+    apache2 {
+    	compileClasspath += shared.output
+    }
+    agpl3 {
+    	compileClasspath += shared.output
+    }
+}
+
+task jarApache2(type: Jar) {
+    baseName = "Langpi-main"
+    from sourceSets.apache2.output 
+    from sourceSets.shared.output 
+}
+
+task jarAgpl3(type: Jar) {
+    baseName = "Langpi-agpl3"
+    from sourceSets.agpl3.output 
+    from sourceSets.shared.output 
+}
+
+artifacts {
+        archives jarApache2
+        archives jarAgpl3
+}
+
+
+/*
+sourceSets.all { set ->
+    def jarTask = task("${set.name}Jar", type: Jar) {
+        baseName = "$set.name"
+        from set.output
+    }
+
+    artifacts {
+        archives jarTask
+    }
+}
+
+
+// Jar creation
+jar {
+    //from sourceSets.apache2.output
+    //from sourceSets.agpl3.output
+    
+    manifest {
+        attributes 'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
+                   "Specification-Title"    : "Language processing interface",
+                   "Specification-Version"  : version,
+                   "Specification-Vendor"   : "Kariminf",
+                   "Implementation-Title"   : "kariminf.langpi",
+                   "Implementation-Version" : version + "-build" + current_Date ,
+                   "Implementation-Vendor"  : "Kariminf",
+                   "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",
+                   "Build-Time": current_Date,
+                   "Built-By": project.hasProperty('BF_USER') ? project.getProperty('BF_USER') : System.getProperty('user.name'),
+                   "Built-On": "${InetAddress.localHost.hostName}/${InetAddress.localHost.hostAddress}"
+    }
+}
+*/
+
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMddHHmm')
+    return formattedDate
+}
+ 
+repositories {
+    jcenter()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    // The production code uses the SLF4J logging API at compile time
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    
+    //apache2Compile 'org.apache.lucene:lucene-core:4.10.2'
+    apache2Compile 'org.apache.lucene:lucene-analyzers-common:4.10.2'
+    agpl3Compile 'org.apache.lucene:lucene-analyzers-common:4.10.2'
+    apache2Compile 'org.apache.lucene:lucene-analyzers-kuromoji:4.10.2'
+    apache2Compile 'org.apache.lucene:lucene-analyzers-smartcn:4.10.2'
+    apache2Compile 'org.apache.opennlp:opennlp-maxent:3.0.2-incubating'
+    apache2Compile 'org.apache.opennlp:opennlp-tools:1.7.2'
+    apache2Compile 'org.xerial:sqlite-jdbc:3.8.11.2'
+    apache2Compile 'edu.mit:jwi:2.2.3'
+    
+    //com.github.kariminf (https://jitpack.io)
+    agpl3Compile 'com.github.kariminf:KHebMorph:2.0.2'
+    apache2Compile 'com.github.kariminf:KJHazm:1.0.0'
+    agpl3Compile 'com.github.kariminf:KOpenNlp1.4:1.4.2'
+    
+    sharedCompile 'com.github.kariminf:KToolJa:1.0.0'
+    apache2Compile 'com.github.kariminf:KToolJa:1.0.0'
+    agpl3Compile 'com.github.kariminf:KToolJa:1.0.0'
+    
+    compile project(':KToolJa')
+
+    testCompile 'junit:junit:4.12'
+    
+    
+    runtime configurations.apache2Runtime
+    runtime configurations.agpl3Runtime
+}
+
+javadoc {    
+    source = sourceSets.apache2.allJava
+    options.memberLevel = JavadocMemberLevel.PRIVATE
+    //classpath = configurations.compile
+    destinationDir = file("docs")
+    failOnError false
+}
+
+// this step is necessary when installing both jars in the local maven repository
+install {
+    repositories.mavenInstaller {
+		addFilter('main') { artifact, file -> artifact.name.endsWith('main') }
+		addFilter('agpl3') { artifact, file -> artifact.name.endsWith('agpl3') }
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+check.dependsOn jacocoTestReport

@@ -1,9 +1,9 @@
+# LangPi
+
 [![Hex.pm](https://img.shields.io/badge/Project-LangPi-red.svg?style=plastic)](https://github.com/kariminf/AllSummarizer)
 [![Hex.pm](https://img.shields.io/badge/License-Apache_2-red.svg?style=plastic)](https://github.com/kariminf/AllSummarizer/blob/master/LICENSE)
 [![Hex.pm](https://img.shields.io/badge/Version-1.0.0-red.svg?style=plastic)](https://github.com/kariminf/AllSummarizer/releases)
 
-LangPi (Language processing interface)
-====================================
 It is a set of tools for language processing.
 It contains:
 * Basic language processing: Mainly, they are for preprocessing text before using it.
@@ -15,17 +15,17 @@ It contains:
  * Automatic text summarization: ROUGE method
 * Wordnet
 
-# How to compile?
+## How to compile?
 TODO: add a detailed description about the assemblance with the plugins (LangPi project)
 
-# Dependencies
+## Dependencies
 This project depends on many libraries:
 * Apache Lucence
 * Snowball (for stemming)
 * JWI (for wordnet)
 * Apache openNLP
 
-# License
+## License
 The code is released under Apache 2.0 license.
 For more details about this license, check [LICENSE](./LICENSE) file
 
