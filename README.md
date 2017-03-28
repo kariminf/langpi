@@ -17,10 +17,8 @@ It contains:
  * Automatic text summarization: ROUGE method
 * Wordnet
 
-## Supported languages
-
-### Basic processing
-@TODO copmlete filling the table
+## Basic processing
+@TODO complete filling the table
 
 Main package (Apache 2 licensed)
 
@@ -60,6 +58,12 @@ Agpl3 package (AGPL 3.0 licensed)
 | hebrew.HeInfo |  |  |  |  | ---- |
 | thai.ThInfo | ---- | ---- | ---- | ---- | ---- |
 
+## Evaluation
+Currently, there is just Rouge n-gram implementation for evaluating text summarization
+
+## Wordnet
+A module for wordnet management
+
 ## How to compile?
 
 Just open it using gradle and it will do what it has to be done.
@@ -72,6 +76,73 @@ This project depends on many libraries:
 * KJHazm (a port of JHazm)
 * KOpenNlp1.4 (a port of openNLP 1.4 to work alogside with ulterir versions without conflict; Thai segmentation uses it)
 * KToolJa (plugins management)
+
+## How to use?
+
+You can download the jar from "release" section and link it to your project;
+Or you can use https://jitpack.io to manage dependency.
+Replace "tag" with the release tag; for example "1.1.1".
+
+The project generates many jars; a jar for each module. So there is a way to just use one
+jar at a time.
+
+### Gradle
+
+Add this to your "build.gradle":
+```
+repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+}
+```
+To download all the modules:
+```
+dependencies {
+    compile 'com.github.kariminf:LangPi:tag'
+}
+```
+For each module:
+```
+dependencies {
+    compile 'com.github.kariminf.LangPi:Langpi-basic-agpl3:tag'
+    compile 'com.github.kariminf.LangPi:Langpi-basic-main:tag'
+    compile 'com.github.kariminf.LangPi:Langpi-eval:eval'
+    compile 'com.github.kariminf.LangPi:Langpi-wordnet:tag'
+}
+```
+### Maven
+
+```xml
+<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+</repositories>
+```
+For each module:
+```xml
+<dependency>
+	    <groupId>com.github.kariminf.LangPi</groupId>
+	    <artifactId>Langpi-basic-agpl3</artifactId>
+	    <version>tag</version>
+</dependency>
+<dependency>
+	    <groupId>com.github.kariminf.LangPi</groupId>
+	    <artifactId>Langpi-basic-main</artifactId>
+	    <version>tag</version>
+</dependency>
+<dependency>
+	    <groupId>com.github.kariminf.LangPi</groupId>
+	    <artifactId>Langpi-eval</artifactId>
+	    <version>tag</version>
+</dependency>
+<dependency>
+	    <groupId>com.github.kariminf.LangPi</groupId>
+	    <artifactId>Langpi-wordnet</artifactId>
+	    <version>tag</version>
+</dependency>
+```
 
 ## License
 
