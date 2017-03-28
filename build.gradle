@@ -28,7 +28,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 // Release version
-version = '1.1.0'
+version = '1.1.1'
 
 ext.current_Date = getDate()
 
@@ -201,10 +201,10 @@ javadoc {
 // this step is necessary when installing both jars in the local maven repository
 install {
     repositories.mavenInstaller {
-		addFilter('basic-main') { artifact, file -> artifact.name.endsWith('BasicMain') }
-		addFilter('basic-agpl3') { artifact, file -> artifact.name.endsWith('BasicAgpl3') }
-		addFilter('eval') { artifact, file -> artifact.name.endsWith('Eval') }
-		addFilter('wordnet') { artifact, file -> artifact.name.endsWith('Wordnet') }
+		addFilter('basic-main') { artifact, file -> artifact.name.endsWith('basic-main') }
+		addFilter('basic-agpl3') { artifact, file -> artifact.name.endsWith('basic-agpl3') }
+		addFilter('eval') { artifact, file -> artifact.name.endsWith('eval') }
+		addFilter('wordnet') { artifact, file -> artifact.name.endsWith('wordnet') }
     }
 }
 
