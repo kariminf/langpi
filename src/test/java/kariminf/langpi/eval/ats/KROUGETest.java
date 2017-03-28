@@ -14,7 +14,7 @@ import kariminf.langpi.basic.Segmenter;
 import kariminf.langpi.basic.Stemmer;
 import kariminf.ktoolja.plugins.JarLoader;
 
-public class Test {
+public class KROUGETest {
 
 	/**
 	 * @param args

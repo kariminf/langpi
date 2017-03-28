@@ -28,38 +28,100 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 // Release version
-version = '1.0.0'
+version = '1.1.0'
 
 ext.current_Date = getDate()
 
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMddHHmm')
+    return formattedDate
+}
+
 
 sourceSets {
-	shared
-    apache2 {
-    	compileClasspath += shared.output
+	basic
+    basic_main {
+    	compileClasspath += basic.output
     }
-    agpl3 {
-    	compileClasspath += shared.output
+    basic_agpl3 {
+    	compileClasspath += basic.output
     }
+    eval {
+    	compileClasspath += basic.output
+    }
+    wordnet
 }
 
-task jarApache2(type: Jar) {
-    baseName = "Langpi-main"
-    from sourceSets.apache2.output 
-    from sourceSets.shared.output 
-}
-
-task jarAgpl3(type: Jar) {
-    baseName = "Langpi-agpl3"
-    from sourceSets.agpl3.output 
-    from sourceSets.shared.output 
+task jarBasicMain(type: Jar) {
+    baseName = "Langpi-basic-main"
+    from sourceSets.basic_main.output 
+    from sourceSets.basic.output 
     
     manifest {
         attributes 'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
-                   "Specification-Title"    : "Language processing interface",
+                   "Specification-Title"    : "Language processing interface: basic main",
                    "Specification-Version"  : version,
                    "Specification-Vendor"   : "Kariminf",
-                   "Implementation-Title"   : "kariminf.langpi",
+                   "Implementation-Title"   : "kariminf.langpi.basic-main",
+                   "Implementation-Version" : version + "-build" + current_Date ,
+                   "Implementation-Vendor"  : "Kariminf",
+                   "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",
+                   "Build-Time": current_Date,
+                   "Built-By": project.hasProperty('BF_USER') ? project.getProperty('BF_USER') : System.getProperty('user.name'),
+                   "Built-On": "${InetAddress.localHost.hostName}/${InetAddress.localHost.hostAddress}"
+    }
+}
+
+task jarBasicAgpl3(type: Jar) {
+    baseName = "Langpi-basic-agpl3"
+    from sourceSets.basic_agpl3.output 
+    from sourceSets.basic.output 
+    
+    manifest {
+        attributes 'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
+                   "Specification-Title"    : "Language processing interface: basic agpl3",
+                   "Specification-Version"  : version,
+                   "Specification-Vendor"   : "Kariminf",
+                   "Implementation-Title"   : "kariminf.langpi.basic-agpl3",
+                   "Implementation-Version" : version + "-build" + current_Date ,
+                   "Implementation-Vendor"  : "Kariminf",
+                   "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",
+                   "Build-Time": current_Date,
+                   "Built-By": project.hasProperty('BF_USER') ? project.getProperty('BF_USER') : System.getProperty('user.name'),
+                   "Built-On": "${InetAddress.localHost.hostName}/${InetAddress.localHost.hostAddress}"
+    }
+}
+
+task jarEval(type: Jar) {
+    baseName = "Langpi-eval"
+    from sourceSets.eval.output 
+    
+    manifest {
+        attributes 'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
+                   "Specification-Title"    : "Language processing interface: evaluation",
+                   "Specification-Version"  : version,
+                   "Specification-Vendor"   : "Kariminf",
+                   "Implementation-Title"   : "kariminf.langpi.eval",
+                   "Implementation-Version" : version + "-build" + current_Date ,
+                   "Implementation-Vendor"  : "Kariminf",
+                   "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",
+                   "Build-Time": current_Date,
+                   "Built-By": project.hasProperty('BF_USER') ? project.getProperty('BF_USER') : System.getProperty('user.name'),
+                   "Built-On": "${InetAddress.localHost.hostName}/${InetAddress.localHost.hostAddress}"
+    }
+}
+
+task jarWordnet(type: Jar) {
+    baseName = "Langpi-wordnet"
+    from sourceSets.wordnet.output 
+    
+    manifest {
+        attributes 'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
+                   "Specification-Title"    : "Language processing interface: evaluation",
+                   "Specification-Version"  : version,
+                   "Specification-Vendor"   : "Kariminf",
+                   "Implementation-Title"   : "kariminf.langpi.eval",
                    "Implementation-Version" : version + "-build" + current_Date ,
                    "Implementation-Vendor"  : "Kariminf",
                    "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",
@@ -70,65 +132,13 @@ task jarAgpl3(type: Jar) {
 }
 
 artifacts {
-        archives jarApache2
-        archives jarAgpl3
-        
-        manifest {
-        attributes 'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
-                   "Specification-Title"    : "Language processing interface",
-                   "Specification-Version"  : version,
-                   "Specification-Vendor"   : "Kariminf",
-                   "Implementation-Title"   : "kariminf.langpi",
-                   "Implementation-Version" : version + "-build" + current_Date ,
-                   "Implementation-Vendor"  : "Kariminf",
-                   "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",
-                   "Build-Time": current_Date,
-                   "Built-By": project.hasProperty('BF_USER') ? project.getProperty('BF_USER') : System.getProperty('user.name'),
-                   "Built-On": "${InetAddress.localHost.hostName}/${InetAddress.localHost.hostAddress}"
-    }
+        archives jarBasicMain
+        archives jarBasicAgpl3
+        archives jarEval
+        archives jarWordnet
 }
 
 
-/*
-sourceSets.all { set ->
-    def jarTask = task("${set.name}Jar", type: Jar) {
-        baseName = "$set.name"
-        from set.output
-    }
-
-    artifacts {
-        archives jarTask
-    }
-}
-
-
-// Jar creation
-jar {
-    //from sourceSets.apache2.output
-    //from sourceSets.agpl3.output
-    
-    manifest {
-        attributes 'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
-                   "Specification-Title"    : "Language processing interface",
-                   "Specification-Version"  : version,
-                   "Specification-Vendor"   : "Kariminf",
-                   "Implementation-Title"   : "kariminf.langpi",
-                   "Implementation-Version" : version + "-build" + current_Date ,
-                   "Implementation-Vendor"  : "Kariminf",
-                   "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",
-                   "Build-Time": current_Date,
-                   "Built-By": project.hasProperty('BF_USER') ? project.getProperty('BF_USER') : System.getProperty('user.name'),
-                   "Built-On": "${InetAddress.localHost.hostName}/${InetAddress.localHost.hostAddress}"
-    }
-}
-*/
-
-def getDate() {
-    def date = new Date()
-    def formattedDate = date.format('yyyyMMddHHmm')
-    return formattedDate
-}
- 
 repositories {
     jcenter()
     maven { url 'https://jitpack.io' }
@@ -138,41 +148,50 @@ dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.21'
     
-    //apache2Compile 'org.apache.lucene:lucene-core:4.10.2'
-    apache2Compile 'org.apache.lucene:lucene-analyzers-common:4.10.2'
-    agpl3Compile 'org.apache.lucene:lucene-analyzers-common:4.10.2'
-    apache2Compile 'org.apache.lucene:lucene-analyzers-kuromoji:4.10.2'
-    apache2Compile 'org.apache.lucene:lucene-analyzers-smartcn:4.10.2'
-    apache2Compile 'org.apache.opennlp:opennlp-maxent:3.0.2-incubating'
-    apache2Compile 'org.apache.opennlp:opennlp-tools:1.7.2'
-    apache2Compile 'org.xerial:sqlite-jdbc:3.8.11.2'
-    apache2Compile 'edu.mit:jwi:2.2.3'
+    basic_mainCompile 'org.apache.lucene:lucene-core:4.10.2'
+    basic_mainCompile 'org.apache.lucene:lucene-analyzers-common:4.10.2'
+    basic_agpl3Compile 'org.apache.lucene:lucene-analyzers-common:4.10.2'
+    basic_mainCompile 'org.apache.lucene:lucene-analyzers-kuromoji:4.10.2'
+    basic_mainCompile 'org.apache.lucene:lucene-analyzers-smartcn:4.10.2'
+    basic_mainCompile 'org.apache.opennlp:opennlp-maxent:3.0.2-incubating'
+    basic_mainCompile 'org.apache.opennlp:opennlp-tools:1.7.2'
+    wordnetCompile 'org.xerial:sqlite-jdbc:3.8.11.2'
+    wordnetCompile 'edu.mit:jwi:2.2.3'
     
     //com.github.kariminf (https://jitpack.io)
-    agpl3Compile 'com.github.kariminf:KHebMorph:2.0.2'
-    apache2Compile 'com.github.kariminf:KJHazm:1.0.0'
-    agpl3Compile 'com.github.kariminf:KOpenNlp1.4:1.4.2'
+    basic_agpl3Compile 'com.github.kariminf:KHebMorph:2.0.2'
+    basic_mainCompile 'com.github.kariminf:KJHazm:1.0.0'
+    basic_agpl3Compile 'com.github.kariminf:KOpenNlp1.4:1.4.2'
     
     //Remote release
-    sharedCompile 'com.github.kariminf:KToolJa:1.0.0'
-    apache2Compile 'com.github.kariminf:KToolJa:1.0.0'
-    agpl3Compile 'com.github.kariminf:KToolJa:1.0.0'
+    basicCompile 'com.github.kariminf:KToolJa:1.0.0'
+    basic_mainCompile 'com.github.kariminf:KToolJa:1.0.0'
+    basic_agpl3Compile 'com.github.kariminf:KToolJa:1.0.0'
+    evalCompile 'com.github.kariminf:KToolJa:1.0.0'
     //Local release
     //sharedCompile project(':KToolJa')
-    //apache2Compile project(':KToolJa')
-    //agpl3Compile project(':KToolJa')
+    //basic_mainCompile project(':KToolJa')
+    //basic_agpl3Compile project(':KToolJa')
     
     //compile project(':KToolJa')
 
     testCompile 'junit:junit:4.12'
     
     
-    runtime configurations.apache2Runtime
-    runtime configurations.agpl3Runtime
+    runtime configurations.basicRuntime
+    runtime configurations.basic_mainRuntime
+    runtime configurations.basic_agpl3Runtime
+    runtime configurations.evalRuntime
+    runtime configurations.wordnetRuntime
 }
 
 javadoc {    
-    source = sourceSets.apache2.allJava
+    source = sourceSets.basic.allJava
+    source += sourceSets.basic_main.allJava
+    source += sourceSets.basic_agpl3.allJava
+    source += sourceSets.eval.allJava
+    source += sourceSets.wordnet.allJava
+    
     options.memberLevel = JavadocMemberLevel.PRIVATE
     //classpath = configurations.compile
     destinationDir = file("docs")
@@ -182,8 +201,10 @@ javadoc {
 // this step is necessary when installing both jars in the local maven repository
 install {
     repositories.mavenInstaller {
-		addFilter('main') { artifact, file -> artifact.name.endsWith('Apache2') }
-		addFilter('agpl3') { artifact, file -> artifact.name.endsWith('agpl3') }
+		addFilter('basic-main') { artifact, file -> artifact.name.endsWith('BasicMain') }
+		addFilter('basic-agpl3') { artifact, file -> artifact.name.endsWith('BasicAgpl3') }
+		addFilter('eval') { artifact, file -> artifact.name.endsWith('Eval') }
+		addFilter('wordnet') { artifact, file -> artifact.name.endsWith('Wordnet') }
     }
 }
 

@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/apache2/java">
-		<attributes>
-			<attribute name="FROM_GRADLE_MODEL" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="src" path="src/agpl3/java">
-		<attributes>
-			<attribute name="FROM_GRADLE_MODEL" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="src" path="src/test/java">
 		<attributes>
 			<attribute name="FROM_GRADLE_MODEL" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src/apache2/resources"/>
-	<classpathentry kind="src" path="src/agpl3/resources"/>
-	<classpathentry kind="src" path="src/shared/java"/>
+	<classpathentry kind="src" path="src/basic/java"/>
+	<classpathentry kind="src" path="src/basic_agpl3/java"/>
+	<classpathentry kind="src" path="src/basic_agpl3/resources"/>
+	<classpathentry kind="src" path="src/basic_main/java"/>
+	<classpathentry kind="src" path="src/basic_main/resources"/>
+	<classpathentry kind="src" path="src/eval/java"/>
+	<classpathentry kind="src" path="src/wordnet/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
