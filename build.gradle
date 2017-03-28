@@ -162,7 +162,7 @@ dependencies {
     //apache2Compile project(':KToolJa')
     //agpl3Compile project(':KToolJa')
     
-    compile project(':KToolJa')
+    //compile project(':KToolJa')
 
     testCompile 'junit:junit:4.12'
     
