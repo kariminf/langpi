@@ -1,6 +1,7 @@
 # LangPi
 
 [![Project](https://img.shields.io/badge/Project-LangPi-4B0082.svg)](https://github.com/kariminf/LangPi)
+[![Type](https://img.shields.io/badge/Type-Research-4B0082.svg)](https://github.com/kariminf/AllSummarizer)
 [![License](https://img.shields.io/badge/License-Apache_2-4B0082.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![Travis](https://img.shields.io/travis/kariminf/LangPi.svg)](https://travis-ci.org/kariminf/LangPi)
 [![codecov](https://img.shields.io/codecov/c/github/kariminf/LangPi.svg)](https://codecov.io/gh/kariminf/LangPi)
@@ -62,7 +63,14 @@ Agpl3 package (AGPL 3.0 licensed)
 Currently, there is just Rouge n-gram implementation for evaluating text summarization
 
 ## Wordnet
-A module for wordnet management
+A module for wordnet management.
+
+Create a folder ./wordnetDB/dict and extract [wordnet 3.0](https://wordnet.princeton.edu/wordnet/download/current-version/) files in it.
+
+
+@TODO add python script to create wordnet.sqlite
+
+To use kariminf.langpi.wordnet.WNTools.java properly, copy this folder to bin/ folder
 
 ## How to compile?
 
