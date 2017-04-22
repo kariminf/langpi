@@ -35,7 +35,7 @@ import kariminf.langpi.basic.SWEliminator;
 
 public class HeSWEliminator implements SWEliminator {
 
-	private final String  pathToStopWords = "/ressources/stopWords/hebrew.stop";
+	private final String  pathToStopWords = "/stopWords/hebrew.stop";
 	private List<String> stopList = 
 			getStopList(pathToStopWords);//stopwords.txt
 

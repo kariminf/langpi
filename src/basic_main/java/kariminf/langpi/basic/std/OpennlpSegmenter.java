@@ -39,9 +39,9 @@ import kariminf.langpi.basic.Segmenter;
 public abstract class OpennlpSegmenter implements Segmenter {
 
 	private static final String ressourcesSent = 
-			"/ressources/sentenceDetection/";
+			"/sentenceDetection/";
 	private static final String ressourcesWord = 
-			"/ressources/wordTokenization/";
+			"/wordTokenization/";
 	
 	private static final String punctuation = "\"'()[]{}!:;,?&.";
 	

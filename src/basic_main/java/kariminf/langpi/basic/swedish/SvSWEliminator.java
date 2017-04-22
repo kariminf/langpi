@@ -35,7 +35,7 @@ import kariminf.langpi.basic.SWEliminator;
 
 public class SvSWEliminator implements SWEliminator {
 
-	private final String  pathToStopWords = "/ressources/stopWords/swedish.stop";
+	private final String  pathToStopWords = "/stopWords/swedish.stop";
 	private List<String> stopList = 
 			getStopList(pathToStopWords);//stopwords.txt
 

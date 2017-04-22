@@ -38,7 +38,7 @@ import kariminf.langpi.basic.Stemmer;
 public class ArStemmer implements Stemmer {
 
 	private Vector<Vector<String>> staticFiles ;
-	private String  pathToStemmerFiles = "/ressources/stemming/arabic/";
+	private String  pathToStemmerFiles = "/stemming/arabic/";
 	private static boolean rootFound = false;
 	private static boolean fromSuffixes = false;
 	

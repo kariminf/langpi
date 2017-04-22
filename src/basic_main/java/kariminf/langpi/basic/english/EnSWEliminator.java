@@ -35,7 +35,7 @@ import kariminf.langpi.basic.SWEliminator;
 
 public class EnSWEliminator implements SWEliminator {
 
-	private final String  pathToStopWords = "/ressources/stopWords/english.stop";
+	private final String  pathToStopWords = "/stopWords/english.stop";
 	private List<String> stopList = 
 			getStopList(pathToStopWords);//stopwords.txt
 
@@ -70,7 +70,7 @@ public class EnSWEliminator implements SWEliminator {
 		List<String> stopwords = new ArrayList<String>();
 	    try {
 
-	    	InputStream in = getClass().getResourceAsStream(filePath);
+	    	InputStream in = EnSWEliminator.class.getResourceAsStream(filePath);
 	    	BufferedReader input = new BufferedReader(
 		                new InputStreamReader(in));
 	      for(String line = input.readLine(); line != null; line = input.readLine()) {

@@ -118,10 +118,10 @@ task jarWordnet(type: Jar) {
     
     manifest {
         attributes 'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
-                   "Specification-Title"    : "Language processing interface: evaluation",
+                   "Specification-Title"    : "Language processing interface: wordnet",
                    "Specification-Version"  : version,
                    "Specification-Vendor"   : "Kariminf",
-                   "Implementation-Title"   : "kariminf.langpi.eval",
+                   "Implementation-Title"   : "kariminf.langpi.wordnet",
                    "Implementation-Version" : version + "-build" + current_Date ,
                    "Implementation-Vendor"  : "Kariminf",
                    "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",

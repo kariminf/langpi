@@ -12,7 +12,7 @@ import kariminf.langpi.basic.SWEliminator;
 
 public class ArSWEliminator implements SWEliminator {
 
-	private final String  pathToStopWords = "/ressources/stopWords/arabic.stop";
+	private final String  pathToStopWords = "/stopWords/arabic.stop";
 	private List<String> stopList = 
 			getStopList(pathToStopWords);//stopwords.txt
 
