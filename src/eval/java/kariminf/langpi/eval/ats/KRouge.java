@@ -6,30 +6,51 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class KROUGE {
+public class KRouge {
+	
+	public static enum GramType {
+		GRAM1,
+		GRAM2,
+		
+	}
+	
+	private Class<? extends NGramModel> gramModel;
 	
 	private HashMap<String, Integer> peer = new HashMap<String, Integer>();
 	private List<HashMap<String, Integer>> models = new ArrayList<HashMap<String, Integer>>();
 	private HashMap<String, Integer> currentModel = new HashMap<String, Integer>();
-	//private int peerGrams = 0;
+	private int peerGrams = 0;
 	private int currMGrams = 0;
 	private List<Integer> modelsGrams = new ArrayList<Integer>();
 	
 	//private final double alpha = 0.5;
+
 	
 	private double _R = 0.0;
-	//private double _P = 0.0;
+	private double _P = 0.0;
 	//private double _F = 0.0;
+	
+	public KRouge (GramType gramType){
+		switch (gramType) {
+		case GRAM2:
+			break;
+		default:
+			gramModel = UniGramModel.class;
+			break;
+		}
+	}
+	
 	
 	public void addPeerSentence(List<String> sentence){
 		int grams = addBigrams(peer, sentence);
-		//peerGrams += grams;
+		peerGrams += grams;
 	}
 	
+
 	public void resetPeers(){
 		peer = new HashMap<String, Integer>();
 		_R = 0.0;
-		//_P = 0.0;
+		_P = 0.0;
 		//_F = 0.0;
 	}
 	
@@ -57,6 +78,8 @@ public class KROUGE {
 		
 		int totalHits = 0;
 	    int totalMgrams = 0;
+	    int totalPgrams = 0;
+	    
 	    
 		for (int i=0; i< models.size(); i++){
 			
@@ -77,6 +100,7 @@ public class KROUGE {
 		}
 		
 		_R = (double) totalHits / (double) totalMgrams;
+		_P = (double) totalHits / (double) peerGrams;
 		
 	}
 	
@@ -99,6 +123,10 @@ public class KROUGE {
 	
 	public double getR(){
 		return _R;
+	}
+	
+	public double getPrecision(){
+		return _P;
 	}
 	
 

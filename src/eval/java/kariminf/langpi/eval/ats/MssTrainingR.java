@@ -118,7 +118,7 @@ public class MssTrainingR {
 
 				fileName = fileName.substring(0, fileName.length() - 12);
 
-				KROUGE krouge = new KROUGE();
+				KRouge krouge = new KRouge();
 
 				{
 					String text = FileManager.readFile(file);

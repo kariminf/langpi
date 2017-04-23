@@ -160,7 +160,7 @@ dependencies {
     
     //com.github.kariminf (https://jitpack.io)
     basic_agpl3Compile 'com.github.kariminf:KHebMorph:2.0.2'
-    basic_mainCompile 'com.github.kariminf:KJHazm:1.0.0'
+    basic_mainCompile 'com.github.kariminf:KJHazm:1.0.1'
     basic_agpl3Compile 'com.github.kariminf:KOpenNlp1.4:1.4.2'
     
     //Remote release

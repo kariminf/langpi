@@ -150,7 +150,7 @@ public class MmsTrainingR {
 				
 				count++;
 
-				KROUGE krouge = new KROUGE();
+				KRouge krouge = new KRouge();
 
 				List<String> sumFiles = topics.get(topic);
 				

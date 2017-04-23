@@ -21,5 +21,6 @@
 rootProject.name = 'LangPi'
 
 include ':KToolJa'
+
 project(':KToolJa').projectDir = new File(settingsDir, '../KToolJa')
 

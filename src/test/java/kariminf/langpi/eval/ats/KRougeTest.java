@@ -14,14 +14,14 @@ import kariminf.langpi.basic.Segmenter;
 import kariminf.langpi.basic.Stemmer;
 import kariminf.ktoolja.plugins.JarLoader;
 
-public class KROUGETest {
+public class KRougeTest {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
-		KROUGE krouge = new KROUGE();
+		KRouge krouge = new KRouge();
 		
 		JarLoader jarLoader = 
 				new JarLoader("preProcess/", "aak/as/preProcess", BasicInfo.version);
@@ -104,6 +104,7 @@ public class KROUGETest {
 		krouge.calculateROUGE_2();
 		
 		System.out.println(krouge.getR());
+		System.out.println(krouge.getPrecision());
 
 	}
 	
