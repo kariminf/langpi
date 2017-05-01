@@ -7,127 +7,135 @@ import java.util.List;
 import java.util.Set;
 
 public class KRouge {
-	
+
 	public static enum GramType {
 		GRAM1,
-		GRAM2,
-		
+		GRAM2
+
 	}
-	
-	private Class<? extends NGramModel> gramModel;
-	
-	private HashMap<String, Integer> peer = new HashMap<String, Integer>();
-	private List<HashMap<String, Integer>> models = new ArrayList<HashMap<String, Integer>>();
-	private HashMap<String, Integer> currentModel = new HashMap<String, Integer>();
-	private int peerGrams = 0;
-	private int currMGrams = 0;
-	private List<Integer> modelsGrams = new ArrayList<Integer>();
-	
+
+	private Class<? extends GramModel> gramModelClass;
+
+	private List<GramModel> models = new ArrayList<>();
+	private GramModel currentModel = null;
+	private GramModel peer;
+
 	//private final double alpha = 0.5;
 
-	
-	private double _R = 0.0;
-	private double _P = 0.0;
+
+	private double recall = 0.0;
+	private double precision = 0.0;
 	//private double _F = 0.0;
-	
+
 	public KRouge (GramType gramType){
 		switch (gramType) {
 		case GRAM2:
+			gramModelClass = BiGramModel.class;
 			break;
 		default:
-			gramModel = UniGramModel.class;
+			gramModelClass = UniGramModel.class;
 			break;
 		}
-	}
-	
-	
-	public void addPeerSentence(List<String> sentence){
-		int grams = addBigrams(peer, sentence);
-		peerGrams += grams;
-	}
-	
 
-	public void resetPeers(){
-		peer = new HashMap<String, Integer>();
-		_R = 0.0;
-		_P = 0.0;
-		//_F = 0.0;
+		//newModel();
+		resetPeer();
 	}
-	
+
+
+
+	public void addPeerSentence(List<String> sentence){
+		peer.addSentence(sentence);
+	}
+
+	public void resetPeer(){
+		try {
+			peer = gramModelClass.newInstance();
+		} catch (InstantiationException | IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	public void addModelSentence(List<String> sentence){
 		
-		int grams = addBigrams(currentModel, sentence);
-		currMGrams += grams;
+		if (currentModel == null) newModel();
+
+		currentModel.addSentence(sentence);
 	}
-	
+
+
 	public void newModel(){
-		if (currentModel.size() > 0){
+
+		try {
+			currentModel = gramModelClass.newInstance();
 			models.add(currentModel);
-			currentModel = new HashMap<String, Integer>();
-			
-			modelsGrams.add(currMGrams);
-			currMGrams = 0;
-		}	
+		} catch (InstantiationException | IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+
 	
-	
-	public void calculateROUGE_2 (){
-		newModel(); //in order to add the last model to moddels
+	/**
+	 * 
+	 * @return
+	 */
+	public KRouge calculate(){
 		
-		if (models.size()< 1 || peer.size() < 1) return;
 		
+
 		int totalHits = 0;
-	    int totalMgrams = 0;
-	    int totalPgrams = 0;
-	    
-	    
+		int totalMgrams = 0;
+		int totalPgrams = 0;
+
 		for (int i=0; i< models.size(); i++){
-			
-			HashMap<String, Integer> model =  models.get(i);
-			Set<String> commons = new HashSet<String>(model.keySet());
-			commons.retainAll(peer.keySet());
-			
+
+			GramModel model =  models.get(i);
+			Set<String> commons = new HashSet<String>(model.getTerms());
+			commons.retainAll(peer.getTerms());
+
 			int hits = 0;
 			for (String common: commons){
-				int commonValue = (peer.get(common) <= model.get(common))?
-						peer.get(common) : model.get(common);
+				int commonValue = 
+						Math.min(peer.getFrequency(common), 
+								model.getFrequency(common));
 				hits += commonValue;
-						
+
 			}
-			
+
 			totalHits += hits;
-			totalMgrams += modelsGrams.get(i);
+			totalMgrams += model.getGramsAmount();
+			totalPgrams += peer.getGramsAmount();
 		}
+
+		recall = (double) totalHits / (double) totalMgrams;
+		precision = (double) totalHits / (double) totalPgrams;
 		
-		_R = (double) totalHits / (double) totalMgrams;
-		_P = (double) totalHits / (double) peerGrams;
-		
+		//System.out.println("model: " + totalMgrams);
+		//System.out.println("peer: " + totalPgrams);
+		//System.out.println("hits: " + totalHits);
+
+		return this;
 	}
-	
-	
-	private int addBigrams(HashMap<String, Integer> summary, List<String> sentence){
-		
-		int grams = 0;
-		
-		for (int i=1; i < sentence.size(); i++){
-			grams++;
-			String bigram = sentence.get(i-1) + "$" + sentence.get(i);
-			int tf = summary.containsKey(bigram)?
-					summary.get(bigram) + 1:1;
-			
-			summary.put(bigram, tf);
-		}
-		
-		return grams;
+
+	public double getRecall(){
+		return recall;
 	}
-	
-	public double getR(){
-		return _R;
-	}
-	
+
 	public double getPrecision(){
-		return _P;
+		return precision;
 	}
-	
+
+	public double getFScore(double alpha){
+		if (alpha < 0) alpha = 0.0;
+		else if (alpha > 1.0) alpha = 1.0;
+		
+		double fraq = (1-alpha) * precision + alpha * recall; 
+		
+		if (fraq == 0) return 0.0;
+		
+		return recall * precision / fraq;
+	}
+
 
 }
