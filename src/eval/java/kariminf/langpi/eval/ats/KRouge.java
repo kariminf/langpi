@@ -9,8 +9,9 @@ import java.util.Set;
 public class KRouge {
 
 	public static enum GramType {
-		GRAM1,
-		GRAM2
+		UNI,
+		BI,
+		SU4
 
 	}
 
@@ -29,7 +30,7 @@ public class KRouge {
 
 	public KRouge (GramType gramType){
 		switch (gramType) {
-		case GRAM2:
+		case BI:
 			gramModelClass = BiGramModel.class;
 			break;
 		default:

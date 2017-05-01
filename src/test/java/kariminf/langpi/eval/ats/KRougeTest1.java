@@ -48,7 +48,7 @@ public class KRougeTest1 {
 	@Test
 	public void testRouge1() {
 
-		KRouge kr = new KRouge(KRouge.GramType.GRAM1);
+		KRouge kr = new KRouge(KRouge.GramType.UNI);
 
 		for(List<List<String>> model: models){
 			kr.newModel();
@@ -72,7 +72,7 @@ public class KRougeTest1 {
 
 	@Test
 	public void testRouge2() {
-		KRouge kr = new KRouge(KRouge.GramType.GRAM2);
+		KRouge kr = new KRouge(KRouge.GramType.BI);
 
 		for(List<List<String>> model: models){
 			kr.newModel();
