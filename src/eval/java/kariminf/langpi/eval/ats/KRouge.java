@@ -109,8 +109,11 @@ public class KRouge {
 			totalPgrams += peer.getGramsAmount();
 		}
 
-		recall = (double) totalHits / (double) totalMgrams;
-		precision = (double) totalHits / (double) totalPgrams;
+		if (totalMgrams == 0) recall = 0.0;
+		else recall = (double) totalHits / (double) totalMgrams;
+		
+		if (totalPgrams == 0) precision = 0.0;
+		else precision = (double) totalHits / (double) totalPgrams;
 		
 		//System.out.println("model: " + totalMgrams);
 		//System.out.println("peer: " + totalPgrams);

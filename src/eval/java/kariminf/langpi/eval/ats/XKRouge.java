@@ -5,8 +5,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -16,6 +19,7 @@ import org.w3c.dom.NodeList;
 
 import kariminf.ktoolja.file.FileManager;
 import kariminf.langpi.basic.Segmenter;
+import kariminf.langpi.basic.arabic.ArSegmenter;
 import kariminf.langpi.basic.english.EnSegmenter;
 import kariminf.langpi.eval.ats.KRouge.GramType;
 
@@ -31,6 +35,28 @@ public final class XKRouge {
 	private static List<GramType> gramTypes = new ArrayList<>();
 	
 	private static String currentEvalID = "";
+	
+	private static final String [] langs = 
+		{"ka", 
+		"ko", 
+				"ml", 
+				"ms", 
+				"nl", 
+				"nn", 
+				"no", 
+				"pl", 
+				"pt", 
+				"ro", 
+				"ru", 
+				"sh", 
+				"sk", 
+				"sl", 
+				"sr", 
+				"sv", 
+				"th", 
+				"tr", 
+				"vi", 
+		"zh"};
 
 
 	private static void readXMLFile(String path){
@@ -77,7 +103,7 @@ public final class XKRouge {
 					String modelPath = modelRoot + "/" + model.getTextContent().
 							replaceAll("[\n\r]", "");
 
-					System.out.printf("Model %s\n\tPath: %s\n", modelID, modelPath);
+					System.out.printf("Model %s\tPath: %s\n", modelID, modelPath);
 					addModel(modelPath);
 				}
 				
@@ -85,14 +111,14 @@ public final class XKRouge {
 						getElementsByTagName("P");
 
 				
-				for (int peerNum = 0; peerNum < evals.getLength(); peerNum++) {
+				for (int peerNum = 0; peerNum < peers.getLength(); peerNum++) {
 					Element peer = (Element) peers.item(peerNum);
 
 					String peerID = peer.getAttribute("ID");
 					String peerPath = peerRoot + "/" + peer.getTextContent().
 							replaceAll("[\n\r]", "");
 
-					System.out.printf("Peer %s\n\tPath: %s\n", peerID, peerPath);
+					System.out.printf("Peer %s\tPath: %s\n", peerID, peerPath);
 					
 					evaluatePeer(peerID, peerPath);
 				}
@@ -120,6 +146,9 @@ public final class XKRouge {
 	
 	private static void addModel(String path){
 		List<List<String>> sentences = processFile(path);
+		
+		currentRouges.get(GramType.UNI).newModel();
+		currentRouges.get(GramType.BI).newModel();
 		
 		for (List<String> sentence: sentences){
 			currentRouges.get(GramType.UNI).addModelSentence(sentence);
@@ -165,13 +194,13 @@ public final class XKRouge {
 	private static List<List<String>> processFile(String filePath){
 		List<List<String>> content = new ArrayList<>();
 		
-		Segmenter s = new EnSegmenter();
+		Segmenter s = new ArSegmenter();
 		
 		try {
 
 			BufferedReader input = new BufferedReader(new FileReader(filePath));
 			
-			String line = input.readLine();
+			String line;
 			
 			while ((line = input.readLine()) != null){
 				List<String> words = s.segmentWords(line);
@@ -197,17 +226,69 @@ public final class XKRouge {
 		String s = "";
 		
 		for (String peerID: results.keySet()){
-			s += "---------------------------------------------\n";
-			s += peerID + " " + 
+			
+			HashMap<String, List<Double>> peerRes = results.get(peerID);
+			
+			s += ".............................................\n";
+			for(String evalID: peerRes.keySet()){
+				List<Double> rpf = peerRes.get(evalID);
+				s += peerID + " ROUGE-1 Eval " + evalID + "." + peerID + " ";
+				s += "R:" + rpf.get(0);
+			}
+			
+			
+			
+		}
+	}
+	
+	//Temporary
+	private static void writeResultsCSV(String path){
+		String s = "Peer,Rouge-1,,,Rouge2,,\n";
+		s+= ",R,P,F1,R,P,F1\n";
+		
+		Set<String> ordRes = new TreeSet<String>();
+		ordRes.addAll(results.keySet());
+		for (String peerID: ordRes){
+			
+			HashMap<String, List<Double>> peerRes = results.get(peerID);
+			
+			double[] avg = new double[] {
+					0.0, 0.0, 0.0,
+					0.0, 0.0, 0.0
+			};
+			
+			for(String evalID: peerRes.keySet()){
+				List<Double> rpf = peerRes.get(evalID);
+				
+				for (int i =0; i< 6; i++)
+					avg[i] += rpf.get(i);
+			}
+			
+			for (int i =0; i< 6; i++)
+				avg[i] = avg[i]/(double)peerRes.size();
+			
+			s += peerID + "," + String.format("%.5f", avg[0]) + ",";
+			s += String.format("%.5f", avg[1]) + "," + String.format("%.5f", avg[2]);
+			s += "," + String.format("%.5f", avg[3]) + ",";
+			s += String.format("%.5f", avg[4]) + "," + String.format("%.5f", avg[5]) + "\n";
+			
+		}
+		
+		try {
+			FileManager.saveFile(path, s);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
-
 	public static void main(String[] args) {
-
-		readXMLFile("/home/kariminf/Test/RELEASE-1.5.5/Ktest/t.xml");
 		
-		writeResults("/home/kariminf/Test/RELEASE-1.5.5/Ktest/k.res");
+		for (String lang: langs){
+			String path = "/home/kariminf/Data/ATS/Mss15Train/tests/" + lang + "2017";
+			readXMLFile(path + ".xml");
+			writeResultsCSV(path + ".csv");
+		}
 
 	}
 
