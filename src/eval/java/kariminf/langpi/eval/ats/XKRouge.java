@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -18,9 +17,37 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import kariminf.ktoolja.file.FileManager;
+import kariminf.langpi.basic.ISO639_1;
 import kariminf.langpi.basic.Segmenter;
 import kariminf.langpi.basic.arabic.ArSegmenter;
+import kariminf.langpi.basic.basque.EuSegmenter;
+import kariminf.langpi.basic.bulgarian.BgSegmenter;
+import kariminf.langpi.basic.catalan.CaSegmenter;
+import kariminf.langpi.basic.chinese.ZhSegmenter;
+import kariminf.langpi.basic.czech.CsSegmenter;
+import kariminf.langpi.basic.def.DefSegmenter;
+import kariminf.langpi.basic.dutch.NlSegmenter;
 import kariminf.langpi.basic.english.EnSegmenter;
+import kariminf.langpi.basic.finnish.FiSegmenter;
+import kariminf.langpi.basic.french.FrSegmenter;
+import kariminf.langpi.basic.german.DeSegmenter;
+import kariminf.langpi.basic.greek.ElSegmenter;
+import kariminf.langpi.basic.hebrew.HeSegmenter;
+import kariminf.langpi.basic.hindi.HiSegmenter;
+import kariminf.langpi.basic.hungarian.HuSegmenter;
+import kariminf.langpi.basic.indonesian.IdSegmenter;
+import kariminf.langpi.basic.italian.ItSegmenter;
+import kariminf.langpi.basic.japanese.JaSegmenter;
+import kariminf.langpi.basic.norwegian.NoSegmenter;
+import kariminf.langpi.basic.nynorsk.NnSegmenter;
+import kariminf.langpi.basic.persian.FaSegmenter;
+import kariminf.langpi.basic.portuguese.PtSegmenter;
+import kariminf.langpi.basic.romanian.RoSegmenter;
+import kariminf.langpi.basic.russian.RuSegmenter;
+import kariminf.langpi.basic.spanish.EsSegmenter;
+import kariminf.langpi.basic.swedish.SvSegmenter;
+import kariminf.langpi.basic.thai.ThSegmenter;
+import kariminf.langpi.basic.turkish.TrSegmenter;
 import kariminf.langpi.eval.ats.KRouge.GramType;
 
 public final class XKRouge {
@@ -37,29 +64,56 @@ public final class XKRouge {
 	private static String currentEvalID = "";
 	
 	private static final String [] langs = 
-		{"ka", 
-		"ko", 
-				"ml", 
-				"ms", 
-				"nl", 
-				"nn", 
-				"no", 
-				"pl", 
-				"pt", 
-				"ro", 
-				"ru", 
-				"sh", 
-				"sk", 
-				"sl", 
-				"sr", 
-				"sv", 
-				"th", 
-				"tr", 
-				"vi", 
-		"zh"};
+		{
+				"af",
+				"bg",
+				"ca",
+				"cs",
+				"de",
+				"el",
+				"eo",
+				"es",
+				"eu",
+				"fa",
+				"fi",
+				"fr",
+				"he",
+				"hr",
+				"hu",
+				"id",
+				//"it",
+				"ja",
+				"ka",
+				"ko",
+				"ms",
+				"nl",
+				"no",
+				"pl",
+				"pt",
+				"ro",
+				"ru",
+				"sh",
+				"sk",
+				"sl",
+				"sr",
+				"sv",
+				"th",
+				"tr",
+				"vi",
+				"zh",
+		};
+	
+	
+	
+	private static void init(){
+		results.clear();
+		currentRouges.clear();
+		gramTypes.clear();
+		currentEvalID = "";
+	}
 
 
-	private static void readXMLFile(String path){
+	private static void readXMLFile(String path, String lang){
 
 		try {
 
@@ -104,7 +158,7 @@ public final class XKRouge {
 							replaceAll("[\n\r]", "");
 
 					System.out.printf("Model %s\tPath: %s\n", modelID, modelPath);
-					addModel(modelPath);
+					addModel(modelPath, lang);
 				}
 				
 				NodeList peers = ( (Element) eval.getElementsByTagName("PEERS").item(0)).
@@ -120,7 +174,7 @@ public final class XKRouge {
 
 					System.out.printf("Peer %s\tPath: %s\n", peerID, peerPath);
 					
-					evaluatePeer(peerID, peerPath);
+					evaluatePeer(peerID, peerPath, lang);
 				}
 				
 				endEval();
@@ -144,8 +198,8 @@ public final class XKRouge {
 		currentRouges.clear();
 	}
 	
-	private static void addModel(String path){
-		List<List<String>> sentences = processFile(path);
+	private static void addModel(String path, String lang){
+		List<List<String>> sentences = processFile(path, lang);
 		
 		currentRouges.get(GramType.UNI).newModel();
 		currentRouges.get(GramType.BI).newModel();
@@ -156,8 +210,8 @@ public final class XKRouge {
 		}
 	}
 	
-	private static void evaluatePeer(String id, String path){
-		List<List<String>> sentences = processFile(path);
+	private static void evaluatePeer(String id, String path, String lang){
+		List<List<String>> sentences = processFile(path, lang);
 		
 		KRouge uniRouge = currentRouges.get(GramType.UNI);
 		KRouge biRouge = currentRouges.get(GramType.BI);
@@ -191,10 +245,10 @@ public final class XKRouge {
 		
 	}
 	
-	private static List<List<String>> processFile(String filePath){
+	private static List<List<String>> processFile(String filePath, String lang){
 		List<List<String>> content = new ArrayList<>();
 		
-		Segmenter s = new ArSegmenter();
+		Segmenter s = getSegmenter(lang);
 		
 		try {
 
@@ -281,12 +335,116 @@ public final class XKRouge {
 			e.printStackTrace();
 		}
 	}
+	
+	public static Segmenter getSegmenter(String lang){
+		lang = lang.toUpperCase();
+		
+		ISO639_1 iso;
+		
+		try{
+			iso = ISO639_1.valueOf(lang);
+		} catch (IllegalArgumentException e){
+			iso = ISO639_1.EN;
+		}
+		
+		switch (iso){
+		case AR:
+			return new ArSegmenter();
+
+		case BG:
+			return new BgSegmenter();
+
+		case CA:
+			return new CaSegmenter();
+
+		case CS:
+			return new CsSegmenter();
+
+		case DE:
+			return new DeSegmenter();
+
+		case EL:
+			return new ElSegmenter();
+
+		case EN:
+			return new EnSegmenter();
+
+		case ES:
+			return new EsSegmenter();
+
+		case EU:
+			return new EuSegmenter();
+
+		case FA:
+			return new FaSegmenter();
+			
+		case FI:
+			return new FiSegmenter();
+
+		case FR:
+			return new FrSegmenter();
+
+		case HE:
+			return new HeSegmenter();
+	
+		case HI:
+			return new HiSegmenter();
+
+		case HU:
+			return new HuSegmenter();
+
+		case ID:
+			return new IdSegmenter();
+
+		case IT:
+			return new ItSegmenter();
+
+		case JA:
+			return new JaSegmenter();
+
+		case NL:
+			return new NlSegmenter();
+
+		case NN:
+			return new NnSegmenter();
+
+		case NO:
+			return new NoSegmenter();
+
+		case PT:
+			return new PtSegmenter();
+
+		case RO:
+			return new RoSegmenter();
+
+		case RU:
+			return new RuSegmenter();
+
+		case SV:
+			return new SvSegmenter();
+
+		case TH:
+			return new ThSegmenter();
+
+		case TR:
+			return new TrSegmenter();
+
+		case ZH:
+			return new ZhSegmenter();
+
+		default:
+			return new DefSegmenter();
+
+		}
+
+	}
 
 	public static void main(String[] args) {
 		
 		for (String lang: langs){
+			init();
 			String path = "/home/kariminf/Data/ATS/Mss15Train/tests/" + lang + "2017";
-			readXMLFile(path + ".xml");
+			readXMLFile(path + ".xml", lang);
 			writeResultsCSV(path + ".csv");
 		}
 
