@@ -1,11 +1,11 @@
 # LangPi
 
-[![Project](https://img.shields.io/badge/Project-LangPi-4B0082.svg)](https://github.com/kariminf/LangPi)
-[![Type](https://img.shields.io/badge/Type-Research-4B0082.svg)](https://github.com/kariminf/AllSummarizer)
+[![Project](https://img.shields.io/badge/Project-LangPi-4B0082.svg)](https://github.com/kariminf/langpi)
+[![Type](https://img.shields.io/badge/Type-Research-4B0082.svg)](https://github.com/kariminf/langpi)
 [![License](https://img.shields.io/badge/License-Apache_2-4B0082.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Travis](https://img.shields.io/travis/kariminf/LangPi.svg)](https://travis-ci.org/kariminf/LangPi)
-[![codecov](https://img.shields.io/codecov/c/github/kariminf/LangPi.svg)](https://codecov.io/gh/kariminf/LangPi)
-[![jitpack](https://jitpack.io/v/kariminf/LangPi.svg)](https://jitpack.io/#kariminf/LangPi)
+[![Travis](https://img.shields.io/travis/kariminf/langpi.svg)](https://travis-ci.org/kariminf/LangPi)
+[![codecov](https://img.shields.io/codecov/c/github/kariminf/langpi.svg)](https://codecov.io/gh/kariminf/langpi)
+[![jitpack](https://jitpack.io/v/kariminf/langpi.svg)](https://jitpack.io/#kariminf/langpi)
 
 It is a set of tools for language processing.
 It contains:
@@ -106,16 +106,16 @@ repositories {
 To download all the modules:
 ```
 dependencies {
-    compile 'com.github.kariminf:LangPi:tag'
+    compile 'com.github.kariminf:langpi:tag'
 }
 ```
 For each module:
 ```
 dependencies {
-    compile 'com.github.kariminf.LangPi:Langpi-basic-agpl3:tag'
-    compile 'com.github.kariminf.LangPi:Langpi-basic-main:tag'
-    compile 'com.github.kariminf.LangPi:Langpi-eval:eval'
-    compile 'com.github.kariminf.LangPi:Langpi-wordnet:tag'
+    compile 'com.github.kariminf.LangPi:langpi-basic-agpl3:tag'
+    compile 'com.github.kariminf.LangPi:langpi-basic-main:tag'
+    compile 'com.github.kariminf.LangPi:langpi-eval:eval'
+    compile 'com.github.kariminf.LangPi:langpi-wordnet:tag'
 }
 ```
 ### Maven
@@ -132,22 +132,22 @@ For each module:
 ```xml
 <dependency>
 	    <groupId>com.github.kariminf.LangPi</groupId>
-	    <artifactId>Langpi-basic-agpl3</artifactId>
+	    <artifactId>langpi-basic-agpl3</artifactId>
 	    <version>tag</version>
 </dependency>
 <dependency>
 	    <groupId>com.github.kariminf.LangPi</groupId>
-	    <artifactId>Langpi-basic-main</artifactId>
+	    <artifactId>langpi-basic-main</artifactId>
 	    <version>tag</version>
 </dependency>
 <dependency>
 	    <groupId>com.github.kariminf.LangPi</groupId>
-	    <artifactId>Langpi-eval</artifactId>
+	    <artifactId>langpi-eval</artifactId>
 	    <version>tag</version>
 </dependency>
 <dependency>
 	    <groupId>com.github.kariminf.LangPi</groupId>
-	    <artifactId>Langpi-wordnet</artifactId>
+	    <artifactId>langpi-wordnet</artifactId>
 	    <version>tag</version>
 </dependency>
 ```

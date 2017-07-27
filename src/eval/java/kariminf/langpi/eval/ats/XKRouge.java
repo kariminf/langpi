@@ -63,44 +63,48 @@ public final class XKRouge {
 	
 	private static String currentEvalID = "";
 	
+	private static final String mssFolder = 
+			"/home/kariminf/Data/ATS/Mss15Test/src/";
+	
 	private static final String [] langs = 
-		{
-				"af",
-				"bg",
-				"ca",
-				"cs",
-				"de",
-				"el",
-				"eo",
-				"es",
-				"eu",
-				"fa",
-				"fi",
-				"fr",
-				"he",
-				"hr",
-				"hu",
-				"id",
-				//"it",
-				"ja",
-				"ka",
-				"ko",
-				"ms",
-				"nl",
-				"no",
-				"pl",
-				"pt",
-				"ro",
-				"ru",
-				"sh",
-				"sk",
-				"sl",
-				"sr",
-				"sv",
-				"th",
-				"tr",
-				"vi",
-				"zh",
+		{		/*"af", 
+				"ar", 
+				"bg", 
+				"ca", 
+				"cs", 
+				"de", 
+				"el", */
+				"en"/*, 
+				"eo", 
+				"es", 
+				"eu", 
+				"fa", 
+				"fi", 
+				"fr", 
+				"he", 
+				"hr", 
+				"hu", 
+				"id", 
+				"it", 
+				"ja", 
+				"ka", 
+				"ko", 
+				"ms", 
+				"nl", 
+				"no", 
+				"pl", 
+				"pt", 
+				"ro", 
+				"ru", 
+				"sh", 
+				"sk", 
+				"sl", 
+				"sr", 
+				"sv", 
+				"th", 
+				"tr", 
+				"vi", 
+				"zh"*/
 		};
 	
 	
@@ -113,7 +117,7 @@ public final class XKRouge {
 	}
 
 
-	private static void readXMLFile(String path, String lang){
+	private static void readXMLFile(String path, String lang, HashMap<String, Integer> sizes){
 
 		try {
 
@@ -149,6 +153,10 @@ public final class XKRouge {
 						getElementsByTagName("M");
 				
 				beginEval(evalID);
+				
+				int summarySize = sizes.get(evalID + "_body.txt");
+				
+				System.out.println(evalID + "_body.txt: " + summarySize);
 
 				for (int modelNum = 0; modelNum < models.getLength(); modelNum++) {
 					Element model = (Element) models.item(modelNum);
@@ -174,7 +182,8 @@ public final class XKRouge {
 
 					System.out.printf("Peer %s\tPath: %s\n", peerID, peerPath);
 					
-					evaluatePeer(peerID, peerPath, lang);
+					
+					evaluatePeer(peerID, peerPath, lang, summarySize);
 				}
 				
 				endEval();
@@ -199,7 +208,7 @@ public final class XKRouge {
 	}
 	
 	private static void addModel(String path, String lang){
-		List<List<String>> sentences = processFile(path, lang);
+		List<List<String>> sentences = processFile(path, lang, Integer.MAX_VALUE);
 		
 		currentRouges.get(GramType.UNI).newModel();
 		currentRouges.get(GramType.BI).newModel();
@@ -210,8 +219,8 @@ public final class XKRouge {
 		}
 	}
 	
-	private static void evaluatePeer(String id, String path, String lang){
-		List<List<String>> sentences = processFile(path, lang);
+	private static void evaluatePeer(String id, String path, String lang, int summarySize){
+		List<List<String>> sentences = processFile(path, lang, summarySize);
 		
 		KRouge uniRouge = currentRouges.get(GramType.UNI);
 		KRouge biRouge = currentRouges.get(GramType.BI);
@@ -245,7 +254,7 @@ public final class XKRouge {
 		
 	}
 	
-	private static List<List<String>> processFile(String filePath, String lang){
+	private static List<List<String>> processFile(String filePath, String lang, int summarySize){
 		List<List<String>> content = new ArrayList<>();
 		
 		Segmenter s = getSegmenter(lang);
@@ -256,10 +265,20 @@ public final class XKRouge {
 			
 			String line;
 			
+			int size = 0;
+			
 			while ((line = input.readLine()) != null){
+				size += line.length();
+				boolean quit = false;
+				if(size> summarySize){
+					quit = true;
+					line = line.substring(0, size - summarySize);
+					System.out.println("size" + (size - summarySize));
+				}
 				List<String> words = s.segmentWords(line);
 				if(words != null && words.size() > 0)
 					content.add(words);
+				if (quit) break;
 			}
 
 			input.close();
@@ -269,7 +288,7 @@ public final class XKRouge {
 		} catch (IOException e) {
 			//e.printStackTrace();
 			//System.exit(1);
-			System.err.println("Input/Output problem");
+			System.err.println("can't read the file");
 			return content;
 		}
 	}
@@ -300,6 +319,9 @@ public final class XKRouge {
 		String s = "Peer,Rouge-1,,,Rouge2,,\n";
 		s+= ",R,P,F1,R,P,F1\n";
 		
+		String s2 = "Peer,eval,Rouge-1,,,Rouge2,,\n";
+		s2+= ",,R,P,F1,R,P,F1\n";
+		
 		Set<String> ordRes = new TreeSet<String>();
 		ordRes.addAll(results.keySet());
 		for (String peerID: ordRes){
@@ -316,6 +338,12 @@ public final class XKRouge {
 				
 				for (int i =0; i< 6; i++)
 					avg[i] += rpf.get(i);
+				
+				s2 += peerID + "," + evalID + "," + String.format("%.5f", rpf.get(0)) + ",";
+				s2 += String.format("%.5f", rpf.get(1)) + "," + String.format("%.5f", rpf.get(2));
+				s2 += "," + String.format("%.5f", rpf.get(3)) + ",";
+				s2 += String.format("%.5f", rpf.get(4)) + "," + String.format("%.5f", rpf.get(5)) + "\n";
+				
 			}
 			
 			for (int i =0; i< 6; i++)
@@ -329,9 +357,9 @@ public final class XKRouge {
 		}
 		
 		try {
-			FileManager.saveFile(path, s);
+			FileManager.saveFile(path + ".csv", s);
+			FileManager.saveFile(path + "_detail.csv", s2);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -438,14 +466,47 @@ public final class XKRouge {
 		}
 
 	}
+	
+	private static HashMap<String, Integer> readSizes(String lang){
+		HashMap<String, Integer> sizes =
+				new HashMap<String, Integer>();
+
+		File sizefile = new File(mssFolder + "target-length/" + lang + ".txt");
+		System.out.println(sizefile.getAbsolutePath());
+
+		if (! sizefile.exists()) return null;
+
+		try {
+			BufferedReader in = new BufferedReader(new FileReader(sizefile));
+			String line;
+			while ( (line = in.readLine()) != null) {
+				if (line.trim().length() < 1) continue;
+
+				String[] values = line.split(",");
+				if (values.length<2) continue;
+
+				sizes.put(values[0], new Integer(values[1]));
+				System.out.println(values[0] + "=> " + values[1]);
+			}
+			in.close();
+		}
+		catch (IOException ex) {
+			ex.printStackTrace();
+			return sizes;
+		}
+
+		return sizes;
+	}
 
 	public static void main(String[] args) {
 		
 		for (String lang: langs){
 			init();
-			String path = "/home/kariminf/Data/ATS/Mss15Train/tests/" + lang + "2017";
-			readXMLFile(path + ".xml", lang);
-			writeResultsCSV(path + ".csv");
+			//String path = "/home/kariminf/Data/ATS/Mss15Train/tests/" + lang + "-2017";
+			String path = "/home/kariminf/Data/ATS/Mss15Test/test-summa";
+			HashMap<String, Integer> sizes = readSizes(lang);
+			readXMLFile(path + ".xml", lang, sizes);
+			writeResultsCSV(path);
 		}
 
 	}

@@ -28,7 +28,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 // Release version
-version = '1.1.1'
+version = '1.1.2'
 
 ext.current_Date = getDate()
 
@@ -159,21 +159,21 @@ dependencies {
     wordnetCompile 'edu.mit:jwi:2.2.3'
     
     //com.github.kariminf (https://jitpack.io)
-    basic_agpl3Compile 'com.github.kariminf:KHebMorph:2.0.2'
-    basic_mainCompile 'com.github.kariminf:KJHazm:1.0.1'
-    basic_agpl3Compile 'com.github.kariminf:KOpenNlp1.4:1.4.2'
+    basic_agpl3Compile 'com.github.kariminf:k-hebmorph:2.0.3'
+    basic_mainCompile 'com.github.kariminf:k-jhazm:1.0.2'
+    basic_agpl3Compile 'com.github.kariminf:k-opennlp1.4:1.4.4'
     
     //Remote release
-    basicCompile 'com.github.kariminf:KToolJa:1.0.0'
-    basic_mainCompile 'com.github.kariminf:KToolJa:1.0.0'
-    basic_agpl3Compile 'com.github.kariminf:KToolJa:1.0.0'
-    evalCompile 'com.github.kariminf:KToolJa:1.0.0'
+    basicCompile 'com.github.kariminf:k-toolja:1.1.1'
+    basic_mainCompile 'com.github.kariminf:k-toolja:1.1.1'
+    basic_agpl3Compile 'com.github.kariminf:k-toolja:1.1.1'
+    evalCompile 'com.github.kariminf:k-toolja:1.1.1'
     //Local release
-    //sharedCompile project(':KToolJa')
-    //basic_mainCompile project(':KToolJa')
-    //basic_agpl3Compile project(':KToolJa')
+    //sharedCompile project(':k-toolja')
+    //basic_mainCompile project(':k-toolja')
+    //basic_agpl3Compile project(':k-toolja')
     
-    //compile project(':KToolJa')
+    //compile project(':k-toolja')
 
     testCompile 'junit:junit:4.12'
     

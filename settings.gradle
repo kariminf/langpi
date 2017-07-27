@@ -18,9 +18,9 @@
  */
 
 
-rootProject.name = 'LangPi'
+rootProject.name = 'langpi'
 
-include ':KToolJa'
+include ':k-toolja'
 
-project(':KToolJa').projectDir = new File(settingsDir, '../KToolJa')
+project(':k-toolja').projectDir = new File(settingsDir, '../k-toolja')
 
