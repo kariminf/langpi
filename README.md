@@ -3,7 +3,7 @@
 [![Project](https://img.shields.io/badge/Project-LangPi-4B0082.svg)](https://github.com/kariminf/langpi)
 [![Type](https://img.shields.io/badge/Type-Research-4B0082.svg)](https://github.com/kariminf/langpi)
 [![License](https://img.shields.io/badge/License-Apache_2-4B0082.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Travis](https://img.shields.io/travis/kariminf/langpi.svg)](https://travis-ci.org/kariminf/LangPi)
+[![Travis](https://img.shields.io/travis/kariminf/langpi.svg)](https://travis-ci.org/kariminf/langPi)
 [![codecov](https://img.shields.io/codecov/c/github/kariminf/langpi.svg)](https://codecov.io/gh/kariminf/langpi)
 [![jitpack](https://jitpack.io/v/kariminf/langpi.svg)](https://jitpack.io/#kariminf/langpi)
 
