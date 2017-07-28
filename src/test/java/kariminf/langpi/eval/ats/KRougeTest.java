@@ -7,6 +7,7 @@ import kariminf.langpi.basic.def.DefNormalizer;
 import kariminf.langpi.basic.def.DefSWEliminator;
 import kariminf.langpi.basic.def.DefSegmenter;
 import kariminf.langpi.basic.def.DefStemmer;
+import kariminf.langpi.eval.ats.KRouge.GramType;
 import kariminf.langpi.basic.Normalizer;
 import kariminf.langpi.basic.BasicInfo;
 import kariminf.langpi.basic.SWEliminator;
@@ -21,7 +22,7 @@ public class KRougeTest {
 	 */
 	public static void main(String[] args) {
 		
-		KRouge krouge = new KRouge();
+		
 		
 		JarLoader jarLoader = 
 				new JarLoader("preProcess/", "aak/as/preProcess", BasicInfo.version);
@@ -60,12 +61,15 @@ public class KRougeTest {
 		m.add("Shortly after World War II, the Texas Legislature redefined Texas A&M as a university and the flagship school of the Texas A&M University System, making official the school's status as a clear and separate institution from the University of Texas. In the 1960s, the state legislature renamed the school Texas A&M University, with the \"A&M\" becoming purely symbolic. Under the leadership of James Earl Rudder, the school became racially integrated and coeducational. Membership in the Corps of Cadets became voluntary.");
 		m.add("In the latter half of the twentieth century, the university was recognized for its research with the designations sea-grant university and space-grant university. The school was further honored in 1997 with the establishment of the George Bush Presidential Library on the western edge of the campus.");
 		
+		KRouge krouge1 = new KRouge(GramType.UNI);
+		KRouge krouge2 = new KRouge(GramType.BI);
 		
 		for (String mi : m){
 			List<String> words = segmenter.segmentWords(mi);
 			//sweliminator.deleteSW(words);
 			words = stemmer.stemListWords(words);
-			krouge.addModelSentence(words);
+			krouge1.addModelSentence(words);
+			krouge2.addModelSentence(words);
 		}
 			
 		/*
@@ -92,7 +96,8 @@ public class KRougeTest {
 			List<String> words = segmenter.segmentWords(pi);
 			//sweliminator.deleteSW(words);
 			words = stemmer.stemListWords(words);
-			krouge.addPeerSentence(words);
+			krouge1.addPeerSentence(words);
+			krouge2.addPeerSentence(words);
 		}
 			
 		
@@ -101,10 +106,11 @@ public class KRougeTest {
 			krouge.addPearSentence(getWords(pi));*/
 		
 		
-		krouge.calculateROUGE_2();
+		krouge1.calculate();
+		krouge2.calculate();
 		
-		System.out.println(krouge.getR());
-		System.out.println(krouge.getPrecision());
+		System.out.println(krouge1.getRecall());
+		System.out.println(krouge2.getRecall());
 
 	}
 	
