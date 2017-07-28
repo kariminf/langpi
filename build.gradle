@@ -28,7 +28,10 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 // Release version
-version = '1.1.4'
+version = '1.1.5'
+
+//TODO this will prevent tests
+check.dependsOn.remove(test)
 
 ext.current_Date = getDate()
 
@@ -40,17 +43,51 @@ def getDate() {
 
 
 sourceSets {
+    
 	basic
+	
     basic_main {
     	compileClasspath += basic.output
     }
     basic_agpl3 {
     	compileClasspath += basic.output
     }
+    
+    wordnet
+    
     eval {
     	compileClasspath += basic.output
+    	compileClasspath += basic_main.output
+    	compileClasspath += basic_agpl3.output
+    	compileClasspath += wordnet.output
     }
-    wordnet
+    
+    test {
+        compileClasspath += basic.output
+    	compileClasspath += basic_main.output
+    	compileClasspath += basic_agpl3.output
+    	compileClasspath += wordnet.output
+    	compileClasspath += eval.output
+    }
+}
+
+
+//Jar tasks
+
+def getManifest(specif, implem) {
+    return {
+        attributes 'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
+                   "Specification-Title"    : specif,
+                   "Specification-Version"  : version,
+                   "Specification-Vendor"   : "Kariminf",
+                   "Implementation-Title"   : implem,
+                   "Implementation-Version" : version + "-build" + current_Date ,
+                   "Implementation-Vendor"  : "Kariminf",
+                   "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",
+                   "Build-Time": current_Date,
+                   "Built-By": project.hasProperty('BF_USER') ? project.getProperty('BF_USER') : System.getProperty('user.name'),
+                   "Built-On": "${InetAddress.localHost.hostName}/${InetAddress.localHost.hostAddress}"
+    }
 }
 
 task jarBasicMain(type: Jar) {
@@ -58,19 +95,8 @@ task jarBasicMain(type: Jar) {
     from sourceSets.basic_main.output 
     from sourceSets.basic.output 
     
-    manifest {
-        attributes 'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
-                   "Specification-Title"    : "Language processing interface: basic main",
-                   "Specification-Version"  : version,
-                   "Specification-Vendor"   : "Kariminf",
-                   "Implementation-Title"   : "kariminf.langpi.basic-main",
-                   "Implementation-Version" : version + "-build" + current_Date ,
-                   "Implementation-Vendor"  : "Kariminf",
-                   "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",
-                   "Build-Time": current_Date,
-                   "Built-By": project.hasProperty('BF_USER') ? project.getProperty('BF_USER') : System.getProperty('user.name'),
-                   "Built-On": "${InetAddress.localHost.hostName}/${InetAddress.localHost.hostAddress}"
-    }
+    manifest getManifest("Language processing interface: basic main", "kariminf.langpi.basic-main")
+    
 }
 
 task jarBasicAgpl3(type: Jar) {
@@ -78,64 +104,32 @@ task jarBasicAgpl3(type: Jar) {
     from sourceSets.basic_agpl3.output 
     from sourceSets.basic.output 
     
-    manifest {
-        attributes 'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
-                   "Specification-Title"    : "Language processing interface: basic agpl3",
-                   "Specification-Version"  : version,
-                   "Specification-Vendor"   : "Kariminf",
-                   "Implementation-Title"   : "kariminf.langpi.basic-agpl3",
-                   "Implementation-Version" : version + "-build" + current_Date ,
-                   "Implementation-Vendor"  : "Kariminf",
-                   "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",
-                   "Build-Time": current_Date,
-                   "Built-By": project.hasProperty('BF_USER') ? project.getProperty('BF_USER') : System.getProperty('user.name'),
-                   "Built-On": "${InetAddress.localHost.hostName}/${InetAddress.localHost.hostAddress}"
-    }
+    manifest getManifest("Language processing interface: basic agpl3", "kariminf.langpi.basic-agpl3")
 }
+
 
 task jarEval(type: Jar) {
     baseName = "langpi-eval"
     from sourceSets.eval.output 
     
-    manifest {
-        attributes 'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
-                   "Specification-Title"    : "Language processing interface: evaluation",
-                   "Specification-Version"  : version,
-                   "Specification-Vendor"   : "Kariminf",
-                   "Implementation-Title"   : "kariminf.langpi.eval",
-                   "Implementation-Version" : version + "-build" + current_Date ,
-                   "Implementation-Vendor"  : "Kariminf",
-                   "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",
-                   "Build-Time": current_Date,
-                   "Built-By": project.hasProperty('BF_USER') ? project.getProperty('BF_USER') : System.getProperty('user.name'),
-                   "Built-On": "${InetAddress.localHost.hostName}/${InetAddress.localHost.hostAddress}"
-    }
+    manifest getManifest("Language processing interface: evaluation", "kariminf.langpi.eval")
+    
 }
+
 
 task jarWordnet(type: Jar) {
     baseName = "langpi-wordnet"
     from sourceSets.wordnet.output 
     
-    manifest {
-        attributes 'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')',
-                   "Specification-Title"    : "Language processing interface: wordnet",
-                   "Specification-Version"  : version,
-                   "Specification-Vendor"   : "Kariminf",
-                   "Implementation-Title"   : "kariminf.langpi.wordnet",
-                   "Implementation-Version" : version + "-build" + current_Date ,
-                   "Implementation-Vendor"  : "Kariminf",
-                   "Built-With": "gradle-${project.getGradle().getGradleVersion()}, groovy-${GroovySystem.getVersion()}",
-                   "Build-Time": current_Date,
-                   "Built-By": project.hasProperty('BF_USER') ? project.getProperty('BF_USER') : System.getProperty('user.name'),
-                   "Built-On": "${InetAddress.localHost.hostName}/${InetAddress.localHost.hostAddress}"
-    }
+    manifest getManifest("Language processing interface: wordnet", "kariminf.langpi.wordnet")
 }
 
+// artifacts
 artifacts {
         archives jarBasicMain
         archives jarBasicAgpl3
-        archives jarEval
         archives jarWordnet
+        archives jarEval
 }
 
 
@@ -143,6 +137,7 @@ repositories {
     jcenter()
     maven { url 'https://jitpack.io' }
 }
+
 
 dependencies {
     // The production code uses the SLF4J logging API at compile time
@@ -174,23 +169,35 @@ dependencies {
     //basic_agpl3Compile project(':k-toolja')
     
     //compile project(':k-toolja')
+    
 
     testCompile 'junit:junit:4.12'
+    testCompile configurations.basicCompile
+    testCompile configurations.basic_mainCompile
+    testCompile configurations.basic_agpl3Compile
+    testCompile configurations.wordnetCompile
+    testCompile configurations.evalCompile
     
     
     runtime configurations.basicRuntime
     runtime configurations.basic_mainRuntime
     runtime configurations.basic_agpl3Runtime
-    runtime configurations.evalRuntime
     runtime configurations.wordnetRuntime
+    runtime configurations.evalRuntime
+    
+    testRuntime configurations.basicRuntime
+    testRuntime configurations.basic_mainRuntime
+    testRuntime configurations.basic_agpl3Runtime
+    testRuntime configurations.wordnetRuntime
+    testRuntime configurations.evalRuntime
 }
 
 javadoc {    
     source = sourceSets.basic.allJava
     source += sourceSets.basic_main.allJava
     source += sourceSets.basic_agpl3.allJava
-    source += sourceSets.eval.allJava
     source += sourceSets.wordnet.allJava
+    source += sourceSets.eval.allJava
     
     options.memberLevel = JavadocMemberLevel.PRIVATE
     //classpath = configurations.compile

@@ -41,7 +41,7 @@ public class KRougeTest1 {
 		peer = readFile("/krouge/e1.txt");
 
 		//System.out.println(models);
-		//System.out.println(peer);
+		System.out.println(peer);
 
 	}
 

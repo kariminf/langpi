@@ -32,6 +32,7 @@ public class KRouge {
 		switch (gramType) {
 		case BI:
 			gramModelClass = BiGramModel.class;
+			
 			break;
 		default:
 			gramModelClass = UniGramModel.class;
@@ -66,7 +67,7 @@ public class KRouge {
 
 
 	public void newModel(){
-
+		
 		try {
 			currentModel = gramModelClass.newInstance();
 			models.add(currentModel);
@@ -74,6 +75,7 @@ public class KRouge {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
 
 	
